@@ -1,0 +1,37 @@
+{
+  "name": "react-wp-rest-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react-app": "^3.1.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "ignore-styles": "^5.0.1",
+    "node-sass-chokidar": "^1.3.3",
+    "npm-run-all": "^4.1.3",
+    "qs": "^6.5.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-helmet": "^5.2.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.1",
+    "react-transition-group": "^2.4.0",
+    "redux": "^3.7.2",
+    "superagent": "^3.8.3",
+    "superagent-promise": "^1.1.0"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start": "npm-run-all -p serve watch-css start-js",
+    "build": "npm-run-all build-css build-js",
+    "start-js": "PORT=3000 react-scripts start",
+    "serve": "node ssr-init",
+    "build-js": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

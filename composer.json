@@ -1,0 +1,52 @@
+{
+  "name": "infoclinic",
+  "description": "Infoclinic CMS and PWA",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "drtechie",
+      "role": "Dev Lead"
+    }
+  ],
+  "repositories":[
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "require": {
+    "composer/installers": "^1.2",
+    "johnpbloch/wordpress-core": "~4.9",
+    "johnpbloch/wordpress-core-installer": "^1.0",
+    "vlucas/phpdotenv": "^2.5",
+    "wpackagist-plugin/acf-to-rest-api": "^3.1",
+    "wpackagist-plugin/advanced-custom-fields": "^5.7"
+  },
+  "extra": {
+    "installer-paths": {
+      "wordpress/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "wordpress/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "wordpress"
+  },
+  "scripts" : {
+    "copy-theme": "ln -sf $(pwd)/rest-api $(pwd)/wordpress/wp-content/themes/rest-api",
+    "copy-config": "ln -sf $(pwd)/config/wp-config.php $(pwd)/wordpress/wp-config.php",
+    "wordpress-db-create": "cd wordpress && wp db create",
+    "wordpress-db-setup": "cd wordpress && wp core install --url='http://localhost:8080' --title='infoclinic' --admin_user='admin' --admin_password='password' --admin_email='admin@example.com'",
+    "yarn-install": "cd client && yarn install --check-files",
+    "infoclinic-install" : [
+      "@copy-theme",
+      "@copy-config",
+      "@wordpress-db-create",
+      "@wordpress-db-setup",
+      "@yarn-install"
+    ]
+  }
+}
