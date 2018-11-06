@@ -8,6 +8,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import LoadTemplate from './components/templates/LoadTemplate';
 import api from './api';
+import './index.css';
 
 const mapStateToProps = (state) => ({
 	pageList: state.api.lists.pages
@@ -97,15 +98,13 @@ class App extends Component {
 	}
 
 	render() {
-		return (
-			<div className={`app`}>
-				<Header />
-				<Switch>
-					{ this.buildRoutes(this.props.pageList) }
-				</Switch>
-				<Footer />
-			</div>
-		);
+		return [
+			<Header key='header'/>,
+			<Switch key='main'>
+				{ this.buildRoutes(this.props.pageList) }
+			</Switch>,
+			<Footer key='footer'/>,
+		];
 	}
 }
 

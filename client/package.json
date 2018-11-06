@@ -1,10 +1,20 @@
 {
-  "name": "react-wp-rest-client",
+  "name": "infoclinic",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react-app": "^3.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-brands-svg-icons": "^5.5.0",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-dynamic-import-node-babel-7": "^2.0.7",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "ignore-styles": "^5.0.1",
@@ -17,7 +27,7 @@
     "react-loadable": "^5.5.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.1",
+    "react-scripts": "2.1.1",
     "react-transition-group": "^2.4.0",
     "redux": "^3.7.2",
     "superagent": "^3.8.3",
@@ -33,5 +43,14 @@
     "build-js": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
   }
 }

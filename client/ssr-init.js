@@ -1,12 +1,13 @@
 require('dotenv').config();
 require('ignore-styles');
-require('babel-register')({
+require('@babel/register')({
     ignore: [ /(node_modules)/ ],
-    presets: ['es2015', 'react-app'],
+    presets: ['@babel/preset-env', '@babel/preset-react'],
     plugins: [
-        'syntax-dynamic-import',
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-syntax-dynamic-import',
         'dynamic-import-node',
-        'react-loadable/babel'
+        'react-loadable/babel',
     ]
 });
 
