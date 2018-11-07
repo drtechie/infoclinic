@@ -62,6 +62,7 @@
 
     ul {
       display: inline-block;
+      float: right;
 
       & > li {
         float: left;
@@ -111,8 +112,9 @@
 
   .soc-wrap {
     display: inline-block;
-    width: 119px;
+    width: 59px;
     padding-top: 71px;
+    float: right;
 
     li {
       margin-right: 20px;

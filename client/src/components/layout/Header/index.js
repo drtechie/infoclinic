@@ -37,7 +37,7 @@ class Header extends Component {
 
 	render() {
 		return [
-            <header id="header" className="header-main">
+            <header id="header" className="header-main" key='desktop-header'>
                 <Link to="/" className="logo">
                     <svg id="logo-header" x="0px" y="0px" viewBox="0 0 461 68">
                         <g>
@@ -82,7 +82,7 @@ class Header extends Component {
                     <span/><span/><span/>
                 </div>
             </header>,
-            <div id="mobile-menu" className={this.state.menuOpen ? 'open': ''}>
+            <div id="mobile-menu" className={this.state.menuOpen ? 'open': ''} key='mobile-header'>
                 <NavLinks mainMenu={this.props.mainMenu} />
             </div>
 		];

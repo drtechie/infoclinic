@@ -4,7 +4,10 @@
 add_action( 'after_setup_theme', 'react_wp_rest_setup' );
 function react_wp_rest_setup() {
 	register_nav_menus(
-		array( 'main-menu' => __( 'Main Menu', 'react_wp_rest' ) )
+		array(
+			'main-menu' => __( 'Main Menu', 'react_wp_rest' ),
+            'footer-menu' => __( 'Footer Menu', 'react_wp_rest' )
+		)
 	);
 }
 

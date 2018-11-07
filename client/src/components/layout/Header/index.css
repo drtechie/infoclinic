@@ -43,7 +43,8 @@
     padding-top: 64px;
     width: calc(100% - 352px); }
     #header .menu ul {
-      display: inline-block; }
+      display: inline-block;
+      float: right; }
       #header .menu ul > li {
         float: left;
         margin-left: 21px;
@@ -80,8 +81,9 @@
           left: 0; }
   #header .soc-wrap {
     display: inline-block;
-    width: 119px;
-    padding-top: 71px; }
+    width: 59px;
+    padding-top: 71px;
+    float: right; }
     #header .soc-wrap li {
       margin-right: 20px;
       float: left; }
