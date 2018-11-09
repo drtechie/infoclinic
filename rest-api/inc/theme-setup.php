@@ -79,4 +79,3 @@ function set_headless_preview_link( $link, $post ) {
 }
 add_filter( 'preview_post_link', 'set_headless_preview_link', 10, 2 );
 
-?>

@@ -9,7 +9,8 @@ const defaultState = {
 	},
 	menus: {},
 	lists: {
-		pages: []
+		pages: [],
+		categories: [],
 	}
 }
 
@@ -47,6 +48,15 @@ export default (state = defaultState, action) => {
 					pages: action.payload
 				}
 			};
+
+        case 'LOAD_CATEGORIES_LIST':
+            return {
+                ...state,
+                lists: {
+                    ...state.lists,
+                    categories: action.payload
+                }
+            };
 
 		case 'LOAD_MENU':
 

@@ -27,7 +27,15 @@ const Content = {
 	previewDataBySlug: (type, slug, wpnonce) =>
 		requests.getWithCredentials(`/wp-json/react-wp-rest/preview?type=${type}&slug=${slug}&_wpnonce=${wpnonce}&_embed`),
 	pageList: () =>
-		requests.get('/wp-json/react-wp-rest/pages/list')
+		requests.get('/wp-json/react-wp-rest/pages/list'),
+    stickyPosts: (per_page = 3) =>
+        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&sticky=true&_embed`),
+    postsByPage: (page, per_page = 10) =>
+        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}&_embed`),
+    postsByCategory: (categoryID, page, per_page = 10) =>
+        requests.get(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}&_embed`),
+    categoryList: () =>
+        requests.get('/wp-json/wp/v2/categories'),
 } 
 
 export default {

@@ -1,0 +1,198 @@
+@import "../../../scss/vars";
+
+#main-slider {
+  padding-left: 145px;
+  padding-right: 145px;
+  max-width: 1920px;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  margin-bottom: 91px;
+
+  .main-swiper-container {
+    overflow: visible;
+    position: relative;
+
+    .article {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 16px;
+      color: $blackcolor;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      margin: 39px 0;
+    }
+
+    .data-post {
+      position: absolute;
+      left: -86px;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      transform: rotate(180deg);
+      text-align: center;
+      writing-mode: vertical-lr;
+      color: $greycolor;
+      font-family: "Meera", sans-serif;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      font-size: 202px;
+
+      // font-size: calc(16px + (202 - 16) * (100vw - 320px) / (1920 - 320))
+
+    }
+
+    .likes {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      letter-spacing: 0.01em;
+      font-size: 16px;
+      font-family: "HindRegular", sans-serif;
+      color: $whitecolor;
+
+      i {
+        margin-right: 9px;
+      }
+    }
+  }
+
+  .swiper-slide {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .swiper-text {
+    position: relative;
+    max-width: calc(50% - 15px);
+    background: rgba($maincolor, 0.85);
+
+    .text {
+      color: $whitecolor;
+      font-size: calc(16px + (60 - 16) * (100vw - 320px) / (1920 - 320));
+      line-height: 1.16;
+      font-family: "Uroob", sans-serif;
+      font-weight: normal;
+      padding: 8.6% 10% 7.5%;
+      box-sizing: content-box;
+    }
+  }
+
+  .main-swiper-text {
+    display: none;
+  }
+
+  .swiper-navigation {
+    position: absolute;
+    right: -87.5px;
+    width: 30px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+
+    .swiper-navigation-btn {
+      cursor: pointer;
+      display: table;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px;
+
+      .svg-inline--fa {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+
+  #main-slider {
+    padding-left: 50px;
+    padding-right: 50px;
+
+    .swiper-navigation {
+      display: none;
+    }
+
+    .main-swiper-container {
+      .data-post {
+        font-size: 80px;
+        left: -39px;
+        line-height: 90px;
+      }
+
+      .swiper-text {
+        max-width: 43%;
+
+        .text {
+          padding: 34px 10% 32px;
+        }
+      }
+    }
+  }
+
+}
+@media only screen and (max-width: 1024px) {
+  #main-slider {
+    margin-bottom: 51px;
+  }
+
+  #main-slider .main-swiper-container .likes {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #main-slider {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 38px;
+
+    .main-swiper-container {
+      overflow: hidden;
+
+      .data-post, .swiper-text {
+        display: none;
+      }
+    }
+
+    .main-swiper-text {
+      color: $whitecolor;
+      font-size: 26px;
+      line-height: 31px;
+      font-family: "Uroob", sans-serif;
+      padding: 32px 25px 29px;
+      box-sizing: content-box;
+      transition: max-height 0.3s ease-out;
+      height: auto;
+      max-height: 600px;
+      background: $maincolor;
+      display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: 1550px) {
+  #main-slider {
+    .swiper-text {
+      .text {
+        font-size: 60px;
+      }
+    }
+  }
+}

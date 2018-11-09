@@ -135,12 +135,10 @@ class LoadTemplate extends Component {
 			}
 		}
 
-		return (
-			<div className="template-wrap">
-				<Meta />
-				<Template data={data} slug={this.state.slug} />
-			</div>
-		);
+		return [
+            <Meta key='meta'/>,
+            <Template data={data} slug={this.state.slug} key='template'/>
+		];
 	}
 }
 

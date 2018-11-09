@@ -11,11 +11,13 @@ import api from './api';
 import './index.css';
 
 const mapStateToProps = (state) => ({
-	pageList: state.api.lists.pages
+	pageList: state.api.lists.pages,
+	categoriesList: state.api.lists.categories,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	loadPages: (list) => dispatch({ type: 'LOAD_PAGES_LIST', payload: list })
+	loadPages: (list) => dispatch({ type: 'LOAD_PAGES_LIST', payload: list }),
+    loadCategories: (list) => dispatch({ type: 'LOAD_CATEGORIES_LIST', payload: list })
 });
 
 class App extends Component {
@@ -81,6 +83,7 @@ class App extends Component {
 		}
 
 		this.fetchAndLoadPages();
+        this.fetchAndLoadCategories();
 	}
 
 	fetchAndLoadPages() {
@@ -91,6 +94,14 @@ class App extends Component {
         }
 	}
 
+    fetchAndLoadCategories() {
+        if (this.props.categoriesList && this.props.categoriesList.length > 0) {
+            this.props.loadCategories(this.props.categoriesList);
+        } else {
+            this.props.loadCategories(api.Content.categoryList());
+        }
+    }
+
 	componentDidMount() {
 		// Over-eager load code split chunks
 		// Two seconds after App mounts (wait for more important resources)
@@ -100,9 +111,11 @@ class App extends Component {
 	render() {
 		return [
 			<Header key='header'/>,
-			<Switch key='main'>
-				{ this.buildRoutes(this.props.pageList) }
-			</Switch>,
+            <main id="main" key='main'>
+				<Switch>
+					{ this.buildRoutes(this.props.pageList) }
+				</Switch>
+			</main>,
 			<Footer key='footer'/>,
 		];
 	}

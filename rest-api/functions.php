@@ -18,4 +18,6 @@ require_once('inc/custom-post-types.php');
 // Theme setup
 require_once('inc/theme-setup.php');
 
-?>
+// Images setup
+require_once('inc/images.php');
+
