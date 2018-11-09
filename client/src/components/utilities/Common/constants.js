@@ -1,0 +1,1 @@
+export const utcFormat = 'YYYY-MM-DDTHH:mm:ss';

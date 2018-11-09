@@ -80,19 +80,34 @@ class LoadTemplate extends Component {
 
 	fetchData() {
 		if (!this.props.data[this.props.type][this.state.slug]) {
-			// Load page content from API by slug
-			api.Content.dataBySlug(this.props.type, this.state.slug).then(
-				res => {
-					this.props.load({
-						type: this.props.type,
-						slug: this.state.slug,
-						data: res
-					})
-				},
-				error => {
-					console.warn(error);
-				}
-			);
+			const promises = []
+			promises.push(api.Content.dataBySlug(this.props.type, this.state.slug).then(
+                res => {
+                    return res[0];
+                },
+                error => {
+                    console.warn(error);
+                }
+            ));
+			if (this.props.type === 'pages' && this.state.slug === 'home') {
+                promises.push(api.Content.stickyPosts(3).then(
+                    res => {
+                        return { stickies: res }
+                    },
+                    error => {
+                        console.warn(error);
+                    }
+                ));
+			}
+            Promise.all(promises)
+                .then(data => {
+                	const res = [data.reduce((r, o) => Object.assign(r, o), {})];
+                    this.props.load({
+                        type: this.props.type,
+                        slug: this.state.slug,
+                        data: res
+                    })
+                })
 		}
 	}
 
@@ -100,7 +115,7 @@ class LoadTemplate extends Component {
 		if (prevProps.match.params.slug !== this.props.match.params.slug) {
 			this.setState({
 				slug: this.props.match.params.slug
-			})
+			});
             this.fetchData();
 		}
 	}

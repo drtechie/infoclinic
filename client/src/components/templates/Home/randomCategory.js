@@ -2,18 +2,47 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import './randomCategory.scss'
+import Swiper from "swiper";
 
 export default class RandomCategory extends Component {
+    constructor(props){
+        super(props);
+        this.categorySwiperContainer = React.createRef();
+    }
+
+    initializeSlider() {
+        if (this.categorySwiperContainer.current) {
+           setTimeout(() => {
+                new Swiper(this.categorySwiperContainer.current, {
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true
+                    },
+                });
+            }, 200);
+        }
+    }
+
+    componentDidMount() {
+        this.initializeSlider();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.data !== this.props.data) {
+            this.initializeSlider();
+        }
+    }
+
     render() {
-        return [
+        return (
             <section id="top-stories" className="row" key='category-random'>
                 <div className="sub-title title">
                     <h4>Today’s top stories</h4>
-                    <a href="/">More<FontAwesomeIcon icon={faHeart} /></a>
+                    <a href="/">More <FontAwesomeIcon icon={faHeart} /></a>
                 </div>
                 <div className="container-stories clearfix">
                     <div className="wrapper-post ">
-                        <div className="wrap post-type-swiper">
+                        <div className="wrap post-type-swiper" ref={this.categorySwiperContainer}>
                             <div className="swiper-wrapper">
                                 <article className="swiper-slide post-swiper overlay" style={{backgroundImage: "url('https://place-hold.it/763x563')" }}>
                                     <div className="by-writer">
@@ -83,6 +112,6 @@ export default class RandomCategory extends Component {
                     <div className="holder">article of the day</div>
                 </div>
             </section>
-        ];
+        );
     }
 }

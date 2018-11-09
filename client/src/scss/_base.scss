@@ -190,6 +190,10 @@ input {
   }
 }
 
+.english {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
