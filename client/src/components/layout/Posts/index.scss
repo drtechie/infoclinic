@@ -89,7 +89,7 @@
               line-height: 1;
 
               a {
-                color: $maincolor;
+                color: $accent;
                 font-size: 14px;
                 letter-spacing: 0.01em;
                 font-family: "HindSemiBold", sans-serif;
@@ -97,7 +97,7 @@
               }
 
               a:hover {
-                color: $maincolorhover;
+                color: $accentcolorhover;
               }
             }
 

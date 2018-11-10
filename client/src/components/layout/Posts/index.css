@@ -23,7 +23,7 @@
       .posts-grid .container-stories .wrapper-post .post-type-text h2 a {
         transition: 0.3s ease-out; }
       .posts-grid .container-stories .wrapper-post .post-type-text h2 a:hover {
-        color: #ff037a; }
+        color: #0F88BB; }
     .posts-grid .container-stories .wrapper-post .post-type-text p {
       font-size: 18px;
       line-height: 30px;
@@ -54,7 +54,7 @@
           color: #ffffff;
           font-size: 18px;
           letter-spacing: 0.01em;
-          background: #ff037a;
+          background: #0F88BB;
           font-family: "HindBold", sans-serif;
           font-weight: normal;
           text-align: center;
@@ -65,13 +65,13 @@
         .posts-grid .container-stories .wrapper-post .post-type-text .by-writer .info-author .name {
           line-height: 1; }
           .posts-grid .container-stories .wrapper-post .post-type-text .by-writer .info-author .name a {
-            color: #ff037a;
+            color: #ED1C24;
             font-size: 14px;
             letter-spacing: 0.01em;
             font-family: "HindSemiBold", sans-serif;
             transition: 0.3s ease-out; }
           .posts-grid .container-stories .wrapper-post .post-type-text .by-writer .info-author .name a:hover {
-            color: #e9006e; }
+            color: #de1219; }
         .posts-grid .container-stories .wrapper-post .post-type-text .by-writer .info-author .data {
           color: #7e7e7e;
           font-size: 14px;
@@ -89,7 +89,7 @@
           color: #202020;
           margin-left: 15px; }
           .posts-grid .container-stories .wrapper-post .post-type-text .by-writer .info-author .views i {
-            color: #ff037a;
+            color: #0F88BB;
             font-size: 14px;
             margin-right: 7px; }
   @supports (display: grid) {
@@ -210,6 +210,6 @@
         margin-left: 15px; }
         .posts-grid .container-stories .wrapper-post .post-type-text .for-mob-views .views i {
           margin-right: 7px;
-          color: #ff037a; }
+          color: #0F88BB; }
       .posts-grid .container-stories .wrapper-post .wrap {
         padding: 0 !important; } }

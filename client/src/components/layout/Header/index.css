@@ -22,7 +22,7 @@
     display: inline-block;
     float: left; }
     #header .logo .st0 {
-      fill: #ff037a; }
+      fill: #0F88BB; }
     #header .logo .st1 {
       fill: #ffffff;
       transition: 0.3s; }
@@ -94,7 +94,7 @@
         font-size: 16px;
         transition: 0.3s; }
         #header .soc-wrap li a:hover {
-          color: #ff037a; }
+          color: #0F88BB; }
 
 #mobile-menu .menu, #mobile-menu .soc-wrap {
   display: none; }
@@ -126,7 +126,7 @@
     position: absolute;
     height: 4px;
     width: 100%;
-    background: #ff037a;
+    background: #0F88BB;
     border-radius: 4px;
     opacity: 1;
     left: 0;
@@ -225,7 +225,7 @@
           margin-left: 14px;
           margin-right: 14px; }
           #mobile-menu .soc-wrap > li a:hover {
-            color: #ff037a; }
+            color: #0F88BB; }
   #mobile-menu.open {
     left: 0; } }
 

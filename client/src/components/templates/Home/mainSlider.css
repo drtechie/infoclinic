@@ -55,7 +55,7 @@
   #main-slider .swiper-text {
     position: relative;
     max-width: calc(50% - 15px);
-    background: rgba(255, 3, 122, 0.85); }
+    background: rgba(15, 136, 187, 0.85); }
     #main-slider .swiper-text .text {
       font-size: calc(16px + (60 - 16) * (100vw - 320px) / (1920 - 320));
       line-height: 1.16;
@@ -121,7 +121,6 @@
       #main-slider .main-swiper-container .data-post, #main-slider .main-swiper-container .swiper-text {
         display: none; }
     #main-slider .main-swiper-text {
-      color: #ffffff;
       font-size: 26px;
       line-height: 31px;
       font-family: "Uroob", sans-serif;
@@ -130,8 +129,10 @@
       transition: max-height 0.3s ease-out;
       height: auto;
       max-height: 600px;
-      background: #ff037a;
-      display: block; } }
+      background: #0F88BB;
+      display: block; }
+      #main-slider .main-swiper-text a {
+        color: #ffffff; } }
 
 @media only screen and (min-width: 1550px) {
   #main-slider .swiper-text .text {

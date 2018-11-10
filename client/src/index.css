@@ -393,7 +393,7 @@ input {
 
 .swiper-navigation-btn:hover i {
   transition: 0.3s;
-  color: #ff037a; }
+  color: #0F88BB; }
 
 .swiper-pagination {
   z-index: 1 !important; }
@@ -415,13 +415,13 @@ input {
   letter-spacing: 0.075em;
   border-radius: 50px;
   display: table;
-  background: #ff037a;
+  background: #ED1C24;
   color: #ffffff;
   transition: 0.3s;
   cursor: pointer; }
 
 .btn:hover {
-  background: #e9006e; }
+  background: #de1219; }
 
 .hidden {
   display: none; }
@@ -434,8 +434,8 @@ input {
   width: 46px;
   height: 46px;
   border: 3px solid #eef0f3;
-  border-top-color: #ff037a;
-  border-left-color: #ff037a;
+  border-top-color: #0F88BB;
+  border-left-color: #0F88BB;
   animation: spin 1s infinite linear;
   margin-left: auto;
   margin-right: auto;
@@ -462,7 +462,7 @@ input {
     line-height: 42px;
     transition: 0.3s; }
     .sub-title a:hover {
-      color: #ff037a; }
+      color: #0F88BB; }
     .sub-title a .svg-inline--fa {
       font-size: 20px;
       margin-left: 11px;

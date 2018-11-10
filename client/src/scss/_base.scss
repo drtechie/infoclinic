@@ -122,14 +122,14 @@ input {
   letter-spacing: 0.075em;
   border-radius: 50px;
   display: table;
-  background: $maincolor;
+  background: $accent;
   color: $whitecolor;
   transition: 0.3s;
   cursor: pointer;
 }
 
 .btn:hover {
-  background: $maincolorhover;
+  background: $accentcolorhover;
 }
 
 .hidden {

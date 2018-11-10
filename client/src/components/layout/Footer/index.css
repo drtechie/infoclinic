@@ -1,5 +1,5 @@
 #footer {
-  background: #000;
+  background: #103348;
   max-width: calc(1920px - 290px);
   width: calc(100% - 290px);
   margin-left: auto;
@@ -46,7 +46,7 @@
         position: absolute;
         right: 2px;
         top: 2px;
-        background: #ff037a;
+        background: #ED1C24;
         border-radius: 50px;
         width: 46px;
         height: 46px;
@@ -55,7 +55,7 @@
         cursor: pointer;
         transition: 0.3s; }
         #footer .wrap-form-email .form-email button[type='submit']:hover {
-          background: #e9006e; }
+          background: #de1219; }
   #footer .msc-wrapper {
     width: 69.44%;
     float: right;
@@ -116,7 +116,7 @@
             font-size: 16px;
             transition: 0.3s; }
             #footer .msc-wrapper .sc-wrapper .soc-wrap li a:hover {
-              color: #ff037a; }
+              color: #0F88BB; }
       #footer .msc-wrapper .sc-wrapper .copyright {
         max-width: calc(100% - 154px);
         width: 100%;

@@ -174,7 +174,6 @@
     }
 
     .main-swiper-text {
-      color: $whitecolor;
       font-size: 26px;
       line-height: 31px;
       font-family: "Uroob", sans-serif;
@@ -185,6 +184,9 @@
       max-height: 600px;
       background: $maincolor;
       display: block;
+      a {
+        color: $whitecolor;
+      }
     }
   }
 }

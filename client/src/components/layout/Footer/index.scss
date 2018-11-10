@@ -1,7 +1,7 @@
 @import "../../../scss/vars";
 
 #footer {
-  background: #000;
+  background: $dark;
   max-width: calc(1920px - 290px);
   width: calc(100% - 290px);
   margin-left: auto;
@@ -61,7 +61,7 @@
         position: absolute;
         right: 2px;
         top: 2px;
-        background: $maincolor;
+        background: $accent;
         border-radius: 50px;
         width: 46px;
         height: 46px;
@@ -71,7 +71,7 @@
         transition: 0.3s;
 
         &:hover {
-          background: $maincolorhover;
+          background: $accentcolorhover;
         }
       }
     }

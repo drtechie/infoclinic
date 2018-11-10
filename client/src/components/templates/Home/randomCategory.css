@@ -53,7 +53,7 @@
         font-weight: normal;
         transition: 0.5s; }
         #top-stories .container-stories article.post-image h2 a:hover {
-          color: #ff037a; }
+          color: #0F88BB; }
     #top-stories .container-stories article.post-swiper h2 {
       position: absolute;
       left: 60px;
@@ -67,7 +67,7 @@
         font-weight: normal;
         transition: 0.5s; }
         #top-stories .container-stories article.post-swiper h2 a:hover {
-          color: #ff037a; }
+          color: #0F88BB; }
     #top-stories .container-stories .wrapper-post {
       height: 539px;
       position: relative; }
@@ -120,13 +120,13 @@
           #top-stories .container-stories .wrapper-post .by-writer .info-author .name {
             line-height: 1; }
             #top-stories .container-stories .wrapper-post .by-writer .info-author .name a {
-              color: #ff037a;
+              color: #ED1C24;
               font-size: 14px;
               letter-spacing: 0.01em;
               font-family: "HindSemiBold", sans-serif;
               transition: 0.3s ease-out; }
             #top-stories .container-stories .wrapper-post .by-writer .info-author .name a:hover {
-              color: #e9006e; }
+              color: #de1219; }
           #top-stories .container-stories .wrapper-post .by-writer .info-author .data {
             color: #ffffff;
             font-size: 14px;
