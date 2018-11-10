@@ -57,13 +57,14 @@
     max-width: calc(50% - 15px);
     background: rgba(255, 3, 122, 0.85); }
     #main-slider .swiper-text .text {
-      color: #ffffff;
       font-size: calc(16px + (60 - 16) * (100vw - 320px) / (1920 - 320));
       line-height: 1.16;
       font-family: "Uroob", sans-serif;
       font-weight: normal;
       padding: 8.6% 10% 7.5%;
       box-sizing: content-box; }
+      #main-slider .swiper-text .text a {
+        color: #ffffff; }
   #main-slider .main-swiper-text {
     display: none; }
   #main-slider .swiper-navigation {

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import Swiper from "swiper";
-import moment from 'moment';
-import './randomCategory.scss'
+import moment from "moment";
+import {Link} from "react-router-dom";
+import "./randomCategory.scss";
 import api from "../../../api";
 import { utcFormat } from "../../utilities/Common/constants";
-import 'moment/locale/ml'
+import "moment/locale/ml";
+
 moment.locale('ml');
 
 const mapStateToProps = (state) => ({
@@ -101,9 +103,7 @@ class RandomCategory extends Component {
                                                     </div>
                                                     <div className="likes"><FontAwesomeIcon icon={faHeart} />43 109</div>
                                                     <h2 title="Why every travel photographer should carry a notebook">
-                                                        <a href="/">
-                                                            {post.title.rendered}
-                                                        </a>
+                                                        <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
                                                     </h2>
                                                 </article>
                                             )
@@ -116,13 +116,13 @@ class RandomCategory extends Component {
                         <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://place-hold.it/379x263')" }}>
                             <div className="likes"><FontAwesomeIcon icon={faHeart} />43 109</div>
                             <h2 title="Don’t date a girl who travels">
-                                <a href="/">{ posts[3].title.rendered }</a>
+                                <Link to={`/posts/${ posts[3].slug}`}>{ posts[3].title.rendered }</Link>
                             </h2>
                         </article>
                         <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://place-hold.it/379x263')" }}>
                             <div className="likes"><FontAwesomeIcon icon={faHeart} />43 109</div>
                             <h2 title="Don’t date a girl who travels">
-                                <a href="/">{ posts[4].title.rendered }</a>
+                                <Link to={`/posts/${ posts[4].slug}`}>{ posts[4].title.rendered }</Link>
                             </h2>
                         </article>
                         <div className="holder">article of the day</div>

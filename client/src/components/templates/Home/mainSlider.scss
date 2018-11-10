@@ -76,13 +76,15 @@
     background: rgba($maincolor, 0.85);
 
     .text {
-      color: $whitecolor;
       font-size: calc(16px + (60 - 16) * (100vw - 320px) / (1920 - 320));
       line-height: 1.16;
       font-family: "Uroob", sans-serif;
       font-weight: normal;
       padding: 8.6% 10% 7.5%;
       box-sizing: content-box;
+      a {
+        color: $whitecolor;
+      }
     }
   }
 

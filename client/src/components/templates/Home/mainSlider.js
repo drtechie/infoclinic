@@ -6,6 +6,7 @@ import moment from 'moment';
 import './mainSlider.scss'
 import { utcFormat } from "../../utilities/Common/constants";
 import 'moment/locale/ml'
+import {Link} from "react-router-dom";
 moment.locale('ml');
 
 export default class MainSlider extends Component {
@@ -15,6 +16,7 @@ export default class MainSlider extends Component {
         this.state = {
             height: 0,
             mainSwiperText: '',
+            mainSwiperLink: '',
         }
     }
 
@@ -97,9 +99,11 @@ export default class MainSlider extends Component {
                                                 <span className='english'>{ date.format('DD/MMM/YYYY') }</span>
                                             </div>
                                             <div className="likes"><FontAwesomeIcon icon={faHeart}/>43 109</div>
-                                            <div className=" swiper-text">
+                                            <div className="swiper-text">
                                                 <div className="ellipsis text">
-                                                    {sticky.title.rendered}
+                                                    <Link to={`/posts/${ sticky.slug}`}>
+                                                        { sticky.title.rendered }
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +114,9 @@ export default class MainSlider extends Component {
                         <div className="swiper-pagination"/>
                     </div>
                     <div className="main-swiper-text">
-                        {this.state.mainSwiperText}
+                        <Link to={`/posts/${this.state.mainSwiperLink}`}>
+                            {this.state.mainSwiperText}
+                        </Link>
                     </div>
                 </section>
             );
