@@ -3,8 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { connect } from 'react-redux';
 import Swiper from "swiper";
+import moment from 'moment';
 import './randomCategory.scss'
 import api from "../../../api";
+import { utcFormat } from "../../utilities/Common/constants";
+import 'moment/locale/ml'
+moment.locale('ml');
 
 const mapStateToProps = (state) => ({
     categoriesList: state.api.lists.categories,
@@ -76,6 +80,7 @@ class RandomCategory extends Component {
                                 <div className="swiper-wrapper">
                                     {
                                         posts.slice(0, 3).map(post => {
+                                            const date = moment(post.date, utcFormat);
                                             return (
                                                 <article
                                                     className="swiper-slide post-swiper overlay"
@@ -88,7 +93,9 @@ class RandomCategory extends Component {
                                                         <div className="info-author">
                                                             <div className="name"><a href="/">William Wright</a>
                                                             </div>
-                                                            <time className="data" dateTime="2017-07-20"> Jan 20, 2017</time>
+                                                            <time className="data" dateTime={date.format('YYYY-MM-DD')}>
+                                                                { date.format('MMM DD, YYYY') }
+                                                            </time>
                                                             <span className="timetoread"> · 5 min to read</span>
                                                         </div>
                                                     </div>
