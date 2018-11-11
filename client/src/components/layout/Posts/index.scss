@@ -24,11 +24,10 @@
         h2 {
           font-size: 40px;
           line-height: 45px;
-          font-family: "HindBold", sans-serif;
+          font-family: "Uroob", sans-serif;
           font-weight: normal;
           letter-spacing: 0.01em;
           color: $blackcolor;
-          margin-bottom: 29px;
 
           a {
             transition: 0.3s ease-out;
@@ -42,90 +41,77 @@
         p {
           font-size: 18px;
           line-height: 30px;
-          font-family: "CardoRegular", sans-serif;
           letter-spacing: 0.01em;
           color: $blackcolor;
         }
+        .post-details {
+          margin-bottom: 29px;
+          .data {
+            color: $darkgreycolor;
+            font-size: 14px;
+            letter-spacing: 0.01em;
+          }
+
+          .timetoread {
+            color: $darkgreycolor;
+            font-size: 14px;
+            letter-spacing: 0.01em;
+          }
+        }
+
 
         .by-writer {
           padding-top: 20px;
 
-          .icon-author {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            float: left;
-            overflow: hidden;
-            margin-right: 12px;
-            position: relative;
-            background-size: contain;
-
-            .placeholder {
-              content: "ML";
-              display: block;
-              position: absolute;
-              left: 0;
-              right: 0;
-              top: 0;
-              bottom: 0;
-              margin: auto;
-              text-transform: uppercase;
-              color: $whitecolor;
-              font-size: 18px;
-              letter-spacing: 0.01em;
-              background: $maincolor;
-              font-family: "HindBold", sans-serif;
-              font-weight: normal;
-              text-align: center;
-              line-height: 44px;
-            }
-          }
-
           .info-author {
             overflow: hidden;
             margin-top: 3px;
+            margin-right: 12px;
+            display: inline-block;
+
+            .icon-author {
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              float: left;
+              overflow: hidden;
+              margin-right: 8px;
+              position: relative;
+              background-size: contain;
+
+              .placeholder {
+                content: "ML";
+                display: block;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                text-transform: uppercase;
+                color: $whitecolor;
+                font-size: 18px;
+                letter-spacing: 0.01em;
+                background: $maincolor;
+                font-weight: normal;
+                text-align: center;
+                line-height: 44px;
+              }
+            }
 
             .name {
-              line-height: 1;
+              line-height: 2;
+              display: inline-block;
 
               a {
                 color: $accent;
                 font-size: 14px;
                 letter-spacing: 0.01em;
-                font-family: "HindSemiBold", sans-serif;
                 transition: 0.3s ease-out;
               }
 
               a:hover {
                 color: $accentcolorhover;
-              }
-            }
-
-            .data {
-              color: $darkgreycolor;
-              font-size: 14px;
-              letter-spacing: 0.01em;
-              font-family: "HindRegular", sans-serif;
-            }
-
-            .timetoread {
-              color: $darkgreycolor;
-              font-size: 14px;
-              letter-spacing: 0.01em;
-              font-family: "HindRegular", sans-serif;
-            }
-
-            .views {
-              font-size: 14px;
-              font-family: "HindRegular", sans-serif;
-              letter-spacing: 0.01em;
-              color: $blackcolor;
-              margin-left: 15px;
-
-              i {
-                color: $maincolor;
-                font-size: 14px;
-                margin-right: 7px;
               }
             }
           }
@@ -198,6 +184,7 @@
     padding-left: 65px;
     padding-right: 65px;
     margin-top: 20px;
+    margin-bottom: 20px;
     float: right;
   }
 }
@@ -216,12 +203,15 @@
           h2 {
             font-size: 30px;
             line-height: 35px;
-            margin-bottom: 20px;
-            grid-row: 2;
+            grid-row: 1;
           }
 
+          .post-details {
+            grid-row: 2;
+            margin-bottom: 20px;
+          }
           .by-writer {
-            grid-row: 1;
+            grid-row: 3;
             margin-bottom: 13px;
             padding-top: 0;
           }
@@ -282,9 +272,14 @@
           h2 {
             font-size: 25px;
             line-height: 31px;
-            margin-bottom: 17px;
-            grid-row: 2;
+            grid-row: 1;
             grid-column: 1 / -1;
+            margin-top: 13px;
+          }
+
+          .post-details {
+            grid-row: 2;
+            margin-bottom: 17px;
           }
 
           p {
@@ -296,8 +291,7 @@
           }
 
           .by-writer {
-            margin-top: 25px;
-            grid-row: 1;
+            grid-row: 4;
             grid-column: 1 / -1;
           }
 
@@ -322,7 +316,6 @@
             .views {
               display: inline-block;
               letter-spacing: 0.01em;
-              font-family: "HindRegular", sans-serif;
               color: $blackcolor;
               font-size: 14px;
               margin-left: 15px;

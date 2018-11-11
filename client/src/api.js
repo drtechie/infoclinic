@@ -29,11 +29,11 @@ const Content = {
 	pageList: () =>
 		requests.get('/wp-json/react-wp-rest/pages/list'),
     stickyPosts: (per_page = 3) =>
-        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&sticky=true&_embed`),
+        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&sticky=true`),
     postsByPage: (page, per_page = 10) =>
-        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}&_embed`),
+        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}`),
     postsByCategory: (categoryID, page, per_page = 10) =>
-        requests.get(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}&_embed`),
+        requests.get(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}`),
     categoryList: () =>
         requests.get('/wp-json/wp/v2/categories'),
 } 

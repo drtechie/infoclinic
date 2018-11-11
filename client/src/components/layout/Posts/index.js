@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import {utcFormat} from "../../utilities/Common/constants";
 import "./index.css";
+import ContentBlock from "../../utilities/ContentBlock";
 
 export default class Posts extends Component {
 	render() {
@@ -24,7 +25,7 @@ export default class Posts extends Component {
                         this.props.posts.map(post => {
                             const date = moment(post.date, utcFormat);
                             return (
-                                <article className="wrapper-post">
+                                <article className="wrapper-post" key={post.id}>
                                     <div className="wrap post-type-image post-image">
                                         <img
                                             className="img-responsive"
@@ -36,40 +37,33 @@ export default class Posts extends Component {
                                         <h2>
                                             <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
                                         </h2>
-                                        <p>
-                                            As a travel urban photographer I have always felt a little unlucky for being born in
-                                            Eastern
-                                            Europe. We have more of the ugly commie blocks, and less of the beautiful old european
-                                            architecture. Maybe I should consider shooting more brutalism...
-                                        </p>
+                                        <div className='post-details'>
+                                            <time className="data" dateTime={date.format('YYYY-MM-DD')}>
+                                                { date.format('MMM DD, YYYY') }
+                                            </time>
+                                            <span className="timetoread"> · 5 min to read</span>
+                                        </div>
+                                        <p dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
                                         <div className="by-writer">
-                                            <div
-                                                className="icon-author"
-                                                style={{backgroundImage: "url('https://place-hold.it/66x66')" }}
-                                            >
-                                            </div>
-                                            <div className="info-author">
-                                                <div className="name"><a href="/">Dorian Pellumbi</a></div>
-                                                <time className="data" dateTime={date.format('YYYY-MM-DD')}>
-                                                    { date.format('MMM DD, YYYY') }
-                                                </time>
-                                                <span className="timetoread"> · 5 min to read</span>
-                                                <span className="views"><FontAwesomeIcon icon={faHeart} />43 109</span>
-                                            </div>
+                                            {
+                                                post.coauthors.map(coauthor => {
+                                                    return (
+                                                        <div className="info-author">
+                                                            <div
+                                                                className="icon-author"
+                                                                style={{backgroundImage: "url('https://place-hold.it/66x66')" }}
+                                                            >
+                                                            </div>
+                                                            <div className="name">
+                                                                <Link to={`/authors/${coauthor.user_nicename}`}>{coauthor.display_name}</Link>
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })
+                                            }
                                         </div>
                                         <div className="for-mob-views">
-                                            <a
-                                                className="btn hidden"
-                                                href="/"
-                                            >
-                                                Read
-                                            </a>
-                                            <span
-                                                className="hidden views"
-                                            >
-                                    <FontAwesomeIcon icon={faHeart} />
-                                    43109
-                                </span>
+                                            <Link className="btn hidden" to={`/posts/${post.slug}`}>Read</Link>
                                         </div>
                                     </div>
                                 </article>

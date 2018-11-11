@@ -26,7 +26,8 @@
     "johnpbloch/wordpress-core-installer": "^1.0",
     "vlucas/phpdotenv": "^2.5",
     "wpackagist-plugin/acf-to-rest-api": "^3.1",
-    "wpackagist-plugin/advanced-custom-fields": "^5.7"
+    "wpackagist-plugin/advanced-custom-fields": "^5.7",
+    "wpackagist-plugin/co-authors-plus": "^3.3"
   },
   "extra": {
     "installer-paths": {
