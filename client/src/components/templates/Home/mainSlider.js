@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faHeart, faLongArrowAltDown, faLongArrowAltUp} from "@fortawesome/free-solid-svg-icons";
+import { faLongArrowAltDown, faLongArrowAltUp } from "@fortawesome/free-solid-svg-icons";
 import Swiper from "swiper";
 import moment from 'moment';
 import './mainSlider.scss'
 import { utcFormat } from "../../utilities/Common/constants";
 import 'moment/locale/ml'
 import {Link} from "react-router-dom";
+import ByAuthors from "../../layout/ByAuthors";
 moment.locale('ml');
 
 export default class MainSlider extends Component {
@@ -15,8 +16,7 @@ export default class MainSlider extends Component {
         this.mainSwiperContainer = React.createRef();
         this.state = {
             height: 0,
-            mainSwiperText: '',
-            mainSwiperLink: '',
+            post: null,
         }
     }
 
@@ -24,8 +24,9 @@ export default class MainSlider extends Component {
         if (this.mainSwiperContainer.current) {
             this.setState({height: (this.mainSwiperContainer.current.offsetWidth / 100) * 66.8});
 
-            const setSwiperText = (mainSwiperText) => {
-                this.setState({mainSwiperText});
+            const setSwiperPost = (activeIndex) => {
+                const { stickies }= this.props.data;
+                this.setState({post: stickies[activeIndex]});
             };
 
             setTimeout(() => {
@@ -33,13 +34,13 @@ export default class MainSlider extends Component {
                     direction: 'vertical',
                     on: {
                         init: function () {
-                            setSwiperText(this.slides.eq(this.activeIndex).find(".text").text());
+                            setSwiperPost(this.activeIndex);
                         },
                         resize:  () =>  {
                             this.setState({height: (this.mainSwiperContainer.current.offsetWidth / 100) * 66.8});
                         },
                         slideChange: function () {
-                            setSwiperText(this.slides.eq(this.activeIndex).find(".text").text());
+                            setSwiperPost(this.activeIndex);
                         },
                     },
                     pagination: {
@@ -92,19 +93,19 @@ export default class MainSlider extends Component {
                                     return (
                                         <div
                                             className="swiper-slide"
-                                            style={{backgroundImage: "url('https://place-hold.it/1638x1093')"}}
+                                            style={{backgroundImage: "url('https://picsum.photos/1152/648/?random')"}}
                                             key={sticky.id}
                                         >
                                             <div className="data-post">
                                                 <span className='english'>{ date.format('DD/MMM/YYYY') }</span>
                                             </div>
-                                            <div className="likes"><FontAwesomeIcon icon={faHeart}/>43 109</div>
                                             <div className="swiper-text">
                                                 <div className="ellipsis text">
                                                     <Link to={`/posts/${ sticky.slug}`}>
                                                         { sticky.title.rendered }
                                                     </Link>
                                                 </div>
+                                                <ByAuthors coauthors={sticky.coauthors}/>
                                             </div>
                                         </div>
                                     );
@@ -114,9 +115,16 @@ export default class MainSlider extends Component {
                         <div className="swiper-pagination"/>
                     </div>
                     <div className="main-swiper-text">
-                        <Link to={`/posts/${this.state.mainSwiperLink}`}>
-                            {this.state.mainSwiperText}
-                        </Link>
+                        {
+                            this.state.post &&
+                                [
+                                    <Link to={`/posts/${this.state.post.slug}`} key='link'>
+                                        {this.state.post.title.rendered}
+                                    </Link>,
+                                    <ByAuthors coauthors={this.state.post.coauthors} key='by-writers'/>
+                                ]
+                        }
+
                     </div>
                 </section>
             );

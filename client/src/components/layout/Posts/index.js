@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronRight, faHeart} from "@fortawesome/free-solid-svg-icons";
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import {utcFormat} from "../../utilities/Common/constants";
 import "./index.css";
+import ByAuthors from "../ByAuthors";
 import ContentBlock from "../../utilities/ContentBlock";
 
 export default class Posts extends Component {
@@ -29,7 +30,7 @@ export default class Posts extends Component {
                                     <div className="wrap post-type-image post-image">
                                         <img
                                             className="img-responsive"
-                                            src="https://place-hold.it/561x561"
+                                            src="https://picsum.photos/320/320/?random"
                                             alt={post.title.rendered}
                                         />
                                     </div>
@@ -43,25 +44,8 @@ export default class Posts extends Component {
                                             </time>
                                             <span className="timetoread"> · 5 min to read</span>
                                         </div>
-                                        <p dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
-                                        <div className="by-writer">
-                                            {
-                                                post.coauthors.map(coauthor => {
-                                                    return (
-                                                        <div className="info-author">
-                                                            <div
-                                                                className="icon-author"
-                                                                style={{backgroundImage: "url('https://place-hold.it/66x66')" }}
-                                                            >
-                                                            </div>
-                                                            <div className="name">
-                                                                <Link to={`/authors/${coauthor.user_nicename}`}>{coauthor.display_name}</Link>
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                })
-                                            }
-                                        </div>
+                                        <ContentBlock content={post.excerpt.rendered}/>
+                                        <ByAuthors coauthors={post.coauthors}/>
                                         <div className="for-mob-views">
                                             <Link className="btn hidden" to={`/posts/${post.slug}`}>Read</Link>
                                         </div>

@@ -60,10 +60,15 @@
       }
 
       &.post-image {
+        .post-details {
+          left: 28px;
+          bottom: 21px;
+        }
+
         h2 {
           position: absolute;
           left: 28px;
-          bottom: 21px;
+          bottom: 45px;
           line-height: 30px;
           font-size: 25px;
           padding-right: 20px;
@@ -85,7 +90,7 @@
         h2 {
           position: absolute;
           left: 60px;
-          bottom: 70px;
+          bottom: 90px;
           line-height: 50px;
           font-size: 40px;
           padding-right: 30px;
@@ -151,57 +156,61 @@
         }
       }
 
+      .post-details {
+        position: absolute;
+        left: 60px;
+        bottom: 65px;
+
+        .data {
+          color: $whitecolor;
+          font-size: 14px;
+          letter-spacing: 0.01em;
+        }
+
+        .timetoread {
+          color: $whitecolor;
+          font-size: 14px;
+          letter-spacing: 0.01em;
+        }
+      }
+
       .by-writer {
         position: absolute;
-        left: 59px;
+        left: 50px;
         top: 30px;
-
-        .icon-author {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          float: left;
-
-          // border: 2px solid $whitecolor
-          background-size: contain;
-          background-position: center;
-          overflow: hidden;
-          margin-right: 12px;
-          position: relative;
-        }
 
         .info-author {
           overflow: hidden;
           margin-top: 3px;
+          margin-right: 12px;
+          display: inline-block;
+
+          .icon-author {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            float: left;
+            background-size: contain;
+            background-position: center;
+            overflow: hidden;
+            margin-right: 12px;
+            position: relative;
+          }
 
           .name {
-            line-height: 1;
+            line-height: 2;
+            display: inline-block;
 
             a {
-              color: $accent;
+              color: $whitecolor;
               font-size: 14px;
               letter-spacing: 0.01em;
-              font-family: "HindSemiBold", sans-serif;
               transition: 0.3s ease-out;
             }
 
             a:hover {
-              color: $accentcolorhover;
+              color: $whitecolor;
             }
-          }
-
-          .data {
-            color: $whitecolor;
-            font-size: 14px;
-            letter-spacing: 0.01em;
-            font-family: "HindRegular", sans-serif;
-          }
-
-          .timetoread {
-            color: $whitecolor;
-            font-size: 14px;
-            letter-spacing: 0.01em;
-            font-family: "HindRegular", sans-serif;
           }
         }
       }
@@ -273,13 +282,18 @@
             background-size: cover !important;
           }
         }
+
+        .post-details {
+          left: 50px;
+          bottom: 60px;
+        }
       }
 
       article {
         &.post-swiper {
           h2 {
             left: 50px;
-            bottom: 60px;
+            bottom: 80px;
             line-height: 35px;
             font-size: 30px;
             padding-right: 50px;
@@ -292,9 +306,15 @@
         }
 
         &.post-video, &.post-image {
+
+          .post-details {
+            left: 25px;
+            bottom: 17px;
+          }
+
           h2 {
             left: 25px;
-            bottom: 16px;
+            bottom: 42px;
             line-height: 30px;
             font-size: 25px;
             padding-right: 25px;
@@ -320,13 +340,13 @@
       margin-top: 20px;
 
       .wrapper-post {
-        height: 192px !important;
+        height: 250px !important;
         width: 100% !important;
         float: none !important;
         margin-bottom: 15px !important;
 
         .swiper-slide {
-          height: 192px !important;
+          height: 250px !important;
         }
 
         .post-type-video {
@@ -355,6 +375,11 @@
             }
           }
         }
+
+        .post-details {
+          left: 25px;
+          bottom: 17px;
+        }
       }
 
       article {
@@ -365,7 +390,7 @@
         &.post-swiper, &.post-image {
           h2 {
             left: 25px;
-            bottom: 17px;
+            bottom: 42px;
             line-height: 26px;
             font-size: 20px;
             padding-right: 25px;

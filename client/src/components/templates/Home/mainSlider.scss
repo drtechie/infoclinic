@@ -50,7 +50,6 @@
       top: 30px;
       letter-spacing: 0.01em;
       font-size: 16px;
-      font-family: "HindRegular", sans-serif;
       color: $whitecolor;
 
       i {
@@ -80,10 +79,51 @@
       line-height: 1.16;
       font-family: "Uroob", sans-serif;
       font-weight: normal;
-      padding: 8.6% 10% 7.5%;
+      padding: 8.6% 10% 0 7.5%;
       box-sizing: content-box;
       a {
         color: $whitecolor;
+      }
+    }
+
+    .by-writer {
+      padding-left: 8.6%;
+
+      .info-author {
+        overflow: hidden;
+        margin-top: 3px;
+        margin-right: 12px;
+        display: inline-block;
+
+        .icon-author {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          float: left;
+
+          // border: 2px solid $whitecolor
+          background-size: contain;
+          background-position: center;
+          overflow: hidden;
+          margin-right: 12px;
+          position: relative;
+        }
+
+        .name {
+          line-height: 2;
+          display: inline-block;
+
+          a {
+            color: $whitecolor;
+            font-size: 14px;
+            letter-spacing: 0.01em;
+            transition: 0.3s ease-out;
+          }
+
+          a:hover {
+            color: $whitecolor;
+          }
+        }
       }
     }
   }
@@ -142,7 +182,7 @@
         max-width: 43%;
 
         .text {
-          padding: 34px 10% 32px;
+          padding: 34px 10% 0 10%;
         }
       }
     }
@@ -174,9 +214,6 @@
     }
 
     .main-swiper-text {
-      font-size: 26px;
-      line-height: 31px;
-      font-family: "Uroob", sans-serif;
       padding: 32px 25px 29px;
       box-sizing: content-box;
       transition: max-height 0.3s ease-out;
@@ -185,7 +222,46 @@
       background: $maincolor;
       display: block;
       a {
+        font-size: 26px;
+        line-height: 31px;
+        font-family: "Uroob", sans-serif;
         color: $whitecolor;
+      }
+      .by-writer {
+        .info-author {
+          overflow: hidden;
+          margin-top: 3px;
+          margin-right: 12px;
+          display: inline-block;
+
+          .icon-author {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            float: left;
+            background-size: contain;
+            background-position: center;
+            overflow: hidden;
+            margin-right: 12px;
+            position: relative;
+          }
+
+          .name {
+            line-height: 2;
+            display: inline-block;
+
+            a {
+              color: $whitecolor;
+              font-size: 14px;
+              letter-spacing: 0.01em;
+              transition: 0.3s ease-out;
+            }
+
+            a:hover {
+              color: $whitecolor;
+            }
+          }
+        }
       }
     }
   }

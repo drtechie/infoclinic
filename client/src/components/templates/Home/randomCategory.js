@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import Swiper from "swiper";
 import moment from "moment";
 import {Link} from "react-router-dom";
 import "./randomCategory.scss";
 import api from "../../../api";
+import ByAuthors from "../../layout/ByAuthors";
 import { utcFormat } from "../../utilities/Common/constants";
 import "moment/locale/ml";
+
 
 moment.locale('ml');
 
@@ -86,25 +88,19 @@ class RandomCategory extends Component {
                                             return (
                                                 <article
                                                     className="swiper-slide post-swiper overlay"
-                                                    style={{backgroundImage: "url('https://place-hold.it/763x563')" }}
+                                                    style={{backgroundImage: "url('https://picsum.photos/768/432/?random')" }}
                                                     key={post.id}
                                                 >
-                                                    <div className="by-writer">
-                                                        <div className="icon-author" style={{backgroundImage: "url('https://place-hold.it/63x63')" }}>
-                                                        </div>
-                                                        <div className="info-author">
-                                                            <div className="name"><a href="/">William Wright</a>
-                                                            </div>
-                                                            <time className="data" dateTime={date.format('YYYY-MM-DD')}>
-                                                                { date.format('MMM DD, YYYY') }
-                                                            </time>
-                                                            <span className="timetoread"> · 5 min to read</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="likes"><FontAwesomeIcon icon={faHeart} />43 109</div>
-                                                    <h2 title="Why every travel photographer should carry a notebook">
+                                                    <ByAuthors coauthors={post.coauthors}/>
+                                                    <h2 title={post.title.rendered}>
                                                         <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
                                                     </h2>
+                                                    <div className='post-details'>
+                                                        <time className="data" dateTime={date.format('YYYY-MM-DD')}>
+                                                            { date.format('MMM DD, YYYY') }
+                                                        </time>
+                                                        <span className="timetoread"> · 5 min to read</span>
+                                                    </div>
                                                 </article>
                                             )
                                         })
@@ -113,17 +109,27 @@ class RandomCategory extends Component {
                                 <div className="swiper-pagination horizontal"/>
                             </div>
                         </div>
-                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://place-hold.it/379x263')" }}>
-                            <div className="likes"><FontAwesomeIcon icon={faHeart} />43 109</div>
+                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://picsum.photos/768/432/?random')" }}>
                             <h2 title="Don’t date a girl who travels">
                                 <Link to={`/posts/${ posts[3].slug}`}>{ posts[3].title.rendered }</Link>
                             </h2>
+                            <div className='post-details'>
+                                <time className="data" dateTime={moment(posts[3].date, utcFormat).format('YYYY-MM-DD')}>
+                                    { moment(posts[3].date, utcFormat).format('MMM DD, YYYY') }
+                                </time>
+                                <span className="timetoread"> · 5 min to read</span>
+                            </div>
                         </article>
-                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://place-hold.it/379x263')" }}>
-                            <div className="likes"><FontAwesomeIcon icon={faHeart} />43 109</div>
+                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://picsum.photos/768/432/?random')" }}>
                             <h2 title="Don’t date a girl who travels">
                                 <Link to={`/posts/${ posts[4].slug}`}>{ posts[4].title.rendered }</Link>
                             </h2>
+                            <div className='post-details'>
+                                <time className="data" dateTime={moment(posts[4].date, utcFormat).format('YYYY-MM-DD')}>
+                                    { moment(posts[4].date, utcFormat).format('MMM DD, YYYY') }
+                                </time>
+                                <span className="timetoread"> · 5 min to read</span>
+                            </div>
                         </article>
                         <div className="holder">article of the day</div>
                     </div>
