@@ -36,6 +36,8 @@ const Content = {
         requests.get(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}`),
     categoryList: () =>
         requests.get('/wp-json/wp/v2/categories'),
+    randomPosts: () =>
+        requests.get('/wp-json/posts/random'),
 } 
 
 export default {

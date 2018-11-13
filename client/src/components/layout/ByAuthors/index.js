@@ -18,6 +18,10 @@ export default class ByAuthors extends Component {
                                     <div className="name">
                                         <Link to={`/authors/${coauthor.user_nicename}`}>{coauthor.display_name}</Link>
                                     </div>
+                                    {
+                                        this.props.bio &&
+                                        <div className='bio'>{coauthor.bio}</div>
+                                    }
                                 </div>
                             );
                         })

@@ -99,3 +99,9 @@ function add_featured_image_url_to_json_thumb( $object, $field_name, $request ){
         return null;
     }
 }
+
+function image_class_filter($classes) {
+    $classes = '';
+    return $classes . ' img-responsive';
+}
+add_filter('get_image_tag_class', 'image_class_filter');

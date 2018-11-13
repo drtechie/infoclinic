@@ -3,10 +3,12 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import 'moment/locale/ml'
 import {utcFormat} from "../../utilities/Common/constants";
 import "./index.css";
 import ByAuthors from "../ByAuthors";
 import ContentBlock from "../../utilities/ContentBlock";
+moment.locale('ml');
 
 export default class Posts extends Component {
 	render() {
