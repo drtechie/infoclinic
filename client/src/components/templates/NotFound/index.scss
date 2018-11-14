@@ -1,0 +1,103 @@
+@import "../../../scss/vars";
+
+.page-404 {
+  max-width: calc(1920px - 290px);
+  width: calc(100% - 290px);
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 900px;
+  padding-top: 247px;
+  padding-bottom: 247px;
+  background-size: cover;
+  background-position: center center;
+
+  h6 {
+    font-size: 303px;
+    font-weight: normal;
+    text-align: center;
+    color: $black;
+    letter-spacing: 0.05em;
+    line-height: 255px;
+  }
+
+  .exist {
+    p {
+      font-size: 30px;
+      font-weight: normal;
+      text-align: center;
+      color: $black;
+      letter-spacing: 0.05em;
+      line-height: 50px;
+      display: inline-block;
+    }
+  }
+
+  .btn {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 14px;
+    margin-top: 59px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .page-404 {
+    padding-top: 90px;
+    padding-bottom: 83px;
+    margin-bottom: 50px;
+    height: 515px;
+
+    h6 {
+      font-size: 220px;
+      line-height: 170px;
+    }
+
+    .exist {
+      p {
+        font-size: 22px;
+        line-height: 33px;
+      }
+    }
+
+    .btn {
+      margin-top: 72px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .page-404 {
+    padding-top: 65px;
+    padding-bottom: 75px;
+    width: calc(100% - 50px);
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 25px;
+    height: 386px;
+
+    h6 {
+      font-size: 97px;
+      line-height: 100px;
+    }
+
+    .exist {
+      p {
+        font-size: 20px;
+        line-height: 27px;
+      }
+    }
+
+    .btn {
+      margin-top: 40px;
+      padding-top: 19px;
+      padding-bottom: 17px;
+    }
+  }
+}

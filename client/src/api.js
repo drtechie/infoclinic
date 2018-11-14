@@ -6,12 +6,15 @@ const superagent = superagentPromise(_superagent, global.Promise);
 const API_ROOT = process.env.REACT_APP_API_URL;
 
 const responseBody = res => res.body;
+const responseWithHeaders = res => { return { headers: res.headers, body: res.body } };
 
 const requests = {
 	get: url =>
 		superagent.get(`${API_ROOT}${url}`).then( responseBody ),
 	getWithCredentials: url =>
-		superagent.get(`${API_ROOT}${url}`).withCredentials().then( responseBody )
+		superagent.get(`${API_ROOT}${url}`).withCredentials().then( responseBody ),
+    getWithHeaders: url =>
+        superagent.get(`${API_ROOT}${url}`).then( responseWithHeaders ),
 }
 
 const Menus = {
@@ -30,10 +33,24 @@ const Content = {
 		requests.get('/wp-json/react-wp-rest/pages/list'),
     stickyPosts: (per_page = 3) =>
         requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&sticky=true`),
-    postsByPage: (page, per_page = 10) =>
-        requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}`),
-    postsByCategory: (categoryID, page, per_page = 10) =>
-        requests.get(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}`),
+    postsByPage: (page, withHeader, per_page = 10) => {
+        if (withHeader) {
+            return requests.getWithHeaders(`/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}`)
+        }
+        return requests.get(`/wp-json/wp/v2/posts?per_page=${per_page}&page=${page}`)
+	},
+    postsByCategory: (categoryID, page, withHeader, per_page = 10) => {
+        if (withHeader) {
+            return requests.getWithHeaders(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}`)
+        }
+        return requests.get(`/wp-json/wp/v2/posts?categories=${categoryID}&per_page=${per_page}&page=${page}`)
+	},
+    postsByAuthor: (coauthor, page, withHeader, per_page = 10) => {
+        if (withHeader) {
+            return requests.getWithHeaders(`/wp-json/wp/v2/posts?coauthor=${coauthor}&per_page=${per_page}&page=${page}`)
+        }
+        return requests.get(`/wp-json/wp/v2/posts?coauthor=${coauthor}&per_page=${per_page}&page=${page}`)
+    },
     categoryList: () =>
         requests.get('/wp-json/wp/v2/categories'),
     randomPosts: () =>

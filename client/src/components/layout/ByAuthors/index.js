@@ -20,7 +20,7 @@ export default class ByAuthors extends Component {
                                     </div>
                                     {
                                         this.props.bio &&
-                                        <div className='bio'>{coauthor.bio}</div>
+                                        <div className='bio'>{coauthor.description}</div>
                                     }
                                 </div>
                             );

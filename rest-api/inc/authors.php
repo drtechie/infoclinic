@@ -23,7 +23,8 @@ if ( function_exists('get_coauthors') ) {
         foreach ($coauthors as $author) {
             $authors[] = array(
                 'display_name' => $author->display_name,
-                'user_nicename' => $author->user_nicename
+                'user_nicename' => $author->user_nicename,
+                'description' => $author->description,
             );
         };
 

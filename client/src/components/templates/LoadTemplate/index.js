@@ -23,10 +23,14 @@ const AsyncHome = AsyncChunks.generateChunk(() =>
 const AsyncPost = AsyncChunks.generateChunk(() => 
 	import( /* webpackChunkName: "Post" */ '../Post'));
 
+const AsyncPosts = AsyncChunks.generateChunk(() =>
+    import( /* webpackChunkName: "Posts" */ '../Posts'));
+
 const templates = {
 	home: AsyncHome,
 	default: AsyncDefault,
-	post: AsyncPost
+	post: AsyncPost,
+	posts: AsyncPosts,
 }
 
 const mapStateToProps = state => ({

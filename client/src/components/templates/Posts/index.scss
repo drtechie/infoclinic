@@ -1,0 +1,10 @@
+.pagination-grid {
+  text-align: center;
+  &.top {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  &.bottom {
+    padding-bottom: 40px;
+  }
+}
