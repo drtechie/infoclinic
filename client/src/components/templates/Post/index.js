@@ -71,7 +71,7 @@ class Post extends Component {
                                 {
                                     this.state.randomPosts.length > 0 && this.state.randomPosts.map(post => {
                                         return (
-                                            <div className="wrap-related">
+                                            <div className="wrap-related" key={post.id}>
                                                 <img className="img-responsive"
                                                      src="https://picsum.photos/768/432/?random" alt=""/>
                                                 <h2>

@@ -6,6 +6,7 @@ import AsyncChunks from './components/utilities/AsyncLoader';
 import NotFound from './components/templates/NotFound';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import ScrollToTop from './components/layout/ScrollToTop';
 import LoadTemplate from './components/templates/LoadTemplate';
 import api from './api';
 import './index.css';
@@ -110,13 +111,14 @@ class App extends Component {
 
 	render() {
 		return [
-			<Header key='header'/>,
-            <main id="main" key='main'>
+			<ScrollToTop key="scroll"/>,
+			<Header key="header"/>,
+            <main id="main" key="main">
 				<Switch>
 					{ this.buildRoutes(this.props.pageList) }
 				</Switch>
 			</main>,
-			<Footer key='footer'/>,
+			<Footer key="footer" />,
 		];
 	}
 }

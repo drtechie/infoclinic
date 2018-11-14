@@ -56,7 +56,7 @@ class LoadTemplate extends Component {
 				: this.props.match.params.slug
 		}
 
-        this.fetchData()
+        this.fetchData(this.state.slug);
 	}
 
 	checkForPreview() {
@@ -82,10 +82,10 @@ class LoadTemplate extends Component {
 		}
 	}
 
-	fetchData() {
-		if (!this.props.data[this.props.type][this.state.slug]) {
+	fetchData(slug) {
+		if (!this.props.data[this.props.type][slug]) {
 			const promises = []
-			promises.push(api.Content.dataBySlug(this.props.type, this.state.slug).then(
+			promises.push(api.Content.dataBySlug(this.props.type, slug).then(
                 res => {
                     return res[0];
                 },
@@ -93,7 +93,7 @@ class LoadTemplate extends Component {
                     console.warn(error);
                 }
             ));
-			if (this.props.type === 'pages' && this.state.slug === 'home') {
+			if (this.props.type === 'pages' && slug === 'home') {
                 promises.push(api.Content.stickyPosts(3).then(
                     res => {
                         return { stickies: res }
@@ -108,10 +108,12 @@ class LoadTemplate extends Component {
                 	const res = [data.reduce((r, o) => Object.assign(r, o), {})];
                     this.props.load({
                         type: this.props.type,
-                        slug: this.state.slug,
+                        slug: slug,
                         data: res
                     })
                 })
+		} else {
+
 		}
 	}
 
@@ -120,7 +122,7 @@ class LoadTemplate extends Component {
 			this.setState({
 				slug: this.props.match.params.slug
 			});
-            this.fetchData();
+            this.fetchData(this.props.match.params.slug);
 		}
 	}
 

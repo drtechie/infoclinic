@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 import queryString from 'qs';
 import { connect } from "react-redux";
 import { default as PostsList } from "../../layout/Posts";
