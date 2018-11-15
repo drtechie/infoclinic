@@ -1,0 +1,53 @@
+@import "../../../scss/vars";
+
+.author-page {
+  max-width: calc(1920px - 290px);
+  width: calc(100% - 290px);
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  .info-author {
+    overflow: hidden;
+    margin-top: 15px;
+    margin-right: 12px;
+
+    .icon-author {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      float: left;
+
+      background-size: contain;
+      background-position: center;
+      overflow: hidden;
+      margin-right: 12px;
+      position: relative;
+    }
+
+    .name {
+      line-height: 2;
+      display: inline-block;
+    }
+  }
+  .author-btn {
+    border: none;
+    padding-left: 65px;
+    padding-right: 65px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: right;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .author-page {
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .author-page {
+    width: calc(100% - 50px);
+  }
+}

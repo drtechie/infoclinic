@@ -1,5 +1,6 @@
 export default [
 	'posts',
 	'pages',
-	'static-content'
+	'static-content',
+	'authors',
 ];

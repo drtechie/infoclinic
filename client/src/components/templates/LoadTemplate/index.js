@@ -26,11 +26,15 @@ const AsyncPost = AsyncChunks.generateChunk(() =>
 const AsyncPosts = AsyncChunks.generateChunk(() =>
     import( /* webpackChunkName: "Posts" */ '../Posts'));
 
+const AsyncAuthor = AsyncChunks.generateChunk(() =>
+    import( /* webpackChunkName: "Author" */ '../Author'));
+
 const templates = {
 	home: AsyncHome,
 	default: AsyncDefault,
 	post: AsyncPost,
 	posts: AsyncPosts,
+    author: AsyncAuthor,
 }
 
 const mapStateToProps = state => ({
@@ -85,14 +89,25 @@ class LoadTemplate extends Component {
 	fetchData(slug) {
 		if (!this.props.data[this.props.type][slug]) {
 			const promises = []
-			promises.push(api.Content.dataBySlug(this.props.type, slug).then(
-                res => {
-                    return res[0];
-                },
-                error => {
-                    console.warn(error);
-                }
-            ));
+            if (this.props.type === 'authors') {
+                promises.push(api.Content.getUser(slug).then(
+                    res => {
+                        return res[0];
+                    },
+                    error => {
+                        console.warn(error);
+                    }
+                ));
+            } else {
+                promises.push(api.Content.dataBySlug(this.props.type, slug).then(
+                    res => {
+                        return res[0];
+                    },
+                    error => {
+                        console.warn(error);
+                    }
+                ));
+            }
 			if (this.props.type === 'pages' && slug === 'home') {
                 promises.push(api.Content.stickyPosts(3).then(
                     res => {
@@ -112,8 +127,6 @@ class LoadTemplate extends Component {
                         data: res
                     })
                 })
-		} else {
-
 		}
 	}
 
