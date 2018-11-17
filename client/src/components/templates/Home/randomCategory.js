@@ -71,7 +71,6 @@ class RandomCategory extends Component {
 
     render() {
         const { posts }= this.state;
-        console.log(posts)
         if (posts.length > 0) {
             return (
                 <section id="top-stories" className="row" key='category-random'>
