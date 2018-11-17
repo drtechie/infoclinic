@@ -171,7 +171,6 @@ class LoadTemplate extends Component {
             if (this.props.location.pathname !== '/') {
                 relativeURL = this.props.location.pathname;
 			}
-			console.log(relativeURL)
             if (this.props.location.pathname.includes('authors/')) {
                 title = data.name;
                 imageURL = data.avatar_url;
