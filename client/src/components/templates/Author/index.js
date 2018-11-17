@@ -16,9 +16,9 @@ class NotFound extends Component {
                             style={{backgroundImage: `url('${data.avatar_url}')` }}
                         >
                         </div>
-                        <div className="name">
+                        <h2 className="name">
                             {data.name}
-                        </div>
+                        </h2>
                         <div className='bio'>{data.description}</div>
                     </div>
                     <Link to={`/posts?author=${data.slug}`}>
