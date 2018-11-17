@@ -7,12 +7,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { withRouter } from 'react-router-dom';
 import queryString from 'qs';
 
 import AsyncChunks from '../../utilities/AsyncLoader';
 import canUseDom from '../../../utilities/canUseDom';
 import api from '../../../api';
+import InfoClinicHelmet from "./helmet";
 
 const AsyncDefault = AsyncChunks.generateChunk(() => 
 	import( /* webpackChunkName: "Default" */ '../Default'));
@@ -149,31 +150,58 @@ class LoadTemplate extends Component {
 			data = this.props.data[this.props.type][this.state.slug];
 		}
 
-		let Meta = () => null;
-
 		const Template = templates[this.props.template];
 
 		if (!Template) {
 			return <Redirect to="/not-found"/>;
 		}
 
+		const pageTitles = {
+			"/posts" : "All Posts"
+		};
+
+        let title = null;
+		let description = null;
+		let imageURL = null;
+		let relativeURL = null;
+        let type = null;
+		let articlePublishDate = null;
+		let articleModifiedDate = null;
 		if (data) {
-			Meta = () => {
-				return (
-					<Helmet>
-						<title>{data.acf.metaTitle}</title>
-						<meta name="description" content={data.acf.metaDescription} />
-						<meta name="keywords" content={data.acf.metaKeywords} />
-					</Helmet>
-				)
+            if (this.props.location.pathname !== '/') {
+                relativeURL = this.props.location.pathname;
+			}
+			console.log(relativeURL)
+            if (this.props.location.pathname.includes('authors/')) {
+                title = data.name;
+                imageURL = data.avatar_url;
+			} else if (this.props.location.pathname.includes('posts/')) {
+                title = data.title.rendered;
+                description = data.excerpt.rendered;
+                type = 'article';
+                articlePublishDate = data.date;
+                articleModifiedDate = data.modified;
+                imageURL = data.featured_image_url;
+			} else {
+            	title = pageTitles[this.props.location.pathname];
 			}
 		}
 
+		const metaProps = {
+            title,
+			description,
+			imageURL,
+            type,
+			relativeURL,
+			articlePublishDate,
+			articleModifiedDate,
+		}
+
 		return [
-            <Meta key='meta'/>,
+            <InfoClinicHelmet {...metaProps} key='helmet'/>,
             <Template data={data} slug={this.state.slug} key='template'/>
 		];
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoadTemplate);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoadTemplate));

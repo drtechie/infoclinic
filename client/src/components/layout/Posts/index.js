@@ -32,7 +32,7 @@ export default class Posts extends Component {
                                     <div className="wrap post-type-image post-image">
                                         <img
                                             className="img-responsive"
-                                            src={post.featured_image_url_mini}
+                                            src={post.featured_image_url_square}
                                             alt={post.title.rendered}
                                         />
                                     </div>
