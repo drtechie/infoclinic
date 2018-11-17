@@ -18,12 +18,13 @@ export default class SocialLinks extends Component {
 
     }
     render() {
-        const { data }= this.props
+        const { data } = this.props;
+        const baseURL = `https://www.infoclinic.in/posts/${data.slug}`;
         return (
             <div className="soc-wrap">
                 <a
                     className="gp"
-                    href={`https://plus.google.com/share?url=${window.location.href}`}
+                    href={`https://plus.google.com/share?url=${baseURL}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -31,7 +32,7 @@ export default class SocialLinks extends Component {
                 </a>
                 <a
                     className="tw"
-                    href={`https://twitter.com/intent/tweet?text=${data.title.rendered}&url=${window.location.href}`}
+                    href={`https://twitter.com/intent/tweet?text=${data.title.rendered}&url=${baseURL}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -39,7 +40,7 @@ export default class SocialLinks extends Component {
                 </a>
                 <a
                     className="fb"
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -47,7 +48,7 @@ export default class SocialLinks extends Component {
                 </a>
                 <a
                     className="wa"
-                    href={`${(this.isMobile() ? 'whatsapp://' : 'https://web.whatsapp.com/')}send?text=${data.title.rendered} ${window.location.href}` }
+                    href={`${(this.isMobile() ? 'whatsapp://' : 'https://web.whatsapp.com/')}send?text=${data.title.rendered} ${baseURL}` }
                     target="_blank"
                     rel="noopener noreferrer"
                 >
