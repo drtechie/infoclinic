@@ -1,0 +1,22 @@
+@import "../../../scss/vars";
+
+.default-page {
+  max-width: calc(1920px - 290px);
+  width: calc(100% - 290px);
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 1366px) {
+  .default-page {
+    width: calc(100% - 100px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .default-page {
+    width: calc(100% - 50px);
+  }
+}

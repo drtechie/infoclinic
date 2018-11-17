@@ -13,10 +13,10 @@ class Default extends Component {
 			let data = this.props.data;
 
 			return (
-				<article className={`${this.props.slug} default-template`}>
+				<section className={`${this.props.slug} default-page`}>
 					<h1>{data.title.rendered}</h1>
 					<ContentBlock content={data.content.rendered} />
-				</article>
+				</section>
 			);
 		}
 
