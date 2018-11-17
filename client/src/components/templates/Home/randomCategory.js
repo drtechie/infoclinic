@@ -45,7 +45,7 @@ class RandomCategory extends Component {
             const atLeastFivePosts = this.props.categoriesList.filter(category => category.count >= 5);
             if (atLeastFivePosts.length > 0) {
                 const category = atLeastFivePosts[Math.floor(Math.random()*atLeastFivePosts.length)];
-                api.Content.postsByCategory(category.id, 1, 5).then(
+                api.Content.postsByCategory(category.id, 1, false, 5).then(
                     res => {
                         this.setState({posts: res});
                         this.initializeSlider();
@@ -71,6 +71,7 @@ class RandomCategory extends Component {
 
     render() {
         const { posts }= this.state;
+        console.log(posts)
         if (posts.length > 0) {
             return (
                 <section id="top-stories" className="row" key='category-random'>
@@ -88,7 +89,7 @@ class RandomCategory extends Component {
                                             return (
                                                 <article
                                                     className="swiper-slide post-swiper overlay"
-                                                    style={{backgroundImage: "url('https://picsum.photos/768/432/?random')" }}
+                                                    style={{backgroundImage: `url('${post.featured_image_url_mini}')` }}
                                                     key={post.id}
                                                 >
                                                     <ByAuthors coauthors={post.coauthors}/>
@@ -109,8 +110,8 @@ class RandomCategory extends Component {
                                 <div className="swiper-pagination horizontal"/>
                             </div>
                         </div>
-                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://picsum.photos/768/432/?random')" }}>
-                            <h2 title="Don’t date a girl who travels">
+                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: `url('${posts[3].featured_image_url_mini}')` }}>
+                            <h2 title={posts[3].title.rendered}>
                                 <Link to={`/posts/${ posts[3].slug}`}>{ posts[3].title.rendered }</Link>
                             </h2>
                             <div className='post-details'>
@@ -120,8 +121,8 @@ class RandomCategory extends Component {
                                 <span className="timetoread"> · 5 min to read</span>
                             </div>
                         </article>
-                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: "url('https://picsum.photos/768/432/?random')" }}>
-                            <h2 title="Don’t date a girl who travels">
+                        <article className="wrapper-post post-image overlay"  style={{backgroundImage: `url('${posts[4].featured_image_url_mini}')` }}>
+                            <h2 title={posts[4].title.rendered}>
                                 <Link to={`/posts/${ posts[4].slug}`}>{ posts[4].title.rendered }</Link>
                             </h2>
                             <div className='post-details'>

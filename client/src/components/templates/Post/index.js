@@ -42,7 +42,7 @@ class Post extends Component {
                 <article className={`single-post ${this.props.slug}`} >
                     <div className="container-post">
                         <div className="post-image">
-                            <img className="img-responsive" src="https://picsum.photos/1152/648/?random" alt="" />
+                            <img className="img-responsive" src={data.featured_image_url} alt="" />
                         </div>
                         <div className="post-content">
                             <div className="data-post row">
@@ -73,7 +73,7 @@ class Post extends Component {
                                         return (
                                             <div className="wrap-related" key={post.id}>
                                                 <img className="img-responsive"
-                                                     src="https://picsum.photos/768/432/?random" alt=""/>
+                                                     src={post.featured_image_url_mini} alt=""/>
                                                 <h2>
                                                     <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
                                                 </h2>

@@ -93,7 +93,7 @@ export default class MainSlider extends Component {
                                     return (
                                         <div
                                             className="swiper-slide"
-                                            style={{backgroundImage: "url('https://picsum.photos/1152/648/?random')"}}
+                                            style={{backgroundImage: `url('${sticky.featured_image_url}')`}}
                                             key={sticky.id}
                                         >
                                             <div className="data-post">
