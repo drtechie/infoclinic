@@ -12,7 +12,7 @@ export default class ByAuthors extends Component {
                                 <div className="info-author" key={coauthor.user_nicename}>
                                     <div
                                         className="icon-author"
-                                        style={{backgroundImage: "url('https://place-hold.it/66x66')" }}
+                                        style={{backgroundImage: `url('${coauthor.avatar_url}')` }}
                                     >
                                     </div>
                                     <div className="name">

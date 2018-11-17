@@ -13,7 +13,7 @@ class NotFound extends Component {
                     <div className="info-author">
                         <div
                             className="icon-author"
-                            style={{backgroundImage: `url('${data.avatar_urls["96"]}')` }}
+                            style={{backgroundImage: `url('${data.avatar_url}')` }}
                         >
                         </div>
                         <div className="name">
@@ -21,12 +21,11 @@ class NotFound extends Component {
                         </div>
                         <div className='bio'>{data.description}</div>
                     </div>
-                    <Link to={`/posts?coauthor=${data.slug}`}>
+                    <Link to={`/posts?author=${data.slug}`}>
                         <button className="author-btn btn">
                             More posts by {data.name}
                         </button>
                     </Link>
-
                 </section>
             );
         }

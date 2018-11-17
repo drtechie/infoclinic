@@ -25,11 +25,38 @@ if ( function_exists('get_coauthors') ) {
                 'display_name' => $author->display_name,
                 'user_nicename' => $author->user_nicename,
                 'description' => $author->description,
+                'avatar_url' => scrapeImage(get_wp_user_avatar($author->ID, "thumbnail")),
             );
         };
 
         return $authors;
     }
+}
+
+if ( function_exists('get_wp_user_avatar') ) {
+    add_action( 'rest_api_init', 'custom_register_author_image' );
+    function custom_register_author_image() {
+        register_rest_field( 'user',
+            'avatar_url',
+            array(
+                'get_callback'    => 'custom_get_avatar_url',
+                'update_callback' => null,
+                'schema'          => null,
+            )
+        );
+    }
+
+    function custom_get_avatar_url( $object, $field_name, $request ) {
+        return scrapeImage(get_wp_user_avatar($object['id'], "thumbnail"));
+    }
+}
+
+function scrapeImage($text) {
+    $pattern = '/src=[\'"]?([^\'" >]+)[\'" >]/';
+    preg_match($pattern, $text, $link);
+    $link = $link[1];
+    $link = urldecode($link);
+    return $link;
 }
 
 /**
