@@ -40,7 +40,7 @@
   },
   "scripts" : {
     "copy-theme": "rm -rf $(pwd)/wordpress/wp-content/themes/rest-api && ln -sf $(pwd)/rest-api $(pwd)/wordpress/wp-content/themes/rest-api",
-    "copy-config": "rm $(pwd)/wordpress/wp-config.php && ln -sf $(pwd)/config/wp-config.php $(pwd)/wordpress/wp-config.php",
+    "copy-config": "rm -f $(pwd)/wordpress/wp-config.php && ln -sf $(pwd)/config/wp-config.php $(pwd)/wordpress/wp-config.php",
     "wordpress-db-create": "cd wordpress && wp db create",
     "wordpress-db-setup": "cd wordpress && wp core install --url='http://localhost:8080' --title='infoclinic' --admin_user='admin' --admin_password='password' --admin_email='admin@example.com'",
     "yarn-install": "cd client && yarn install --check-files",

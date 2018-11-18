@@ -2,7 +2,8 @@
 namespace Deployer;
 
 // Load .env
-with(new \Dotenv\Dotenv(__DIR__))->load();
+require_once(__DIR__ . '/vendor/autoload.php');
+(new \Dotenv\Dotenv(__DIR__))->load();
 
 require 'recipe/common.php';
 
@@ -16,15 +17,16 @@ set('repository', 'https://github.com/drtechie/infoclinic');
 set('git_tty', true); 
 
 // Shared files/dirs between deploys 
-set('shared_files', ['env', 'client/.env']);
+set('shared_files', ['.env', 'client/.env']);
 set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress']);
 
 // Writable dirs by web server 
 set('writable_dirs', []);
 
-set('user', getenv('DEPLOY_USER'));
 // Hosts
 host(getenv('DEPLOY_HOST'))
+    ->user(getenv('DEPLOY_USER'))
+    ->port(getenv('DEPLOY_PORT'))
     ->set('deploy_path', getenv('DEPLOY_PATH'));
     
 
@@ -55,18 +57,18 @@ after('deploy:failed', 'deploy:unlock');
 
 desc('yarn install');
 task('yarn:install', function () {
-    run('cd client && yarn install --check-files');
+    run('cd {{deploy_path}}/shared/client && yarn install --check-files');
 });
 
 desc('yarn build');
 task('yarn:build', function () {
-    run('cd client && yarn build');
+    run('cd {{release_path}}/client && yarn build');
 });
 
 desc('theme setup');
 task('theme:setup', function () {
-    run('composer run-script copy-theme');
-    run('composer run-script copy-config');
+    run('cd {{release_path}} && composer run-script copy-theme');
+    run('cd {{release_path}} && composer run-script copy-config');
 });
 
 desc('infoclinic install');
