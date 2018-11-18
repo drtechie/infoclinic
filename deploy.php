@@ -41,7 +41,7 @@ task('deploy', [
     'deploy:update_code',
     'deploy:shared',
     'deploy:writable',
-    'deploy:vendors',
+    'composer:install',
     'yarn:install',
     'theme:setup',
     'deploy:clear_paths',
@@ -63,6 +63,11 @@ task('yarn:install', function () {
 desc('yarn build');
 task('yarn:build', function () {
     run('cd {{release_path}}/client && yarn build');
+});
+
+desc('composer install');
+task('composer:install', function () {
+    run('cd {{release_path}} && composer install');
 });
 
 desc('theme setup');
