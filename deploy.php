@@ -18,7 +18,7 @@ set('git_tty', true);
 
 // Shared files/dirs between deploys 
 set('shared_files', ['.env', 'client/.env']);
-set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress']);
+set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress', 'uploads']);
 
 // Writable dirs by web server 
 set('writable_dirs', []);
@@ -75,6 +75,11 @@ desc('theme setup');
 task('theme:setup', function () {
     run('cd {{release_path}} && composer run-script copy-theme');
     run('cd {{release_path}} && composer run-script copy-config');
+});
+
+desc('theme upload');
+task('theme:upload', function () {
+    run('rm -rf {{release_path}}/wordpress/wp-content/uploads && ln -sf {{release_path}}/uploads {{release_path}}/wordpress/wp-content/');
 });
 
 desc('infoclinic install');
