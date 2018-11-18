@@ -22,11 +22,10 @@ set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress']);
 // Writable dirs by web server 
 set('writable_dirs', []);
 
-
+set('user', getenv('DEPLOY_USER'));
 // Hosts
-
 host(getenv('DEPLOY_HOST'))
-    ->set('deploy_path', getenv('DB_PATH'));
+    ->set('deploy_path', getenv('DEPLOY_PATH'));
     
 
 // Tasks
