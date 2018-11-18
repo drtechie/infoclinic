@@ -15,6 +15,5 @@ yarn-error.log*
 /.idea
 
 # Composer dependencies
-/wordpress/*
-!wordpress/.keep
+/wordpress/
 /vendor

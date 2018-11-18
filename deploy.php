@@ -41,9 +41,10 @@ task('deploy', [
     'deploy:update_code',
     'deploy:shared',
     'deploy:writable',
-    'composer:install',
+    'deploy:vendors',
     'yarn:install',
     'theme:setup',
+    'yarn:build',
     'deploy:clear_paths',
     'deploy:symlink',
     'deploy:unlock',
@@ -57,7 +58,7 @@ after('deploy:failed', 'deploy:unlock');
 
 desc('yarn install');
 task('yarn:install', function () {
-    run('cd {{deploy_path}}/shared/client && yarn install --check-files');
+    run('cd {{release_path}}/client && yarn install --check-files');
 });
 
 desc('yarn build');
