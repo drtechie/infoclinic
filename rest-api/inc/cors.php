@@ -25,7 +25,7 @@ add_action( 'rest_api_init', function() {
 
 			}
 		}*/
-        header('Access-Control-Allow-Origin: "*"');
+        header('Access-Control-Allow-Origin: *');
 		header( 'Access-Control-Allow-Methods: GET' );
 		header( 'Access-Control-Allow-Credentials: true' );
 		return $value;
