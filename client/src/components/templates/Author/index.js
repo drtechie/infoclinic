@@ -5,7 +5,6 @@ import './index.css';
 class NotFound extends Component {
 
     render() {
-        console.log(this.props);
         const { data } = this.props;
         if (data) {
             return (

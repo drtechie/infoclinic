@@ -79,3 +79,9 @@ add_filter('rest_post_query', function ($args, $request) {
 
     return $args;
 }, 1, 2);
+
+
+add_filter('rest_user_query', function ($args, $request) {
+    unset($args['has_published_posts']);
+    return $args;
+}, 1, 2);
