@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5cffcd07231c2604df51fdb0f63cf04",
+    "content-hash": "a4e5024973caeac6a14b42c137a57e37",
     "packages": [
         {
             "name": "composer/installers",
@@ -125,6 +125,38 @@
                 "zikula"
             ],
             "time": "2018-08-27T06:10:37+00:00"
+        },
+        {
+            "name": "deployer/dist",
+            "version": "v6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deployphp/distribution.git",
+                "reference": "eec133237328f86c52c7d8480b5845281633ef3f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deployphp/distribution/zipball/eec133237328f86c52c7d8480b5845281633ef3f",
+                "reference": "eec133237328f86c52c7d8480b5845281633ef3f",
+                "shasum": ""
+            },
+            "bin": [
+                "dep"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Medvedev",
+                    "email": "anton@medv.io"
+                }
+            ],
+            "description": "Deployer Phar Distribution",
+            "homepage": "https://deployer.org",
+            "time": "2018-08-27T07:06:35+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",

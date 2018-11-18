@@ -22,6 +22,7 @@
   },
   "require": {
     "composer/installers": "^1.2",
+    "deployer/dist": "^6.3",
     "johnpbloch/wordpress-core": "~4.9",
     "johnpbloch/wordpress-core-installer": "^1.0",
     "vlucas/phpdotenv": "^2.5",
@@ -38,8 +39,8 @@
     "wordpress-install-dir": "wordpress"
   },
   "scripts" : {
-    "copy-theme": "ln -sf $(pwd)/rest-api $(pwd)/wordpress/wp-content/themes/rest-api",
-    "copy-config": "ln -sf $(pwd)/config/wp-config.php $(pwd)/wordpress/wp-config.php",
+    "copy-theme": "rm -rf $(pwd)/wordpress/wp-content/themes/rest-api && ln -sf $(pwd)/rest-api $(pwd)/wordpress/wp-content/themes/rest-api",
+    "copy-config": "rm $(pwd)/wordpress/wp-config.php && ln -sf $(pwd)/config/wp-config.php $(pwd)/wordpress/wp-config.php",
     "wordpress-db-create": "cd wordpress && wp db create",
     "wordpress-db-setup": "cd wordpress && wp core install --url='http://localhost:8080' --title='infoclinic' --admin_user='admin' --admin_password='password' --admin_email='admin@example.com'",
     "yarn-install": "cd client && yarn install --check-files",
