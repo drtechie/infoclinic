@@ -11,6 +11,7 @@ add_action( 'rest_api_init', function() {
 
 		// Site URL defined in WP
 		$allowed_origin_1 = get_site_url();
+        $allowed_origin_4 = get_bloginfo('wpurl');
 
 		// Create React App Default Port 3000
 		$parsed = parse_url($allowed_origin_1);
@@ -20,7 +21,7 @@ add_action( 'rest_api_init', function() {
 		// Need to allow both SSR and dev CRA access
 		if(isset($_SERVER['HTTP_ORIGIN'])) {
 			$origin = $_SERVER['HTTP_ORIGIN'];
-			if($origin == $allowed_origin_1 || $origin == $allowed_origin_2 || $origin == $allowed_origin_3) {
+			if($origin == $allowed_origin_1 || $origin == $allowed_origin_2 || $origin == $allowed_origin_3 || $origin == $allowed_origin_4) {
 				header('Access-Control-Allow-Origin: ' . $origin);
 			}
 		}
