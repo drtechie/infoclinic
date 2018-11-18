@@ -8,7 +8,7 @@ add_action( 'rest_api_init', function() {
 
 	remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
 	add_filter( 'rest_pre_serve_request', function( $value ) {
-
+/*
 		// Site URL defined in WP
 		$allowed_origin_1 = get_site_url();
         $allowed_origin_4 = get_bloginfo('wpurl');
@@ -22,10 +22,10 @@ add_action( 'rest_api_init', function() {
 		if(isset($_SERVER['HTTP_ORIGIN'])) {
 			$origin = $_SERVER['HTTP_ORIGIN'];
 			if($origin == $allowed_origin_1 || $origin == $allowed_origin_2 || $origin == $allowed_origin_3 || $origin == $allowed_origin_4) {
-				header('Access-Control-Allow-Origin: ' . $origin);
-			}
-		}
 
+			}
+		}*/
+        header('Access-Control-Allow-Origin: "*"');
 		header( 'Access-Control-Allow-Methods: GET' );
 		header( 'Access-Control-Allow-Credentials: true' );
 		return $value;
