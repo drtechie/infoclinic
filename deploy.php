@@ -18,7 +18,7 @@ set('git_tty', true);
 
 // Shared files/dirs between deploys 
 set('shared_files', ['.env', 'client/.env']);
-set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress', 'uploads']);
+set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress', 'uploads', 'logs']);
 
 // Writable dirs by web server 
 set('writable_dirs', []);
@@ -47,6 +47,7 @@ task('deploy', [
     'yarn:build',
     'deploy:clear_paths',
     'deploy:symlink',
+    'pm2:restart',
     'deploy:unlock',
     'cleanup',
     'success'
@@ -85,5 +86,10 @@ task('theme:upload', function () {
 desc('infoclinic install');
 task('infoclinic:install', function () {
     run('composer run-script infoclinic-install');
+});
+
+desc('pm2 restart');
+task('pm2:restart', function () {
+    run('pm2 restart infoclinic');
 });
 
