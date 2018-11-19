@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFacebookF, faTwitter} from "@fortawesome/free-brands-svg-icons";
-import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
+import {faFacebookF, faTwitter, faGithub} from "@fortawesome/free-brands-svg-icons";
 import './index.css';
 import api from "../../../api";
 import { buildMenu } from "../../utilities/Common/buildMenu";
@@ -33,17 +32,6 @@ class Footer extends Component {
 	render() {
 		return (
             <footer id="footer" className="row">
-                <div className="wrap-form-email">
-                    <div className="newletter">
-                        <p>Newsletter</p>
-                    </div>
-                    <form action="/" className="form-email">
-                        <input type="email" name="email" placeholder="YOUR EMAIL" />
-						<button type="submit">
-							<FontAwesomeIcon icon={faEnvelope} />
-						</button>
-                    </form>
-                </div>
                 <div className="msc-wrapper">
                     <ul className="menu">
                         {buildMenu(this.props.footerMenu)}
@@ -62,7 +50,16 @@ class Footer extends Component {
                             </li>
                         </ul>
                         <div className="copyright">
-                            <p>© {(new Date()).getFullYear()} InfoClinic. All Rights Reserved</p>
+                            <p>&copy; {(new Date()).getFullYear()} InfoClinic. All Rights Reserved</p>
+                            <p>
+                                <FontAwesomeIcon icon={faGithub} />&nbsp;
+                                <a
+                                    href="https://github.com/drtechie/infoclinic"
+                                    target="_blank" rel="noopener noreferrer"
+                                >
+                                    drtechie/infoclinic
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>
