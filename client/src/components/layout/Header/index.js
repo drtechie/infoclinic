@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom'
 import api from '../../../api';
 import NavLinks from './navLinks';
 import './index.css';
@@ -22,6 +23,12 @@ class Header extends Component {
 		    menuOpen: false,
         }
 	}
+
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname !== prevProps.location.pathname) {
+            this.setState({ menuOpen: false})
+        }
+    }
 
     fetchAndLoadMenu() {
         if (this.props.mainMenu && this.props.mainMenu.length > 0) {
@@ -90,4 +97,4 @@ class Header extends Component {
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
