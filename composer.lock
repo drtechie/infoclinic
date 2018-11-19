@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6ddcfc807ceab15672bc648e87c0349",
+    "content-hash": "23801ae2c94408441909c08cfe289005",
     "packages": [
         {
             "name": "composer/installers",
@@ -356,26 +356,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/co-authors-plus/"
-        },
-        {
-            "name": "wpackagist-plugin/reading-time-wp",
-            "version": "2.0.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/reading-time-wp/",
-                "reference": "tags/2.0.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/reading-time-wp.2.0.1.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/reading-time-wp/"
         },
         {
             "name": "wpackagist-plugin/wp-user-avatar",

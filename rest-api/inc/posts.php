@@ -18,8 +18,45 @@ function add_reading_time_to_post() {
 }
 
 function add_reading_time_to_json( $object, $field_name, $request ){
-    $reading_time_wp = new Reading_Time_WP();
-    $rt_reading_time_options = get_option( 'rt_reading_time_options' );
-    $time = $reading_time_wp->rt_calculate_reading_time( $object['id'], $rt_reading_time_options );
+    $time = rt_calculate_reading_time( $object['id'] );
     return $time;
+}
+
+function rt_calculate_reading_time( $rt_post_id ) {
+
+    $rt_content       = get_post_field( 'post_content', $rt_post_id );
+    $number_of_images = substr_count( strtolower( $rt_content ), '<img ' );
+
+    $rt_content = strip_shortcodes( $rt_content );
+
+    $words_to_count = wp_strip_all_tags($rt_content);
+    $words_to_count = trim($words_to_count);
+    $word_count = count(explode(" ",$words_to_count));
+
+    $additional_words_for_images = rt_calculate_images( $number_of_images, 200 );
+    $word_count                 += $additional_words_for_images;
+
+    $reading_time = ceil( $word_count / 200 );
+
+    // If the reading time is 0 then return it as < 1 instead of 0.
+    if ( 1 > $reading_time ) {
+        $reading_time = '< 1';
+    }
+
+    return $reading_time;
+
+}
+
+function rt_calculate_images( $total_images, $wpm ) {
+    $additional_time = 0;
+    // For the first image add 12 seconds, second image add 11, ..., for image 10+ add 3 seconds.
+    for ( $i = 1; $i <= $total_images; $i++ ) {
+        if ( $i >= 10 ) {
+            $additional_time += 3 * (int) $wpm / 60;
+        } else {
+            $additional_time += ( 12 - ( $i - 1 ) ) * (int) $wpm / 60;
+        }
+    }
+
+    return $additional_time;
 }

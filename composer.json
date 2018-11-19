@@ -29,7 +29,6 @@
     "wpackagist-plugin/acf-to-rest-api": "^3.1",
     "wpackagist-plugin/advanced-custom-fields": "^5.7",
     "wpackagist-plugin/co-authors-plus": "^3.3",
-    "wpackagist-plugin/reading-time-wp": "^2.0",
     "wpackagist-plugin/wp-user-avatar": "^2.1"
   },
   "extra": {
