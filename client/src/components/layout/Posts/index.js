@@ -44,7 +44,7 @@ export default class Posts extends Component {
                                             <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                                 { date.format('MMM DD, YYYY') }
                                             </time>
-                                            <span className="timetoread"> · 5 min to read</span>
+                                            <span className="timetoread"> · {post.reading_time} min to read</span>
                                         </div>
                                         <ContentBlock content={post.excerpt.rendered}/>
                                         <ByAuthors coauthors={post.coauthors}/>

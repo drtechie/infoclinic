@@ -24,3 +24,6 @@ require_once('inc/images.php');
 // Author fields
 require_once('inc/authors.php');
 
+// Posts setup
+require_once('inc/posts.php');
+

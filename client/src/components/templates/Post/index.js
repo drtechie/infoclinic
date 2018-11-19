@@ -49,7 +49,7 @@ class Post extends Component {
                                 <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                     { date.format('MMM DD, YYYY') }
                                 </time>
-                                <span className="timetoread"> · 5 min to read</span>
+                                <span className="timetoread"> · {data.reading_time} min to read</span>
                             </div>
                             <h1 className="row">{data.title.rendered}</h1>
                             <div className="info-post row">

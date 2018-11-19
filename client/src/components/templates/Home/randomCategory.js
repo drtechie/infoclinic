@@ -99,7 +99,7 @@ class RandomCategory extends Component {
                                                         <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                                             { date.format('MMM DD, YYYY') }
                                                         </time>
-                                                        <span className="timetoread"> · 5 min to read</span>
+                                                        <span className="timetoread"> · {post.reading_time} min to read</span>
                                                     </div>
                                                 </article>
                                             )
@@ -117,7 +117,7 @@ class RandomCategory extends Component {
                                 <time className="data" dateTime={moment(posts[3].date, utcFormat).format('YYYY-MM-DD')}>
                                     { moment(posts[3].date, utcFormat).format('MMM DD, YYYY') }
                                 </time>
-                                <span className="timetoread"> · 5 min to read</span>
+                                <span className="timetoread"> · {posts[3].reading_time} min to read</span>
                             </div>
                         </article>
                         <article className="wrapper-post post-image overlay"  style={{backgroundImage: `url('${posts[4].featured_image_url_mini}')` }}>
@@ -128,7 +128,7 @@ class RandomCategory extends Component {
                                 <time className="data" dateTime={moment(posts[4].date, utcFormat).format('YYYY-MM-DD')}>
                                     { moment(posts[4].date, utcFormat).format('MMM DD, YYYY') }
                                 </time>
-                                <span className="timetoread"> · 5 min to read</span>
+                                <span className="timetoread"> · {posts[4].reading_time} min to read</span>
                             </div>
                         </article>
                         <div className="holder">article of the day</div>
