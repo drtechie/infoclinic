@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
 import moment from "moment";
 import 'moment/locale/ml'
 import ContentBlock from '../../utilities/ContentBlock';
@@ -8,6 +7,7 @@ import ByAuthors from "../../layout/ByAuthors";
 import api from "../../../api";
 import {utcFormat} from "../../utilities/Common/constants";
 import './index.css';
+import RelatedPosts from "../../layout/RelatedPosts";
 moment.locale('ml');
 
 class Post extends Component {
@@ -63,34 +63,7 @@ class Post extends Component {
                                 <ByAuthors coauthors={data.coauthors} bio={true}/>
                             </div>
                         </div>
-                        <div className="related-posts">
-                            <div className="title">
-                                Related posts
-                            </div>
-                            <div className="related-container clearfix">
-                                {
-                                    this.state.randomPosts.length > 0 && this.state.randomPosts.map(post => {
-                                        return (
-                                            <div className="wrap-related" key={post.id}>
-                                                <img className="img-responsive"
-                                                     src={post.featured_image_url_mini} alt=""/>
-                                                <h2>
-                                                    <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
-                                                </h2>
-                                                <ContentBlock content={post.excerpt.rendered}/>
-                                                <ByAuthors coauthors={post.coauthors}/>
-                                                <Link
-                                                    to={`/posts/${post.slug}`}
-                                                    className="btn hidden"
-                                                >
-                                                    Read
-                                                </Link>
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
+                        <RelatedPosts posts={this.state.randomPosts} heading='Related posts'/>
                     </div>
                 </article>
             );
