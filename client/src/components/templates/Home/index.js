@@ -39,7 +39,7 @@ class Home extends Component {
                 heading="പുതിയ പോസ്റ്റുകൾ"
                 footerMore={true}
                 footerLink={'/posts?page=2'}
-                footerMoreText='More'
+                footerMoreText='കൂടുതൽ'
                 key="latest-posts"
                 posts={this.state.posts}
             />
