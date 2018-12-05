@@ -52,7 +52,7 @@ class Author extends Component {
                         <div className='bio'>{data.description}</div>
                     </div>
                     <div className="margin-top-20">
-                        <RelatedPosts posts={this.state.posts} heading={`Latest posts by ${data.name}`}/>
+                        <RelatedPosts posts={this.state.posts} heading={`${data.name} എഴുതിയ പുതിയ ലേഖനങ്ങൾ`}/>
                     </div>
                     <Link to={`/posts?author=${data.slug}`}>
                         <button className="author-btn btn">

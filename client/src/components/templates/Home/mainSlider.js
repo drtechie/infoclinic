@@ -81,7 +81,7 @@ export default class MainSlider extends Component {
                             <div className="swiper-btn-prev swiper-navigation-btn">
                                 <FontAwesomeIcon icon={faLongArrowAltUp}/>
                             </div>
-                            <div className="article">തുടർന്നുള്ള സങ്കീർണതകൾ</div>
+                            <div className="article">തിരഞ്ഞെടുത്ത ലേഖനങ്ങൾ</div>
                             <div className="swiper-btn-next swiper-navigation-btn">
                                 <FontAwesomeIcon icon={faLongArrowAltDown}/>
                             </div>

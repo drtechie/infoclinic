@@ -19,7 +19,7 @@ export default class Posts extends Component {
                     {
                         this.props.more &&
                         <a href={this.props.moreLink}>
-                            More <FontAwesomeIcon icon={faChevronRight} />
+                            കൂടുതൽ <FontAwesomeIcon icon={faChevronRight} />
                         </a>
                     }
                 </div>
@@ -44,12 +44,12 @@ export default class Posts extends Component {
                                             <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                                 { date.format('MMM DD, YYYY') }
                                             </time>
-                                            <span className="timetoread"> · {post.reading_time} min to read</span>
+                                            <span className="timetoread"> · {post.reading_time} മിനിറ്റ് വായന</span>
                                         </div>
                                         <ContentBlock content={post.excerpt.rendered}/>
                                         <ByAuthors coauthors={post.coauthors}/>
                                         <div className="for-mob-views">
-                                            <Link className="btn hidden" to={`/posts/${post.slug}`}>Read</Link>
+                                            <Link className="btn hidden" to={`/posts/${post.slug}`}>വായിക്കുക</Link>
                                         </div>
                                     </div>
                                 </article>

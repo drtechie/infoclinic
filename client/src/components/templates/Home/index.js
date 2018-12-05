@@ -35,8 +35,8 @@ class Home extends Component {
             />,
             <Posts
                 more={true}
-                moreLink="/"
-                heading="Latest stories"
+                moreLink="/posts?page=2"
+                heading="പുതിയ പോസ്റ്റുകൾ"
                 footerMore={true}
                 footerLink={'/posts?page=2'}
                 footerMoreText='More'

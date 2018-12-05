@@ -24,6 +24,8 @@ class RandomCategory extends Component {
         this.categorySwiperContainer = React.createRef();
         this.state = {
             posts: [],
+            categoryName: '',
+            categorySlug: '',
         };
     }
 
@@ -45,6 +47,9 @@ class RandomCategory extends Component {
             const atLeastFivePosts = this.props.categoriesList.filter(category => category.count >= 5);
             if (atLeastFivePosts.length > 0) {
                 const category = atLeastFivePosts[Math.floor(Math.random()*atLeastFivePosts.length)];
+                console.log(category);
+                this.setState({categoryName: category.name});
+                this.setState({categorySlug: category.slug});
                 api.Content.postsByCategory(category.id, 1, false, 5).then(
                     res => {
                         this.setState({posts: res});
@@ -75,8 +80,8 @@ class RandomCategory extends Component {
             return (
                 <section id="top-stories" className="row" key='category-random'>
                     <div className="sub-title title">
-                        <h4>Today’s top stories</h4>
-                        <a href="/">More <FontAwesomeIcon icon={faChevronRight} /></a>
+                        <h4>{this.state.categoryName} വർഗ്ഗത്തിലെ ലേഖനങ്ങൾ</h4>
+                        <a href={`/posts?category=${this.state.categorySlug}`}>കൂടുതൽ <FontAwesomeIcon icon={faChevronRight} /></a>
                     </div>
                     <div className="container-stories clearfix">
                         <div className="wrapper-post ">
@@ -99,7 +104,7 @@ class RandomCategory extends Component {
                                                         <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                                             { date.format('MMM DD, YYYY') }
                                                         </time>
-                                                        <span className="timetoread"> · {post.reading_time} min to read</span>
+                                                        <span className="timetoread"> · {post.reading_time} മിനിറ്റ് വായന</span>
                                                     </div>
                                                 </article>
                                             )
@@ -117,7 +122,7 @@ class RandomCategory extends Component {
                                 <time className="data" dateTime={moment(posts[3].date, utcFormat).format('YYYY-MM-DD')}>
                                     { moment(posts[3].date, utcFormat).format('MMM DD, YYYY') }
                                 </time>
-                                <span className="timetoread"> · {posts[3].reading_time} min to read</span>
+                                <span className="timetoread"> · {posts[3].reading_time} മിനിറ്റ് വായന</span>
                             </div>
                         </article>
                         <article className="wrapper-post post-image overlay"  style={{backgroundImage: `url('${posts[4].featured_image_url_mini}')` }}>
@@ -128,10 +133,10 @@ class RandomCategory extends Component {
                                 <time className="data" dateTime={moment(posts[4].date, utcFormat).format('YYYY-MM-DD')}>
                                     { moment(posts[4].date, utcFormat).format('MMM DD, YYYY') }
                                 </time>
-                                <span className="timetoread"> · {posts[4].reading_time} min to read</span>
+                                <span className="timetoread"> · {posts[4].reading_time} മിനിറ്റ് വായന</span>
                             </div>
                         </article>
-                        <div className="holder">article of the day</div>
+                        <div className="holder"> തിരഞ്ഞെടുത്ത ലേഖനങ്ങൾ </div>
                     </div>
                 </section>
             );

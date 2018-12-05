@@ -28,7 +28,7 @@ export default class RelatedPosts extends Component {
                                             to={`/posts/${post.slug}`}
                                             className="btn hidden"
                                         >
-                                            Read
+                                            വായിക്കുക
                                         </Link>
                                     </div>
                                 )

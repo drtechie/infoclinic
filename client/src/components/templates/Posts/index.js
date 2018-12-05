@@ -36,10 +36,10 @@ class Posts extends Component {
             let category = this.props.categoriesList.find(cat => cat.slug === categorySlug);
             categoryID = category.id;
             req =  api.Content.postsByCategory(categoryID, page, true);
-            this.setState({heading: `Posts belonging to ${category.name}`})
+            this.setState({heading: `${category.name} വർഗ്ഗത്തിലെ ലേഖനങ്ങൾ`})
         } else if (coauthor) {
             req =  api.Content.postsByAuthor(coauthor, page, true);
-            this.setState({heading: `Posts written by ${coauthor}`})
+            this.setState({heading: `${coauthor} എഴുതിയ ലേഖനങ്ങൾ`})
         } else {
             req =  api.Content.postsByPage(page, true);
         }
