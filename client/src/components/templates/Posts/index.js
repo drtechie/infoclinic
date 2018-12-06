@@ -20,7 +20,7 @@ class Posts extends Component {
             posts: [],
             total: 0,
             currentPage: 1,
-            heading: 'എല്ലാ ലേഖനങ്ങളും ',
+            heading: 'എല്ലാ ലേഖനങ്ങളും',
         };
     }
 
