@@ -10,7 +10,8 @@ const store = configureStore();
 
 const app = express();
 const path = require('path');
-const port = 1337;
+const instance = +process.env.NODE_APP_INSTANCE || 0;
+const port = 1337 + instance;
 
 app.get('/clear-redux-store/:type/:slug', clearReduxStore.bySlug(store));
 
