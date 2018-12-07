@@ -28,6 +28,7 @@
     "vlucas/phpdotenv": "^2.5",
     "wpackagist-plugin/acf-to-rest-api": "^3.1",
     "wpackagist-plugin/advanced-custom-fields": "^5.7",
+    "wpackagist-plugin/classic-editor": "^1.1",
     "wpackagist-plugin/co-authors-plus": "^3.3",
     "wpackagist-plugin/wp-user-avatar": "^2.1"
   },
