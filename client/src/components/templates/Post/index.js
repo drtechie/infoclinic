@@ -35,7 +35,6 @@ class Post extends Component {
 
     render() {
         if (this.props.data) {
-
             let data = this.props.data;
             const date = moment(data.date, utcFormat);
             return (

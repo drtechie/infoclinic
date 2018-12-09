@@ -58,6 +58,12 @@ class Posts extends Component {
         this.fetchPosts();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location.search !== prevProps.location.search) {
+            this.fetchPosts();
+        }
+    }
+
     render() {
         return [
             <div className="margin-top-20" key="post-list">

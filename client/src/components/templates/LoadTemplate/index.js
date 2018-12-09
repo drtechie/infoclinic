@@ -175,12 +175,16 @@ class LoadTemplate extends Component {
                 title = data.name;
                 imageURL = data.avatar_url;
 			} else if (this.props.location.pathname.includes('posts/')) {
-                title = data.title.rendered;
-                description = data.excerpt.rendered;
-                type = 'article';
-                articlePublishDate = data.date;
-                articleModifiedDate = data.modified;
-                imageURL = data.featured_image_url;
+                if (data && !data.title) {
+                    this.props.history.push('/not-found')
+                } else {
+                    title = data.title.rendered;
+                    description = data.excerpt.rendered;
+                    type = 'article';
+                    articlePublishDate = data.date;
+                    articleModifiedDate = data.modified;
+                    imageURL = data.featured_image_url;
+				}
 			} else {
             	title = pageTitles[this.props.location.pathname];
 			}

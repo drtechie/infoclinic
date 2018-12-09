@@ -1,10 +1,19 @@
 import React, { Component } from 'react';
 import { default as ReactPagination } from 'react-paginating';
+import { withRouter } from 'react-router-dom';
+import queryString from "qs";
 import './pagination.css';
 
-export default class Pagination extends Component {
-    handlePageChange() {
+class Pagination extends Component {
+    constructor(props) {
+        super(props);
+        this.handlePageChange = this.handlePageChange.bind(this)
+    }
 
+    handlePageChange(page) {
+        let values = queryString.parse(this.props.location.search, { ignoreQueryPrefix: true });
+        values.page = page;
+        this.props.history.push(`${this.props.location.pathname}?${queryString.stringify(values)}`);
     }
 
     render() {
@@ -89,3 +98,5 @@ export default class Pagination extends Component {
         );
     }
 }
+
+export default withRouter(Pagination);

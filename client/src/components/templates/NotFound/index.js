@@ -10,9 +10,9 @@ class NotFound extends Component {
             <section className="page-404">
                 <h6>404</h6>
                 <div className="exist">
-                    <p>Sorry, this page doesn’t exist.</p>
+                    <p>ക്ഷമിക്കണം, ഈ പേജ് നിലവിലില്ല.</p>
                 </div>
-                <Link className="btn" to="/">Go home</Link>
+                <Link className="btn" to="/">പ്രധാന താൾ</Link>
             </section>
 		);
 	};
