@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class ScrollToTop extends Component {
     componentDidUpdate(prevProps) {
-        if (this.props.location.pathname !== prevProps.location.pathname) {
+        if (this.props.location.pathname !== prevProps.location.pathname || this.props.location.search !== prevProps.location.search) {
             document.body.scrollTop = 0;
         }
     }
