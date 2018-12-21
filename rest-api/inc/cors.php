@@ -28,6 +28,8 @@ add_action( 'rest_api_init', function() {
         $host = get_site_url();
         if (getenv('STAGE') == 'development') {
             $host = $_SERVER['HTTP_ORIGIN'];
+        } else if (getenv('STAGE') == 'production') {
+            $host = 'https://infoclinic.in';
         }
         header('Access-Control-Allow-Origin: '.$host);
 		header( 'Access-Control-Allow-Methods: GET' );
