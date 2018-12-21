@@ -62,6 +62,7 @@ class LoadTemplate extends Component {
 		}
 
         this.fetchData(this.state.slug);
+        this.checkForPreview();
 	}
 
 	checkForPreview() {
@@ -141,8 +142,6 @@ class LoadTemplate extends Component {
 	}
 
 	render() {
-
-		this.checkForPreview();
 
 		let data = this.state.preview;
 		

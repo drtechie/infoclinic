@@ -25,11 +25,14 @@ add_action( 'rest_api_init', function() {
 
 			}
 		}*/
-        header('Access-Control-Allow-Origin: *');
+        $host = get_site_url();
+        if (getenv('STAGE') == 'development') {
+            $host = $_SERVER['HTTP_ORIGIN'];
+        }
+        header('Access-Control-Allow-Origin: '.$host);
 		header( 'Access-Control-Allow-Methods: GET' );
 		header( 'Access-Control-Allow-Credentials: true' );
 		return $value;
 	});
 }, 15 );
 
-?>
