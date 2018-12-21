@@ -25,7 +25,7 @@ add_action( 'rest_api_init', function() {
 
 			}
 		}*/
-        $host = get_site_url();
+        $host = get_bloginfo('wpurl');
         if (getenv('STAGE') == 'development') {
             $host = $_SERVER['HTTP_ORIGIN'];
         }
