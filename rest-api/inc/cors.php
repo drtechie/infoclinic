@@ -29,7 +29,9 @@ add_action( 'rest_api_init', function() {
         if (getenv('STAGE') == 'development') {
             $host = $_SERVER['HTTP_ORIGIN'];
         } else if (getenv('STAGE') == 'production') {
-            $host = 'https://infoclinic.in';
+            $prod_host = $_SERVER['HTTP_ORIGIN'];
+            if ($prod_host == 'https://infoclinic.in' || $prod_host == 'https://www.infoclinic.in')
+            $host = $prod_host;
         }
         header('Access-Control-Allow-Origin: '.$host);
 		header( 'Access-Control-Allow-Methods: GET' );
