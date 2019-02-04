@@ -73,6 +73,11 @@
       }
     }
 
+    li {
+      font-size: 22px;
+      line-height: 32px;
+    }
+
     blockquote {
       background: $dark;
       padding: 74px 60px 63px;
@@ -633,6 +638,12 @@
           font-size: 18px;
           line-height: 25px;
         }
+      }
+
+
+      li {
+        font-size: 18px;
+        line-height: 25px;
       }
 
       h2 {
