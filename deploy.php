@@ -44,6 +44,7 @@ task('deploy', [
     'deploy:vendors',
     'yarn:install',
     'theme:setup',
+    'theme:upload',
     'yarn:build',
     'deploy:clear_paths',
     'deploy:symlink',
