@@ -94,6 +94,7 @@
         margin-right: 17px;
         position: relative;
         display: inline-block;
+        list-style-type: none;
 
         a {
           text-transform: uppercase;
@@ -145,6 +146,7 @@
         li {
           margin-right: 20px;
           float: left;
+          list-style-type: none;
 
           &:last-child {
             margin-right: 0;
