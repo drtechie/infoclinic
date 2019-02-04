@@ -14,7 +14,7 @@ class Default extends Component {
 
 			return (
 				<section className={`${this.props.slug} default-page`}>
-					<h1>{data.title.rendered}</h1>
+					<h1 dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
 					<ContentBlock content={data.content.rendered} />
 				</section>
 			);

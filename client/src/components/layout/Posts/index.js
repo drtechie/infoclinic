@@ -15,7 +15,7 @@ export default class Posts extends Component {
 		return (
             <section className="posts-grid row">
                 <div className="sub-title title">
-                    <h4>{this.props.heading}</h4>
+                    <h4 dangerouslySetInnerHTML={{ __html: this.props.heading }}/>
                     {
                         this.props.more &&
                         <a href={this.props.moreLink}>
@@ -38,7 +38,9 @@ export default class Posts extends Component {
                                     </div>
                                     <div className="wrap post-type-text">
                                         <h2>
-                                            <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
+                                            <Link to={`/posts/${post.slug}`}>
+                                                <span dangerouslySetInnerHTML={{ __html: post.title.rendered }}/>
+                                            </Link>
                                         </h2>
                                         <div className='post-details'>
                                             <time className="data" dateTime={date.format('YYYY-MM-DD')}>

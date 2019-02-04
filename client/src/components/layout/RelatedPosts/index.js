@@ -20,7 +20,9 @@ export default class RelatedPosts extends Component {
                                         <img className="img-responsive"
                                              src={post.featured_image_url_mini} alt=""/>
                                         <h2>
-                                            <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
+                                            <Link to={`/posts/${post.slug}`}>
+                                                <span dangerouslySetInnerHTML={{ __html: post.title.rendered }}/>
+                                            </Link>
                                         </h2>
                                         <ContentBlock content={post.excerpt.rendered}/>
                                         <ByAuthors coauthors={post.coauthors}/>

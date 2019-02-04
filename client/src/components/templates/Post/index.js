@@ -50,7 +50,7 @@ class Post extends Component {
                                 </time>
                                 <span className="timetoread"> · {data.reading_time} മിനിറ്റ് വായന</span>
                             </div>
-                            <h1 className="row">{data.title.rendered}</h1>
+                            <h1 className="row" dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
                             <div className="info-post row">
                                 <SocialLinks data={data} />
                             </div>

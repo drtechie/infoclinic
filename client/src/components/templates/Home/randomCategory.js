@@ -98,7 +98,9 @@ class RandomCategory extends Component {
                                                 >
                                                     <ByAuthors coauthors={post.coauthors}/>
                                                     <h2 title={post.title.rendered}>
-                                                        <Link to={`/posts/${post.slug}`}>{post.title.rendered}</Link>
+                                                        <Link to={`/posts/${post.slug}`}>
+                                                            <span dangerouslySetInnerHTML={{ __html: post.title.rendered }}/>
+                                                        </Link>
                                                     </h2>
                                                     <div className='post-details'>
                                                         <time className="data" dateTime={date.format('YYYY-MM-DD')}>
@@ -116,7 +118,9 @@ class RandomCategory extends Component {
                         </div>
                         <article className="wrapper-post post-image overlay"  style={{backgroundImage: `url('${posts[3].featured_image_url_mini}')` }}>
                             <h2 title={posts[3].title.rendered}>
-                                <Link to={`/posts/${ posts[3].slug}`}>{ posts[3].title.rendered }</Link>
+                                <Link to={`/posts/${ posts[3].slug}`}>
+                                    <span dangerouslySetInnerHTML={{ __html: posts[3].title.rendered }}/>
+                                </Link>
                             </h2>
                             <div className='post-details'>
                                 <time className="data" dateTime={moment(posts[3].date, utcFormat).format('YYYY-MM-DD')}>
@@ -127,7 +131,9 @@ class RandomCategory extends Component {
                         </article>
                         <article className="wrapper-post post-image overlay"  style={{backgroundImage: `url('${posts[4].featured_image_url_mini}')` }}>
                             <h2 title={posts[4].title.rendered}>
-                                <Link to={`/posts/${ posts[4].slug}`}>{ posts[4].title.rendered }</Link>
+                                <Link to={`/posts/${ posts[4].slug}`}>
+                                    <span dangerouslySetInnerHTML={{ __html: posts[4].title.rendered }}/>
+                                </Link>
                             </h2>
                             <div className='post-details'>
                                 <time className="data" dateTime={moment(posts[4].date, utcFormat).format('YYYY-MM-DD')}>

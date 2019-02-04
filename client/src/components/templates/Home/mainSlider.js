@@ -102,7 +102,7 @@ export default class MainSlider extends Component {
                                             <div className="swiper-text">
                                                 <div className="ellipsis text">
                                                     <Link to={`/posts/${ sticky.slug}`}>
-                                                        { sticky.title.rendered }
+                                                        <span dangerouslySetInnerHTML={{ __html: sticky.title.rendered }}/>
                                                     </Link>
                                                 </div>
                                                 <ByAuthors coauthors={sticky.coauthors}/>
@@ -119,7 +119,7 @@ export default class MainSlider extends Component {
                             this.state.post &&
                                 [
                                     <Link to={`/posts/${this.state.post.slug}`} key='link'>
-                                        {this.state.post.title.rendered}
+                                        <span dangerouslySetInnerHTML={{ __html: this.state.post.title.rendered }}/>
                                     </Link>,
                                     <ByAuthors coauthors={this.state.post.coauthors} key='by-writers'/>
                                 ]
