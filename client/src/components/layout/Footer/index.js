@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import {faFacebookF, faTwitter, faGithub} from "@fortawesome/free-brands-svg-icons";
 import './index.css';
 import api from "../../../api";
@@ -59,6 +60,9 @@ class Footer extends Component {
                                 >
                                     drtechie/infoclinic
                                 </a>
+                            </p>
+                            <p>
+                                <Link to='/privacy-policy'>Privacy Policy</Link>
                             </p>
                         </div>
                     </div>
