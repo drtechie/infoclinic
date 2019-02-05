@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from "moment";
-import 'moment/locale/ml'
+import 'moment/locale/ml';
+import { withRouter } from 'react-router-dom';
 import ContentBlock from '../../utilities/ContentBlock';
 import SocialLinks from "./socialLinks";
 import ByAuthors from "../../layout/ByAuthors";
@@ -31,6 +32,12 @@ class Post extends Component {
 
     componentDidMount() {
         this.fetchRandomPosts();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.location !== this.props.location) {
+            this.fetchRandomPosts();
+        }
     }
 
     render() {
@@ -72,4 +79,4 @@ class Post extends Component {
     }
 }
 
-export default Post;
+export default withRouter(Post);
