@@ -5,10 +5,10 @@
 */
 if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'post-thumbnails' );
-    add_image_size( 'blog-image', 1152, 648, true);
-    add_image_size( 'blog-mini', 768, 432, true);
+    add_image_size( 'blog-image', 1200, 630, true);
+    add_image_size( 'blog-mini', 600, 315, true);
     add_image_size( 'blog-square', 320, 320, true);
-    add_image_size( 'blog-thumbnail', 12, 8, true);
+    add_image_size( 'blog-thumbnail', 12, 6, true);
     add_filter('image_size_names_choose', 'info_clinic_image_sizes');
 }
 

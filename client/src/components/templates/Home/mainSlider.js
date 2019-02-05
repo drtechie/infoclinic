@@ -22,7 +22,7 @@ export default class MainSlider extends Component {
 
     initializeSlider() {
         if (this.mainSwiperContainer.current) {
-            this.setState({height: (this.mainSwiperContainer.current.offsetWidth / 100) * 66.8});
+            this.setState({height: (this.mainSwiperContainer.current.offsetWidth / 100) * 52.5});
 
             const setSwiperPost = (activeIndex) => {
                 const { stickies }= this.props.data;
@@ -37,7 +37,7 @@ export default class MainSlider extends Component {
                             setSwiperPost(this.activeIndex);
                         },
                         resize:  () =>  {
-                            this.setState({height: (this.mainSwiperContainer.current.offsetWidth / 100) * 66.8});
+                            this.setState({height: (this.mainSwiperContainer.current.offsetWidth / 100) * 52.5});
                         },
                         slideChange: function () {
                             setSwiperPost(this.activeIndex);
