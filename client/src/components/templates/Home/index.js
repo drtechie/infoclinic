@@ -3,6 +3,7 @@ import RandomCategory from "./randomCategory";
 import MainSlider from "./mainSlider";
 import Posts from "../../layout/Posts";
 import api from "../../../api";
+import Categories from "../../layout/Categories";
 
 class Home extends Component {
     constructor(props){
@@ -42,7 +43,8 @@ class Home extends Component {
                 footerMoreText='കൂടുതൽ'
                 key="latest-posts"
                 posts={this.state.posts}
-            />
+            />,
+            <Categories key='all-categories'/>
         ];
 	};
 }

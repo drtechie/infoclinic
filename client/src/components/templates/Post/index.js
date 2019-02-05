@@ -9,6 +9,7 @@ import api from "../../../api";
 import {utcFormat} from "../../utilities/Common/constants";
 import './index.css';
 import RelatedPosts from "../../layout/RelatedPosts";
+import Categories from "../../layout/Categories";
 moment.locale('ml');
 
 class Post extends Component {
@@ -44,8 +45,8 @@ class Post extends Component {
         if (this.props.data) {
             let data = this.props.data;
             const date = moment(data.date, utcFormat);
-            return (
-                <article className={`single-post ${this.props.slug}`} >
+            return [
+                <article className={`single-post ${this.props.slug}`} key='single-post'>
                     <div className="container-post">
                         <div className="post-image">
                             <img className="img-responsive" src={data.featured_image_url} alt="" />
@@ -71,8 +72,9 @@ class Post extends Component {
                         </div>
                         <RelatedPosts posts={this.state.randomPosts} heading='കൂടുതൽ വായനയ്ക്ക്'/>
                     </div>
-                </article>
-            );
+                </article>,
+                <Categories key='all-categories'/>
+            ];
         } else {
             return <div></div>
         }

@@ -1,0 +1,304 @@
+@import "../../../scss/vars";
+
+.categories {
+  max-width: calc(1920px - 290px);
+  width: calc(100% - 290px);
+  margin-right: auto;
+  margin-left: auto;
+
+  .categories-container {
+    background: $lightgreycolor;
+    position: relative;
+    margin-bottom: 70px;
+    padding-top: 90px;
+    padding-bottom: 65px;
+
+    .sub-title {
+      max-width: 1272px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: none;
+      position: relative;
+      padding-left: 60px;
+      padding-right: 60px;
+
+      h4 {
+        padding-bottom: 19px;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: calc(100% - 120px);
+        height: 1px;
+        background: $greycolor;
+      }
+    }
+
+    .swiper-wrapper {
+      .swiper-container-autoheight {
+        width: 100% !important;
+      }
+
+      .swiper-slide {
+        width: 100% !important;
+
+        .swiper-slide-container {
+          overflow: hidden;
+
+          .swiper-slide-item {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            padding-right: 25px;
+            float: left;
+            width: 33.33%;
+
+            .icon-author {
+              width: 42px;
+              height: 42px;
+              background-repeat: no-repeat;
+              border-radius: 50%;
+              border: 1px solid $whitecolor;
+              border-radius: 50%;
+              float: left;
+              overflow: hidden;
+              margin-right: 14px;
+              position: relative;
+              background-position: center;
+              background-size: cover;
+            }
+
+            .info-author {
+              overflow: hidden;
+              margin-top: 3px;
+
+              .name {
+                line-height: 1;
+                letter-spacing: 0.01em;
+                font-size: 22px;
+                font-family: "Uroob", sans-serif;
+                color: $maincolor;
+              }
+
+              .data {
+                font-size: 14px;
+                color: $darkgreycolor;
+              }
+
+            }
+          }
+
+          @supports (display: grid) {
+            display: grid;
+            display: -ms-grid;
+            -ms-grid-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            -ms-grid-gap: 30px;
+            grid-gap: 0px 30px;
+
+            .swiper-slide-item {
+              width: auto;
+              float: none;
+
+              &:nth-child(3n+1) {
+                -ms-grid-column: 1;
+                -ms-grid-column-span: 1;
+
+                // grid-column: 1 / 3
+
+              }
+
+              &:nth-child(3n+2) {
+                -ms-grid-column: 2;
+                -ms-grid-column-span: 1;
+              }
+
+              &:nth-child(3n+3) {
+                -ms-grid-column: 3;
+                -ms-grid-column-span: 3;
+              }
+
+              &:nth-child(1n+4) {
+                -ms-grid-row: 2;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .categories-swiper {
+      overflow: hidden;
+      max-width: 1272px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 60px;
+      padding-right: 60px;
+      margin-top: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .categories {
+    max-width: 1150px;
+    margin-right: auto;
+    margin-left: auto;
+    width: calc(100% - 100px);
+
+    .categories-container {
+      margin-bottom: 50px;
+      padding-top: 51px;
+      padding-bottom: 57px;
+
+      .sub-title {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          .swiper-slide-container {
+            .swiper-slide-item {
+              padding-right: 30px;
+              padding-top: 18px;
+              padding-bottom: 18px;
+              float: left;
+              width: 50%;
+            }
+
+            @supports (display: grid) {
+              display: grid;
+              display: -ms-grid;
+              -ms-grid-columns: 1fr 1fr;
+              grid-template-columns: repeat(2, 1fr);
+              grid-column-gap: 30px;
+
+              .swiper-slide-item {
+                float: none;
+                width: auto;
+
+                &:nth-child(even) {
+                  -ms-grid-column: 1;
+                  -ms-grid-column-span: 1;
+                }
+
+                &:nth-child(odd) {
+                  -ms-grid-column: 2;
+                  -ms-grid-column-span: 2;
+                }
+
+                &:nth-child(1n+3) {
+                  -ms-grid-row: 2;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .categories-swiper {
+        margin-top: 38px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .categories {
+    max-width: 1150px;
+    margin-right: auto;
+    margin-left: auto;
+    width: calc(100% - 50px);
+
+    .categories-container {
+      margin-bottom: 25px;
+      padding-top: 42px;
+      padding-bottom: 50px;
+
+      .sub-title {
+        padding-left: 23px;
+        padding-right: 23px;
+
+        &:after {
+          width: calc(100% - 46px);
+        }
+
+        h4 {
+          font-size: 18px;
+          padding-bottom: 6px;
+        }
+
+        a {
+          display: none;
+        }
+      }
+
+      .swiper-navigation {
+        display: none;
+      }
+
+      .btn {
+        display: table;
+        margin-left: 25px;
+        margin-top: 23px;
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+      .swiper-pagination-categories {
+        bottom: 41px;
+        right: 21px;
+
+        .swiper-pagination-bullet {
+          display: inline-block;
+          margin-left: 4.5px;
+          margin-right: 4.5px;
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      .swiper-wrapper {
+        .swiper-slide {
+          .swiper-slide-container {
+            display: block;
+
+            .swiper-slide-item {
+              float: none;
+              width: 100%;
+              padding-right: 0;
+
+              .name {
+                font-size: 18px;
+              }
+            }
+          }
+
+          @supports (display: grid) {
+            display: grid;
+            display: -ms-grid;
+            grid-template-columns: repeat(1, 1fr);
+            -ms-grid-columns: 1fr;
+            grid-column-gap: 35px;
+
+            .swiper-slide-item {}
+          }
+        }
+      }
+
+      .categories-swiper {
+        margin-top: 27px;
+        padding-left: 0;
+        padding-right: 0;
+        max-width: calc(100% - 46px);
+      }
+    }
+  }
+}
