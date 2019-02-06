@@ -52,7 +52,7 @@ const Content = {
         return requests.get(`/wp-json/wp/v2/posts?coauthor=${coauthor}&per_page=${per_page}&page=${page}`)
     },
     categoryList: () =>
-        requests.get('/wp-json/wp/v2/categories'),
+        requests.get('/wp-json/wp/v2/categories?per_page=100'),
     randomPosts: () =>
         requests.get('/wp-json/posts/random'),
     getUser: (slug) =>

@@ -21,20 +21,23 @@ class Categories extends Component {
                             <div className="swiper-slide">
                                 <div className="swiper-slide-container">
                                     {
-                                        this.props.categoriesList.map((category) => {
-                                            return (
-                                                <div className="swiper-slide-item" key={category.id}>
-                                                    <div className="info-author">
-                                                        <Link to={`/posts?category=${category.slug}`}>
-                                                            <div className="name">{category.name}</div>
-                                                        </Link>
-                                                        <p className='data'>
-                                                            {category.count} ലേഖനങ്ങൾ
-                                                        </p>
+                                        this.props.categoriesList
+                                            .sort((a, b) => b.count - a.count)
+                                            .slice(0, 10)
+                                            .map((category) => {
+                                                return (
+                                                    <div className="swiper-slide-item" key={category.id}>
+                                                        <div className="info-author">
+                                                            <Link to={`/posts?category=${category.slug}`}>
+                                                                <div className="name">{category.name}</div>
+                                                            </Link>
+                                                            <p className='data'>
+                                                                {category.count} ലേഖനങ്ങൾ
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            );
-                                        })
+                                                );
+                                            })
                                     }
                                 </div>
                             </div>
