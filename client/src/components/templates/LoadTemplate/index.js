@@ -97,9 +97,6 @@ class LoadTemplate extends Component {
 	fetchData(slug) {
 		if (!this.props.data[this.props.type][slug]) {
 			const promises = [];
-			if (this.props.type === 'members') {
-				return;
-			}
             if (this.props.type === 'authors') {
                 promises.push(api.Content.getUser(slug).then(
                     res => {
