@@ -57,6 +57,8 @@ const Content = {
         requests.get('/wp-json/posts/random'),
     getUser: (slug) =>
         requests.get(`/wp-json/wp/v2/users?slug=${slug}`),
+    getUsers: () =>
+        requests.get(`/wp-json/wp/v2/users?per_page=100`),
 } 
 
 export default {

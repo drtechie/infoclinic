@@ -56,6 +56,19 @@ class App extends Component {
                         exact
                         path="/authors/:slug"
                     />,
+                    <Route
+                        key="members"
+                        render={(props)=> {
+                            return <LoadTemplate
+                                {...props}
+                                template="members"
+                                type="members" />
+                        }
+
+                        }
+                        exact
+                        path="/members"
+                    />,
 					pages.map((route, i) => {
 
 						// If home, set path to empty string, = '/'

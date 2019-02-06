@@ -30,12 +30,16 @@ const AsyncPosts = AsyncChunks.generateChunk(() =>
 const AsyncAuthor = AsyncChunks.generateChunk(() =>
     import( /* webpackChunkName: "Author" */ '../Author'));
 
+const AsyncAuthors = AsyncChunks.generateChunk(() =>
+    import( /* webpackChunkName: "Authors" */ '../Authors'));
+
 const templates = {
 	home: AsyncHome,
 	default: AsyncDefault,
 	post: AsyncPost,
 	posts: AsyncPosts,
     author: AsyncAuthor,
+	members: AsyncAuthors,
 }
 
 const mapStateToProps = state => ({
@@ -61,7 +65,9 @@ class LoadTemplate extends Component {
 				: this.props.match.params.slug
 		}
 
-        this.fetchData(this.state.slug);
+        if (this.state.slug) {
+            this.fetchData(this.state.slug);
+        }
         this.checkForPreview();
 	}
 
@@ -90,7 +96,10 @@ class LoadTemplate extends Component {
 
 	fetchData(slug) {
 		if (!this.props.data[this.props.type][slug]) {
-			const promises = []
+			const promises = [];
+			if (this.props.type === 'members') {
+				return;
+			}
             if (this.props.type === 'authors') {
                 promises.push(api.Content.getUser(slug).then(
                     res => {
