@@ -39,7 +39,7 @@ class Authors extends Component {
                             .sort((a, b) => b.name - a.name)
                             .map((author) => {
                                 return (
-                                    <div  className="by-writer" key={author.id}>
+                                    <div className="by-writer" key={author.id}>
                                         <div className="info-author">
                                             <div
                                                 className="icon-author"
@@ -47,9 +47,9 @@ class Authors extends Component {
                                             >
                                             </div>
                                             <h2 className="name">
-                                                <Link to={`/authors/${author.slug}`}>{author.name}</Link>
+                                                <Link className='english' to={`/authors/${author.slug}`}>{author.name}</Link>
                                             </h2>
-                                            <div className='bio'>{author.description}</div>
+                                            <div className='bio english'>{author.description}</div>
                                         </div>
                                     </div>
                                 )
