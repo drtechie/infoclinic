@@ -31,9 +31,6 @@ class Home extends Component {
                 data={this.props.data}
                 key="main-slider"
             />,
-            <RandomCategory
-                key="random-category"
-            />,
             <Posts
                 more={true}
                 moreLink="/posts?page=2"
@@ -43,6 +40,9 @@ class Home extends Component {
                 footerMoreText='കൂടുതൽ'
                 key="latest-posts"
                 posts={this.state.posts}
+            />,
+            <RandomCategory
+                key="random-category"
             />,
             <Categories key='all-categories'/>
         ];

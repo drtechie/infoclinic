@@ -37,6 +37,7 @@ class Authors extends Component {
                     {
                         authors
                             .sort((a, b) => b.name - a.name)
+                            .filter((a) => a.slug !== 'admin')
                             .map((author) => {
                                 return (
                                     <div className="by-writer" key={author.id}>
