@@ -97,7 +97,7 @@ export default class MainSlider extends Component {
                                             key={sticky.id}
                                         >
                                             <div className="data-post">
-                                                <span className='english'>{ date.format('DD/MMM/YYYY') }</span>
+                                                <span className='english'>{ date.format('DD/MM/YYYY') }</span>
                                             </div>
                                             <div className="swiper-text">
                                                 <div className="ellipsis text">
