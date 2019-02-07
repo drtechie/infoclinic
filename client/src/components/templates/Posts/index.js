@@ -73,7 +73,7 @@ class Posts extends Component {
         return [
             <div className="margin-top-20" key="post-list">
                 {
-                    this.state.loading ?
+                    !this.state.loading ?
                         <Loader/>
                     :
                         <PostsList

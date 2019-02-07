@@ -191,7 +191,7 @@ input {
 }
 
 .english {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "Noto Sans Malayalam UI", sans-serif;
 }
 
 .margin-top-20 {
@@ -229,14 +229,6 @@ input {
 @media only screen and (max-width: 1024px) {
   #main {
     padding-top: 100px;
-  }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width: 1024px) {
-  .loading-comments {
-    left: 0;
-    margin-bottom: 50px;
   }
 }
 
