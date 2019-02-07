@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faFacebookF, faGoogle, faTwitter, faWhatsapp} from '@fortawesome/free-brands-svg-icons'
+import {faFacebookF, faTwitter, faWhatsapp} from '@fortawesome/free-brands-svg-icons'
 
 export default class SocialLinks extends Component {
     constructor(props) {
@@ -22,14 +22,6 @@ export default class SocialLinks extends Component {
         const baseURL = `https://www.infoclinic.in/posts/${data.slug}`;
         return (
             <div className="soc-wrap">
-                <a
-                    className="gp"
-                    href={`https://plus.google.com/share?url=${baseURL}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FontAwesomeIcon icon={faGoogle} />
-                </a>
                 <a
                     className="tw"
                     href={`https://twitter.com/intent/tweet?text=${data.title.rendered}&url=${baseURL}`}
