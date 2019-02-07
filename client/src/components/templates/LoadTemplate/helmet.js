@@ -30,7 +30,8 @@ export default class InfoClinicHelmet extends React.Component {
                 .replace('&lt;p&gt;', '')
                 .replace('[&amp;hellip;]&lt;/p&gt;', '')
                 .replace('<p>', '')
-                .replace('...', '');
+                .replace('</p>', '')
+                .replace('[…]', '');
         };
 
         return (
