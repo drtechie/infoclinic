@@ -26,9 +26,7 @@ export default class InfoClinicHelmet extends React.Component {
         }
 
         const escapedString = (str) => {
-            return str.replace(/&#(\d+);/g, (match, dec) => {
-                return String.fromCharCode(dec);
-            });
+            return str.replace('&lt;p&gt;', '').replace('[&amp;hellip;]&lt;/p&gt;', '');
         };
 
         return (
