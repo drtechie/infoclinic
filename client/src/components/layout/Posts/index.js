@@ -8,11 +8,12 @@ import {utcFormat} from "../../utilities/Common/constants";
 import "./index.css";
 import ByAuthors from "../ByAuthors";
 import ContentBlock from "../../utilities/ContentBlock";
+import Loader from "../Loader";
 moment.locale('ml');
 
 export default class Posts extends Component {
-	render() {
-		return (
+    render() {
+        return (
             <section className="posts-grid row">
                 <div className="sub-title title">
                     <h4 dangerouslySetInnerHTML={{ __html: this.props.heading }}/>
@@ -25,38 +26,41 @@ export default class Posts extends Component {
                 </div>
                 <div className="container-stories">
                     {
-                        this.props.posts.map(post => {
-                            const date = moment(post.date, utcFormat);
-                            return (
-                                <article className="wrapper-post" key={post.id}>
-                                    <div className="wrap post-type-image post-image">
-                                        <img
-                                            className="img-responsive"
-                                            src={post.featured_image_url_mini}
-                                            alt={post.title.rendered}
-                                        />
-                                    </div>
-                                    <div className="wrap post-type-text">
-                                        <h2>
-                                            <Link to={`/posts/${post.slug}`}>
-                                                <span dangerouslySetInnerHTML={{ __html: post.title.rendered }}/>
-                                            </Link>
-                                        </h2>
-                                        <div className='post-details'>
-                                            <time className="data" dateTime={date.format('YYYY-MM-DD')}>
-                                                { date.format('MMM DD, YYYY') }
-                                            </time>
-                                            <span className="timetoread"> · {post.reading_time} മിനിറ്റ് വായന</span>
+                        this.props.loading ?
+                            <Loader/>
+                            :
+                            this.props.posts.map(post => {
+                                const date = moment(post.date, utcFormat);
+                                return (
+                                    <article className="wrapper-post" key={post.id}>
+                                        <div className="wrap post-type-image post-image">
+                                            <img
+                                                className="img-responsive"
+                                                src={post.featured_image_url_mini}
+                                                alt={post.title.rendered}
+                                            />
                                         </div>
-                                        <ContentBlock content={post.excerpt.rendered}/>
-                                        <ByAuthors coauthors={post.coauthors}/>
-                                        <div className="for-mob-views">
-                                            <Link className="btn hidden" to={`/posts/${post.slug}`}>വായിക്കുക</Link>
+                                        <div className="wrap post-type-text">
+                                            <h2>
+                                                <Link to={`/posts/${post.slug}`}>
+                                                    <span dangerouslySetInnerHTML={{ __html: post.title.rendered }}/>
+                                                </Link>
+                                            </h2>
+                                            <div className='post-details'>
+                                                <time className="data" dateTime={date.format('YYYY-MM-DD')}>
+                                                    { date.format('MMM DD, YYYY') }
+                                                </time>
+                                                <span className="timetoread"> · {post.reading_time} മിനിറ്റ് വായന</span>
+                                            </div>
+                                            <ContentBlock content={post.excerpt.rendered}/>
+                                            <ByAuthors coauthors={post.coauthors}/>
+                                            <div className="for-mob-views">
+                                                <Link className="btn hidden" to={`/posts/${post.slug}`}>വായിക്കുക</Link>
+                                            </div>
                                         </div>
-                                    </div>
-                                </article>
-                            )
-                        })
+                                    </article>
+                                )
+                            })
                     }
                 </div>
                 {
@@ -68,6 +72,6 @@ export default class Posts extends Component {
                     </Link>
                 }
             </section>
-		);
-	}
+        );
+    }
 }

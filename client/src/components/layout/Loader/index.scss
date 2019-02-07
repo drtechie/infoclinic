@@ -1,0 +1,17 @@
+@import "../../../scss/vars";
+
+.loading-animation {
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  border: 3px solid #eef0f3;
+  border-top-color: $accent;
+  border-left-color: $accent;
+  animation: spin 1s infinite linear;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  left: -48.5px;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}

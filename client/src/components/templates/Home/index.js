@@ -10,6 +10,7 @@ class Home extends Component {
         super(props);
         this.state = {
             posts: [],
+            loading: true,
         };
         this.fetchPosts();
     }
@@ -18,8 +19,10 @@ class Home extends Component {
         api.Content.postsByPage(1).then(
             res => {
                 this.setState({posts: res});
+                this.setState({loading: false});
             },
             error => {
+                this.setState({loading: false});
                 console.warn(error);
             }
         );
@@ -40,6 +43,7 @@ class Home extends Component {
                 footerMoreText='കൂടുതൽ'
                 key="latest-posts"
                 posts={this.state.posts}
+                loading={this.state.loading}
             />,
             <RandomCategory
                 key="random-category"

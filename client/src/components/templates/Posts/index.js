@@ -7,6 +7,7 @@ import Pagination from './pagination';
 
 import './index.css';
 import api from "../../../api";
+import Loader from "../../layout/Loader";
 
 
 const mapStateToProps = (state) => ({
@@ -21,10 +22,12 @@ class Posts extends Component {
             total: 0,
             currentPage: 1,
             heading: 'എല്ലാ ലേഖനങ്ങളും',
+            loading: true,
         };
     }
 
     fetchPosts() {
+        this.setState({loading: true});
         const values = queryString.parse(this.props.location.search, { ignoreQueryPrefix: true });
         const page = parseInt(values.page, 10) || 1;
         this.setState({currentPage: page});
@@ -47,9 +50,11 @@ class Posts extends Component {
             res => {
                 this.setState({posts: res.body});
                 this.setState({total: parseInt(res.headers["x-wp-total"], 10)});
+                this.setState({loading: false});
             },
             error => {
                 console.warn(error);
+                this.setState({loading: false});
             }
         );
     }
@@ -67,12 +72,18 @@ class Posts extends Component {
     render() {
         return [
             <div className="margin-top-20" key="post-list">
-                <PostsList
-                    more={false}
-                    heading={this.state.heading}
-                    footerMore={false}
-                    posts={this.state.posts}
-                />
+                {
+                    this.state.loading ?
+                        <Loader/>
+                    :
+                        <PostsList
+                            more={false}
+                            heading={this.state.heading}
+                            footerMore={false}
+                            posts={this.state.posts}
+                        />
+                }
+
             </div>,
             <div className="posts-grid row pagination-grid bottom" key="pagination-bottom">
                 <Pagination
