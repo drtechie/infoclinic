@@ -24,6 +24,13 @@ export default class InfoClinicHelmet extends React.Component {
         if (relativeURL) {
             url = `${ 'https://www.infoclinic.in' }${ relativeURL }`;
         }
+
+        const escapedString = (str) => {
+            return str.replace(/&#(\d+);/g, (match, dec) => {
+                return String.fromCharCode(dec);
+            });
+        };
+
         return (
             <Helmet>
                 <meta charSet='utf-8' />
@@ -31,7 +38,7 @@ export default class InfoClinicHelmet extends React.Component {
                 <link rel='canonical' href={ url } />
                 <meta
                     name='description'
-                    content={ infoClinicDesc }
+                    content={ escapedString(infoClinicDesc) }
                 />
                 <meta itemProp='name' content={ infoClinicTitle } />
                 {
@@ -44,7 +51,7 @@ export default class InfoClinicHelmet extends React.Component {
                 {
                     title && <meta name='twitter:title' content={ infoClinicTitle } />
                 }
-                <meta name='twitter:description' content={ infoClinicDesc } />
+                <meta name='twitter:description' content={ escapedString(infoClinicDesc) } />
                 {
                     imageURL && <meta name='twitter:image:src' content={ imageURL } />
                 }
@@ -53,7 +60,7 @@ export default class InfoClinicHelmet extends React.Component {
                 <meta property='og:type' content={ type || 'website' } />
                 <meta property='og:relativeURL' content={ url } />
                 <meta property='og:image' content={ imageURL } />
-                <meta property='og:description' content={ infoClinicDesc } />
+                <meta property='og:description' content={ escapedString(infoClinicDesc) } />
                 <meta property='og:site_name' content={ infoClinicTitle } />
                 {
                     (type === 'article') && <meta property='article:modified_time' content={ articleModifiedDate } />
@@ -61,7 +68,7 @@ export default class InfoClinicHelmet extends React.Component {
                 {
                     (type === 'article') && <meta property='article:published_time' content={ articlePublishDate } />
                 }
-                <meta property='fb:admins' content='' />
+                <meta property='fb:admins' content='1056731331111377' />
             </Helmet>
         );
     }

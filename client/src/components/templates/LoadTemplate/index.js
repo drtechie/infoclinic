@@ -188,7 +188,7 @@ class LoadTemplate extends Component {
                     type = 'article';
                     articlePublishDate = data.date;
                     articleModifiedDate = data.modified;
-                    imageURL = data.featured_image_url;
+                    imageURL = data.featured_image_url_mini;
 				}
 			} else {
             	title = pageTitles[this.props.location.pathname];
