@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import moment from "moment";
 import 'moment/locale/ml';
 import { withRouter } from 'react-router-dom';
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import ContentBlock from '../../utilities/ContentBlock';
 import SocialLinks from "./socialLinks";
 import ByAuthors from "../../layout/ByAuthors";
@@ -42,6 +44,14 @@ class Post extends Component {
     }
 
     render() {
+        const getCategory = (categoryID) => {
+          if (this.props.categoriesList) {
+              return this.props.categoriesList.find(cat => cat.id === categoryID)
+          }
+          return '';
+        };
+
+
         if (this.props.data) {
             let data = this.props.data;
             const date = moment(data.date, utcFormat);
@@ -60,6 +70,16 @@ class Post extends Component {
                             </div>
                             <h1 className="row" dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
                             <div className="info-post row">
+                                {
+                                    data.categories.map((cat) => {
+                                        const category = getCategory(cat);
+                                        return (
+                                            <Link to={`/posts?category=${category.slug}`} className='category-badge'>
+                                                <span className="badge" key={cat}>{category.name}</span>
+                                            </Link>
+                                        )
+                                    })
+                                }
                                 <SocialLinks data={data} />
                             </div>
                             <ContentBlock row={true} content={data.content.rendered} />
@@ -81,4 +101,9 @@ class Post extends Component {
     }
 }
 
-export default withRouter(Post);
+
+const mapStateToProps = (state) => ({
+    categoriesList: state.api.lists.categories,
+});
+
+export default withRouter(connect(mapStateToProps)(Post));

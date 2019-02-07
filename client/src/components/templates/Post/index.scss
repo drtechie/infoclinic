@@ -32,6 +32,9 @@
       font-size: 14px;
       letter-spacing: 0.01em;
     }
+    .category-badge {
+      margin-right: 10px;
+    }
 
     h1 {
       color: #191919;
@@ -39,7 +42,7 @@
       font-weight: normal;
       font-size: 56px;
       line-height: 61px;
-      padding-bottom: 56px;
+      padding-bottom: 18px;
       padding-top: 33px;
     }
 
@@ -126,6 +129,7 @@
 
       .soc-wrap {
         overflow: hidden;
+        margin-top: 15px;
 
         a {
           color: $whitecolor;
@@ -490,7 +494,7 @@
         font-size: 40px;
         line-height: 45px;
         letter-spacing: 0.01em;
-        padding-bottom: 59px;
+        padding-bottom: 15px;
         padding-top: 35px;
       }
 
