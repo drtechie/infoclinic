@@ -34,7 +34,7 @@
       text-align: center;
       writing-mode: vertical-lr;
       color: $greycolor;
-      font-family: "Meera", sans-serif;
+      font-family: "Noto Sans Malayalam UI", sans-serif;
       font-weight: normal;
       letter-spacing: 0.05em;
       line-height: 1;
@@ -78,7 +78,7 @@
     .text {
       font-size: calc(16px + (60 - 16) * (100vw - 320px) / (1920 - 320));
       line-height: 1.16;
-      font-family: "Uroob", sans-serif;
+      font-family: "Baloo Chettan", cursive;;
       font-weight: normal;
       padding: 8.6% 10% 0 7.5%;
       box-sizing: content-box;
@@ -225,7 +225,7 @@
       a {
         font-size: 26px;
         line-height: 31px;
-        font-family: "Uroob", sans-serif;
+        font-family: "Baloo Chettan", cursive;;
         color: $whitecolor;
       }
       .by-writer {

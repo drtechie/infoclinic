@@ -17,7 +17,7 @@ body {
   min-width: 320px;
   position: relative;
   line-height: 1.65;
-  font-family: "Meera", sans-serif;
+  font-family: "Noto Sans Malayalam UI", sans-serif;
   overflow-x: hidden;
   opacity: 1;
   margin: 0;
@@ -26,7 +26,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-family: "Uroob", sans-serif;
+  font-family: "Baloo Chettan", cursive;;
 }
 
 ul {
@@ -64,7 +64,7 @@ a, a:hover, a:active, a:focus {
 }
 
 input::placeholder {
-  font-family: "Meera", sans-serif;
+  font-family: "Noto Sans Malayalam UI", sans-serif;
 }
 
 input {
@@ -114,7 +114,7 @@ input {
   padding-right: 25px;
   line-height: 1;
   font-size: 15px;
-  font-family: "Meera", sans-serif;
+  font-family: "Noto Sans Malayalam UI", sans-serif;
   letter-spacing: 0.075em;
   border-radius: 50px;
   display: table;
@@ -163,7 +163,7 @@ input {
   h4 {
     font-size: 24px;
     color: $blackcolor;
-    font-family: "Uroob", sans-serif;
+    font-family: "Baloo Chettan", cursive;;
     float: left;
     padding-bottom: 16px;
   }
