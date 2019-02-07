@@ -12,6 +12,7 @@ import {utcFormat} from "../../utilities/Common/constants";
 import './index.css';
 import RelatedPosts from "../../layout/RelatedPosts";
 import Categories from "../../layout/Categories";
+import Loader from "../../layout/Loader";
 moment.locale('ml');
 
 class Post extends Component {
@@ -96,7 +97,7 @@ class Post extends Component {
                 <Categories key='all-categories'/>
             ];
         } else {
-            return <div></div>
+            return <Loader />
         }
     }
 }
