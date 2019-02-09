@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { buildMenu } from "../../utilities/Common/buildMenu";
+import {Link} from "react-router-dom";
 
 export default class NavLinks extends Component {
     render() {
@@ -13,12 +14,22 @@ export default class NavLinks extends Component {
             </nav>,
             <ul className="soc-wrap" key='social-links'>
                 <li>
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                    <a
+                        href="https://www.facebook.com/"
+                        target="_blank"
+                        aria-label='Facebook'
+                        rel="noopener noreferrer"
+                    >
                         <FontAwesomeIcon icon={faFacebookF} />
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                    <a
+                        href="https://twitter.com/"
+                        target="_blank"
+                        aria-label='Twitter'
+                        rel="noopener noreferrer"
+                    >
                         <FontAwesomeIcon icon={faTwitter} />
                     </a>
                 </li>

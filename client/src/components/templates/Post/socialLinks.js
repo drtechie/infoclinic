@@ -24,6 +24,7 @@ export default class SocialLinks extends Component {
             <div className="soc-wrap">
                 <a
                     className="tw"
+                    aria-label="Share on Twitter"
                     href={`https://twitter.com/intent/tweet?text=${data.title.rendered}&url=${baseURL}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -32,6 +33,7 @@ export default class SocialLinks extends Component {
                 </a>
                 <a
                     className="fb"
+                    aria-label="Share on Facebook"
                     href={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -39,6 +41,7 @@ export default class SocialLinks extends Component {
                     <FontAwesomeIcon icon={faFacebookF} />
                 </a>
                 <a
+                    aria-label="Share on WhatsApp"
                     className="wa"
                     href={`${(this.isMobile() ? 'whatsapp://' : 'https://web.whatsapp.com/')}send?text=${data.title.rendered} ${baseURL}` }
                     target="_blank"

@@ -45,7 +45,7 @@ class Header extends Component {
 	render() {
 		return [
             <header id="header" className="header-main" key='desktop-header'>
-                <Link to="/" className="logo">
+                <Link to="/" className="logo" aria-label='Go to home page'>
                     <svg id="logo-header" enableBackground="new 0 0 522.191 139.513" version="1.1" viewBox="0 0 522.19 139.51" xmlns="http://www.w3.org/2000/svg">
                         <path d="m151.03 34.736c0-4.516 3.777-8.295 8.293-8.295s8.293 3.779 8.293 8.295-3.777 8.293-8.293 8.293-8.293-3.777-8.293-8.293zm1.383 12.347h13.823v46.073h-13.823v-46.073z" fill="#103348"/>
                         <path d="m219.68 64.867v28.289h-13.823v-26.262c0-5.713-3.594-8.384-8.017-8.384-5.069 0-8.57 2.947-8.57 9.491v25.156h-13.822v-46.074h13.823v4.331c2.489-3.41 7.094-5.623 13.177-5.623 9.306 0 17.232 6.638 17.232 19.076z" fill="#103348"/>
@@ -85,6 +85,7 @@ class Header extends Component {
                     onKeyPress={() => this.toggleMenu()}
                     role='button'
                     tabIndex={0}
+                    aria-label='Menu button'
                     className={this.state.menuOpen ? 'active': ''}
                 >
                     <span/><span/><span/>
