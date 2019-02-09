@@ -160,6 +160,15 @@
       }
     }
   }
+
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      border: 2px solid $accent;
+      &.swiper-pagination-bullet-active, &:hover {
+        background: $accent;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 1366px) {

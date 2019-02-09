@@ -15,7 +15,7 @@ class Author extends Component {
     }
 
     fetchPosts() {
-        api.Content.postsByAuthor(this.props.slug, 1, false, 3).then(
+        api.Content.postsByAuthor(this.props.match.params.slug, 1, false, 3).then(
             res => {
                 this.setState({posts: res});
             },

@@ -47,7 +47,6 @@ class RandomCategory extends Component {
             const atLeastFivePosts = this.props.categoriesList.filter(category => category.count >= 5);
             if (atLeastFivePosts.length > 0) {
                 const category = atLeastFivePosts[Math.floor(Math.random()*atLeastFivePosts.length)];
-                console.log(category);
                 this.setState({categoryName: category.name});
                 this.setState({categorySlug: category.slug});
                 api.Content.postsByCategory(category.id, 1, false, 5).then(

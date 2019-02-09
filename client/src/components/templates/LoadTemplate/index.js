@@ -162,7 +162,7 @@ class LoadTemplate extends Component {
 		}
 
 		const pageTitles = {
-			"/posts" : "All Posts"
+			"/posts" : "എല്ലാ ലേഖനങ്ങളും"
 		};
 
         let title = null;
