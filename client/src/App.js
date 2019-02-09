@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
-
+import { withToastManager } from 'react-toast-notifications';
 import AsyncChunks from './components/utilities/AsyncLoader';
 import NotFound from './components/templates/NotFound';
 import Header from './components/layout/Header';
@@ -10,6 +10,8 @@ import ScrollToTop from './components/layout/ScrollToTop';
 import LoadTemplate from './components/templates/LoadTemplate';
 import api from './api';
 import './index.css';
+import NotificationPopup from "./components/layout/Modals/notification";
+import firebase from './firebaseConfig';
 
 const mapStateToProps = (state) => ({
 	pageList: state.api.lists.pages,
@@ -22,7 +24,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class App extends Component {
-
 	constructor(props) {
 		super(props);
 
@@ -119,7 +120,17 @@ class App extends Component {
 	componentDidMount() {
 		// Over-eager load code split chunks
 		// Two seconds after App mounts (wait for more important resources)
-		setTimeout(AsyncChunks.loadChunks, 2 * 1000);
+		setTimeout(() => {
+			AsyncChunks.loadChunks();
+            const messaging = firebase.app().messaging();
+
+            messaging.onMessage(payload => {
+                console.log("Notification Received", payload);
+                this.props.toastManager.add(payload.notification.title, { appearance: 'success' });
+            });
+		}, 2 * 1000);
+
+
 	}
 
 	render() {
@@ -132,8 +143,9 @@ class App extends Component {
 				</Switch>
 			</main>,
 			<Footer key="footer" />,
+			<NotificationPopup key="notification-popup"/>,
 		];
 	}
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+export default withToastManager(withRouter(connect(mapStateToProps, mapDispatchToProps)(App)));

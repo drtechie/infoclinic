@@ -14,7 +14,7 @@ export default class NavLinks extends Component {
             <ul className="soc-wrap" key='social-links'>
                 <li>
                     <a
-                        href="https://www.facebook.com/"
+                        href="https://www.facebook.com/infoclinicindia"
                         target="_blank"
                         aria-label='Facebook'
                         rel="noopener noreferrer"
@@ -24,7 +24,7 @@ export default class NavLinks extends Component {
                 </li>
                 <li>
                     <a
-                        href="https://twitter.com/"
+                        href="https://twitter.com/infoclinicindia"
                         target="_blank"
                         aria-label='Twitter'
                         rel="noopener noreferrer"

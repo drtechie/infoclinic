@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Loadable from 'react-loadable';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { ToastProvider } from 'react-toast-notifications';
 import configureStore from './store';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,9 +16,11 @@ if (process.env.NODE_ENV === 'production') {
 		Loadable.preloadReady().then(() => {
 			ReactDOM.hydrate(
 				<Provider store={store}>
-					<Router>
-						<App />
-					</Router>
+					<ToastProvider>
+                        <Router>
+                            <App />
+                        </Router>
+					</ToastProvider>
 				</Provider>
 			, document.getElementById('root'));
 		})
@@ -28,9 +31,11 @@ if (process.env.NODE_ENV === 'production') {
 
 	ReactDOM.render(
 		<Provider store={store}>
-			<Router>
-				<App />
-			</Router>
+            <ToastProvider>
+                <Router>
+                    <App />
+                </Router>
+            </ToastProvider>
 		</Provider>
 	, document.getElementById('root'));
 }
