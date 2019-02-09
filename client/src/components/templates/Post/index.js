@@ -75,7 +75,7 @@ class Post extends Component {
                                     data.categories.map((cat) => {
                                         const category = getCategory(cat);
                                         return (
-                                            <Link to={`/posts?category=${category.slug}`} className='category-badge'>
+                                            <Link key={category.id} to={`/posts?category=${category.slug}`} className='category-badge'>
                                                 <span className="badge" key={cat}>{category.name}</span>
                                             </Link>
                                         )

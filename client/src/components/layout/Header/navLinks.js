@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { buildMenu } from "../../utilities/Common/buildMenu";
-import {Link} from "react-router-dom";
 
 export default class NavLinks extends Component {
     render() {

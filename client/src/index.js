@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom'
 import configureStore from './store';
 import App from './App';
+import * as serviceWorker from './serviceWorker';
 
 if (process.env.NODE_ENV === 'production') {
 
@@ -33,3 +34,5 @@ if (process.env.NODE_ENV === 'production') {
 		</Provider>
 	, document.getElementById('root'));
 }
+
+serviceWorker.register();
