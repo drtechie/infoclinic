@@ -129,7 +129,6 @@ class App extends Component {
                 this.props.toastManager.add(payload.notification.title, {
                 	appearance: 'success',
                     autoDismiss: true,
-                    placement: 'bottom-right',
                 });
             });
 		}, 2 * 1000);

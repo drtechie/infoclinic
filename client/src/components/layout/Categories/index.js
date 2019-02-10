@@ -14,7 +14,7 @@ class Categories extends Component {
             <section className="categories">
                 <div className="categories-container">
                     <div className="sub-title title">
-                        <h2>എല്ലാ വർഗ്ഗങ്ങളും</h2>
+                        <h2>മികച്ച വർഗ്ഗങ്ങൾ</h2>
                     </div>
                     <div className="categories-swiper">
                         <div className="swiper-wrapper">

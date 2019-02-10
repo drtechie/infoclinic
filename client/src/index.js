@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
 			ReactDOM.hydrate(
 				<Provider store={store}>
                     <CookiesProvider cookies={ cookies }>
-                        <ToastProvider>
+                        <ToastProvider placement='bottom-right'>
                             <Router>
                                 <App />
                             </Router>
