@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import { withCookies } from 'react-cookie';
+import moment from 'moment';
 import firebase from '../../../firebaseConfig';
 import './notification.css';
 Modal.setAppElement('body')
@@ -19,6 +21,8 @@ class NotificationPopup extends Component {
 
     closeModal() {
         this.setState({modalIsOpen: false});
+        const { cookies } = this.props;
+        cookies.set('updatesNotificationAsked', true, { path: '/', expires: moment().add(30, 'days').toDate() });
     }
 
     sendToken(token, sendNotification) {
@@ -58,13 +62,15 @@ class NotificationPopup extends Component {
                 if (currentToken) {
                     this.sendToken(currentToken, false);
                 } else {
-                    // Show permission request.
-                    this.setState({modalIsOpen: true})
+                    const { cookies } = this.props;
+                    if (!cookies.get('updatesNotificationAsked')) {
+                        this.setState({modalIsOpen: true})
+                    }
                 }
             }).catch(function(err) {
                 console.log('An error occurred while retrieving token. ', err);
             });
-        }, 5000)
+        }, 40000)
     }
 
 
@@ -110,4 +116,4 @@ class NotificationPopup extends Component {
     };
 }
 
-export default NotificationPopup;
+export default withCookies(NotificationPopup);

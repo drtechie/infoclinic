@@ -126,7 +126,11 @@ class App extends Component {
 
             messaging.onMessage(payload => {
                 console.log("Notification Received", payload);
-                this.props.toastManager.add(payload.notification.title, { appearance: 'success' });
+                this.props.toastManager.add(payload.notification.title, {
+                	appearance: 'success',
+                    autoDismiss: true,
+                    placement: 'bottom-right',
+                });
             });
 		}, 2 * 1000);
 
