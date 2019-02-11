@@ -19,9 +19,9 @@ export default class Posts extends Component {
                     <h4 dangerouslySetInnerHTML={{ __html: this.props.heading }}/>
                     {
                         this.props.more &&
-                        <a href={this.props.moreLink}>
+                        <Link to={this.props.moreLink}>
                             കൂടുതൽ <FontAwesomeIcon icon={faChevronRight} />
-                        </a>
+                        </Link>
                     }
                 </div>
                 <div className="container-stories">

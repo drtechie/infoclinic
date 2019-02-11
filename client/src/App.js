@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { withToastManager } from 'react-toast-notifications';
+import ReactGA from 'react-ga';
 import AsyncChunks from './components/utilities/AsyncLoader';
 import NotFound from './components/templates/NotFound';
 import Header from './components/layout/Header';
@@ -12,6 +13,7 @@ import api from './api';
 import './index.css';
 import NotificationPopup from "./components/layout/Modals/notification";
 import firebase from './firebaseConfig';
+import Analytics from "./components/layout/Analytics";
 
 const mapStateToProps = (state) => ({
 	pageList: state.api.lists.pages,
@@ -26,7 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends Component {
 	constructor(props) {
 		super(props);
-
+        ReactGA.initialize(process.env.REACT_APP_GA);
 		this.buildRoutes = (pages) => {
 
 			if (this.props.pageList && this.props.pageList.length > 0) {
@@ -108,7 +110,6 @@ class App extends Component {
 				]
 			}
 		}
-
 		this.fetchAndLoadPages();
         this.fetchAndLoadCategories();
 	}
@@ -144,8 +145,6 @@ class App extends Component {
                 });
             });
 		}, 2 * 1000);
-
-
 	}
 
 	render() {
@@ -159,6 +158,7 @@ class App extends Component {
 			</main>,
 			<Footer key="footer" />,
 			<NotificationPopup key="notification-popup"/>,
+			<Analytics key='analytics'/>
 		];
 	}
 }
