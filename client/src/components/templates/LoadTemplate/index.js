@@ -62,12 +62,14 @@ class LoadTemplate extends Component {
 			// Necessary because some slugs come from URL params
 			slug: this.props.slug 
 				? this.props.slug 
-				: this.props.match.params.slug
+				: this.props.match.params.slug,
+            template: this.props.template ? this.props.template : 'default'
 		}
 
         if (this.state.slug) {
             this.fetchData(this.state.slug);
         }
+
         this.checkForPreview();
 	}
 
@@ -80,17 +82,29 @@ class LoadTemplate extends Component {
 				{ ignoreQueryPrefix: true }
 			);
 
-			if (params.preview === 'true' && params['_wpnonce']) {
-				api.Content.previewDataBySlug( this.props.type, this.state.slug, params['_wpnonce']).then(
-					res => {
-						this.setState({ preview: res })
-					},
-					error => {
-						console.warn(error);
-						this.props.history.push('/not-found');
-					}
-				);
-			} 
+            if (params.preview === 'true' && params._wpnonce && this.state.preview === false) {
+                if (params.id) {
+                    api.Content.previewDataById( this.props.type, params.id, params._wpnonce).then(
+                        res => {
+                            this.setState({ preview: res });
+                        },
+                        error => {
+                            console.warn(error);
+                            this.props.history.push('/not-found');
+                        }
+                    );
+                } else {
+                    api.Content.previewDataBySlug( this.props.type, this.state.slug, params._wpnonce).then(
+                        res => {
+                            this.setState({ preview: res })
+                        },
+                        error => {
+                            console.warn(error);
+                            this.props.history.push('/not-found');
+                        }
+                    );
+                }
+            }
 		}
 	}
 
@@ -126,6 +140,9 @@ class LoadTemplate extends Component {
                     }
                 ));
 			}
+            if (this.props.type === 'pages' && slug === 'wp-draft') {
+                return;
+            }
             Promise.all(promises)
                 .then(data => {
                 	const res = [data.reduce((r, o) => Object.assign(r, o), {})];
@@ -155,7 +172,7 @@ class LoadTemplate extends Component {
 			data = this.props.data[this.props.type][this.state.slug];
 		}
 
-		const Template = templates[this.props.template];
+		const Template = templates[this.state.template];
 
 		if (!Template) {
 			return <Redirect to="/not-found"/>;

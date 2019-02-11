@@ -27,3 +27,13 @@ require_once('inc/authors.php');
 // Posts setup
 require_once('inc/posts.php');
 
+// Enable React preview
+require_once('inc/preview.php');
+
+// Cache clearing
+require_once('inc/cache.php');
+
+// Firebase push notifications
+require_once('inc/fcm.php');
+
+

@@ -92,6 +92,18 @@ class App extends Component {
 						)
 					}),
 
+                    <Route
+						exact
+						key="wp-draft"
+						page="/wp-draft"
+						render={props =>
+							<LoadTemplate
+								{...props}
+								slug={'wp-draft'}
+								type={'pages'} />
+						}
+					/>,
+
 					<Route key="not-found" component={NotFound} />
 				]
 			}

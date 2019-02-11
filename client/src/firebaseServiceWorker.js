@@ -19,7 +19,7 @@ messaging.setBackgroundMessageHandler(payload => {
     console.log('payload', payload);
     const options = {
         body: payload.notification.body,
-        icon: 'https://infoclinic.in/android-chrome-72x72.png'
+        icon: 'https://infoclinic.in/android-chrome-192x192.png'
     };
     return self.registration.showNotification(title, options);
 });
