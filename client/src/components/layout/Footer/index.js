@@ -40,12 +40,12 @@ class Footer extends Component {
                     <div className="sc-wrapper">
                         <ul className="soc-wrap">
                             <li>
-                                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.facebook.com/infoclinicindia" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faFacebookF} />
                                 </a>
                             </li>
                             <li>
-                                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://twitter.com/infoclinicindia" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faTwitter} />
                                 </a>
                             </li>
