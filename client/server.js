@@ -11,6 +11,7 @@ const store = configureStore();
 
 const app = express();
 app.use(express.json());
+const proxy = require('http-proxy-middleware');
 const path = require('path');
 const instance = +process.env.NODE_APP_INSTANCE || 0;
 const port = 1337 + instance;
@@ -28,6 +29,13 @@ app.post('/subscribe', function(req, res){
             res.json({error: error});
 		})
 });
+
+app.use('/site_map', proxy({
+    target: process.env.REACT_APP_API_URL,
+    pathRewrite: {
+        '^/site_map': ''
+    },
+}));
 
 app.use('^/$', serverRenderer(store));
 
