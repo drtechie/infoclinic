@@ -32,7 +32,10 @@ export default class Posts extends Component {
                             this.props.posts.map(post => {
                                 const date = moment(post.date, utcFormat);
                                 return (
-                                    <article className="wrapper-post" key={post.id}>
+                                    <article
+                                        className={`wrapper-post ${post.featured_image_url_mini ? '' : 'no-image' }` }
+                                        key={post.id}
+                                    >
                                         <div className="wrap post-type-image post-image">
                                             <img
                                                 className="img-responsive"
