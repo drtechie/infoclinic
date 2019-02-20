@@ -37,33 +37,37 @@ class Authors extends Component {
         return(
             <section className='authors-page'>
                 <h1>അംഗങ്ങൾ</h1>
-                <div className="authors-container">
-                    {
-                        this.state.loading ?
-                            <Loader/>
-                            :
-                            authors
-                                .sort((a, b) => b.name - a.name)
-                                .filter((a) => a.slug !== 'admin')
-                                .map((author) => {
-                                    return (
-                                        <div className="by-writer" key={author.id}>
-                                            <div className="info-author">
-                                                <div
-                                                    className="icon-author"
-                                                    style={{backgroundImage: `url('${author.avatar_url}')` }}
-                                                >
+                {
+                    this.state.loading ?
+                        <Loader/>
+                        :
+                        <div className="authors-container">
+                            {
+                                authors
+                                    .sort((a, b) => b.name - a.name)
+                                    .filter((a) => a.slug !== 'admin')
+                                    .map((author) => {
+                                        return (
+                                            <div className="by-writer" key={author.id}>
+                                                <div className="info-author">
+                                                    <div
+                                                        className="icon-author"
+                                                        style={{backgroundImage: `url('${author.avatar_url}')` }}
+                                                    >
+                                                    </div>
+                                                    <h2 className="name">
+                                                        <Link className='english' to={`/authors/${author.slug}`}>{author.name}</Link>
+                                                    </h2>
+                                                    <div className='bio english'>{author.description}</div>
                                                 </div>
-                                                <h2 className="name">
-                                                    <Link className='english' to={`/authors/${author.slug}`}>{author.name}</Link>
-                                                </h2>
-                                                <div className='bio english'>{author.description}</div>
                                             </div>
-                                        </div>
-                                    )
-                                })
-                    }
-                </div>
+                                        )
+                                    })
+                            }
+
+                        </div>
+                }
+
             </section>
         );
     };

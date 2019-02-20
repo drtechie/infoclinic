@@ -89,6 +89,7 @@
 
     .by-writer {
       padding-left: 8.6%;
+      padding-bottom: 8.6%;
 
       .info-author {
         overflow: hidden;
@@ -192,7 +193,11 @@
         max-width: 43%;
 
         .text {
-          padding: 34px 10% 0 10%;
+          padding: 20px 10% 0 10%;
+        }
+
+        .by-writer {
+          padding-bottom: 20px;
         }
       }
     }
@@ -234,7 +239,6 @@
       a {
         font-size: 26px;
         line-height: 31px;
-        font-family: "Baloo Chettan", cursive;;
         color: $whitecolor;
       }
       .by-writer {
