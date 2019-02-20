@@ -97,7 +97,7 @@ class App extends Component {
                     <Route
 						exact
 						key="wp-draft"
-						page="/wp-draft"
+						path="post/wp-draft"
 						render={props =>
 							<LoadTemplate
 								{...props}

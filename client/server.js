@@ -32,9 +32,8 @@ app.post('/subscribe', function(req, res){
 
 app.use('/site_map', proxy({
     target: process.env.REACT_APP_API_URL,
-    pathRewrite: {
-        '^/site_map': ''
-    },
+    pathRewrite: function (path, req) { return path.replace('/site_map', '/') },
+    changeOrigin: true,
 }));
 
 app.use('^/$', serverRenderer(store));
