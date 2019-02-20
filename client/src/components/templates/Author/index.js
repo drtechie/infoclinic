@@ -56,7 +56,7 @@ class Author extends Component {
                     </div>
                     <Link to={`/posts?author=${data.slug}`}>
                         <button className="author-btn btn">
-                            More
+                            കൂടുതൽ
                         </button>
                     </Link>
                 </section>
