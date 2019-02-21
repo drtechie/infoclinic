@@ -51,18 +51,18 @@ class NotificationPopup extends Component {
 
     async signUpForPushNotifications() {
         this.setState({modalIsOpen: false});
-        ReactGA.event({
-            category: 'Engagement',
-            action: 'Notification Acceptance',
-            label: 'Signed up',
-            value: 1,
-        });
         try {
             const messaging = firebase.app().messaging();
             await messaging.requestPermission();
             const token = await messaging.getToken();
             console.log('Got token', token);
             this.sendToken(token, true);
+            ReactGA.event({
+                category: 'Engagement',
+                action: 'Notification Acceptance',
+                label: 'Signed up',
+                value: 1,
+            });
         } catch (error) {
             console.error(error);
         }
