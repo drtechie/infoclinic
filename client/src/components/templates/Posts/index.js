@@ -35,7 +35,7 @@ class Posts extends Component {
         const categorySlug = values.category;
         let categoryID;
         let req;
-        if (categorySlug) {
+        if (categorySlug && this.props.categoriesList && this.props.categoriesList.length > 0) {
             let category = this.props.categoriesList.find(cat => cat.slug === categorySlug);
             categoryID = category.id;
             req =  api.Content.postsByCategory(categoryID, page, true);
@@ -65,6 +65,11 @@ class Posts extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.location.search !== prevProps.location.search) {
+            this.fetchPosts();
+        }
+        const values = queryString.parse(this.props.location.search, { ignoreQueryPrefix: true });
+        const categorySlug = values.category;
+        if ((this.props.categoriesList !== prevProps.categoriesList) && categorySlug) {
             this.fetchPosts();
         }
     }

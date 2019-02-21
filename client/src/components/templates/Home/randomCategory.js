@@ -80,7 +80,7 @@ class RandomCategory extends Component {
                 <section id="top-stories" className="row" key='category-random'>
                     <div className="sub-title title">
                         <h4>{this.state.categoryName} വർഗ്ഗത്തിലെ ലേഖനങ്ങൾ</h4>
-                        <a href={`/posts?category=${this.state.categorySlug}`}>കൂടുതൽ <FontAwesomeIcon icon={faChevronRight} /></a>
+                        <Link to={`/posts?category=${this.state.categorySlug}`}>കൂടുതൽ <FontAwesomeIcon icon={faChevronRight} /></Link>
                     </div>
                     <div className="container-stories clearfix">
                         <div className="wrapper-post ">
