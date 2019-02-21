@@ -45,7 +45,7 @@ class Posts extends Component {
             this.setState({heading: `${category.name} വർഗ്ഗത്തിലെ ലേഖനങ്ങൾ`})
         } else if (coauthor) {
             req =  api.Content.postsByAuthor(coauthor, page, true);
-            this.setState({heading: `${coauthor} എഴുതിയ ലേഖനങ്ങൾ`})
+            this.setState({heading: ''})
         } else {
             req =  api.Content.postsByPage(page, true);
         }
@@ -66,7 +66,7 @@ class Posts extends Component {
         this.fetchPosts();
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps, prevState) {
         if (this.props.location.search !== prevProps.location.search) {
             this.fetchPosts();
         }
@@ -74,6 +74,12 @@ class Posts extends Component {
         const categorySlug = values.category;
         if ((this.props.categoriesList !== prevProps.categoriesList) && categorySlug) {
             this.fetchPosts();
+        }
+        const coauthor = values.author;
+        console.log(this.state.posts, prevState.posts, coauthor);
+        if ((this.state.posts !== prevState.posts) && this.state.posts && this.state.posts.length > 0 && coauthor) {
+            let author = this.state.posts[0].coauthors.find(aut => aut.user_nicename === coauthor);
+            this.setState({heading: `${author.display_name} എഴുതിയ ലേഖനങ്ങൾ`})
         }
     }
 
