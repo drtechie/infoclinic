@@ -9,7 +9,7 @@ const getPage = (page, store) => {
         .then((response) => {
             console.log(`Caching page ${page}`);
             store.dispatch({ type: 'LOAD_DATA', payload: { type: 'posts', data: response.body } });
-            if (parseInt(response.headers["x-wp-totalpages"], 10) < page) {
+            if (page < parseInt(response.headers["x-wp-totalpages"], 10)) {
                 const newPage = page + 1;
                 getPage(newPage, store);
             }
