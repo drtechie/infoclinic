@@ -35,7 +35,10 @@ class Posts extends Component {
         const categorySlug = values.category;
         let categoryID;
         let req;
-        if (categorySlug && this.props.categoriesList && this.props.categoriesList.length > 0) {
+        if (categorySlug && (!this.props.categoriesList || this.props.categoriesList.length === 0)) {
+            return;
+        }
+        else if (categorySlug && this.props.categoriesList && this.props.categoriesList.length > 0) {
             let category = this.props.categoriesList.find(cat => cat.slug === categorySlug);
             categoryID = category.id;
             req =  api.Content.postsByCategory(categoryID, page, true);
