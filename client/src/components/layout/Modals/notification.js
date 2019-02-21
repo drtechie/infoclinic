@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import { withCookies } from 'react-cookie';
 import moment from 'moment';
+import ReactGA from 'react-ga';
 import firebase from '../../../firebaseConfig';
 import './notification.css';
 Modal.setAppElement('body')
@@ -23,6 +24,12 @@ class NotificationPopup extends Component {
         this.setState({modalIsOpen: false});
         const { cookies } = this.props;
         cookies.set('updatesNotificationAsked', true, { path: '/', expires: moment().add(30, 'days').toDate() });
+        ReactGA.event({
+            category: 'Engagement',
+            action: 'Notification Acceptance',
+            label: 'Closed Modal',
+            value: 0,
+        });
     }
 
     sendToken(token, sendNotification) {
@@ -44,6 +51,12 @@ class NotificationPopup extends Component {
 
     async signUpForPushNotifications() {
         this.setState({modalIsOpen: false});
+        ReactGA.event({
+            category: 'Engagement',
+            action: 'Notification Acceptance',
+            label: 'Signed up',
+            value: 1,
+        });
         try {
             const messaging = firebase.app().messaging();
             await messaging.requestPermission();
