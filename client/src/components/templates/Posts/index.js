@@ -76,7 +76,6 @@ class Posts extends Component {
             this.fetchPosts();
         }
         const coauthor = values.author;
-        console.log(this.state.posts, prevState.posts, coauthor);
         if ((this.state.posts !== prevState.posts) && this.state.posts && this.state.posts.length > 0 && coauthor) {
             let author = this.state.posts[0].coauthors.find(aut => aut.user_nicename === coauthor);
             this.setState({heading: `${author.display_name} എഴുതിയ ലേഖനങ്ങൾ`})

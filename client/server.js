@@ -4,6 +4,7 @@ import serverRenderer from './middleware/renderer';
 import clearReduxStore from './middleware/clear-redux-store';
 import configureStore from './src/store';
 import {subscribeTokenToTopic} from "./src/server/dal/fcm";
+import {warmUpPostsCache} from "./src/server/dal/warmUpCache";
 
 require('dotenv').load();
 
@@ -47,3 +48,5 @@ Loadable.preloadAll().then(() => {
 		console.log("listening on " + port + "...");
 	});
 });
+
+warmUpPostsCache(store);
