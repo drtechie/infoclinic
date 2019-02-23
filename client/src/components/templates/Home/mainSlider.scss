@@ -78,7 +78,7 @@
     .text {
       font-size: calc(16px + (60 - 16) * (100vw - 320px) / (1920 - 320));
       line-height: 1.16;
-      font-family: "Baloo Chettan", cursive;;
+      font-family: "Baloo Chettan", cursive;
       font-weight: normal;
       padding: 8.6% 10% 0 7.5%;
       box-sizing: content-box;
@@ -240,6 +240,7 @@
         font-size: 26px;
         line-height: 31px;
         color: $whitecolor;
+        font-family: "Baloo Chettan", cursive;
       }
       .by-writer {
         .info-author {
@@ -269,6 +270,7 @@
               font-size: 14px;
               letter-spacing: 0.01em;
               transition: 0.3s ease-out;
+              font-family: "Noto Sans Malayalam UI", sans-serif;
             }
 
             a:hover {
