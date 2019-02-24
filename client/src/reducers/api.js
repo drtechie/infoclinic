@@ -19,14 +19,16 @@ export default (state = defaultState, action) => {
 
 		case 'LOAD_DATA':
 
+			const newTypeData = {
+                ...state.data[action.payload.type],
+                ...arrayToObject(action.payload.data, 'slug')
+            };
+
 			return {
 				...state,
 				data: {
 					...state.data,
-					[action.payload.type]: {
-						...state.data[action.payload.type],
-						...arrayToObject(action.payload.data, 'slug')
-					}
+					[action.payload.type]: newTypeData
 				}
 			};
 

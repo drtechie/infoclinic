@@ -13,8 +13,10 @@ const getPostsPage = (page, store) => new Promise((resolve) => {
                 console.log(`Caching posts page ${page}`);
                 store.dispatch({ type: 'LOAD_DATA', payload: { type: 'posts', data: response.body } });
                 if (page < parseInt(response.headers["x-wp-totalpages"], 10)) {
-                    const newPage = page + 1;
-                    fetchPage(newPage, store);
+                    setTimeout(() => {
+                        const newPage = page + 1;
+                        fetchPage(newPage, store);
+                    }, 2000)
                 } else {
                     resolve();
                 }
