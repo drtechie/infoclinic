@@ -44,9 +44,11 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use('*', serverRenderer(store));
 
 Loadable.preloadAll().then(() => {
-	app.listen(port, (error) => {
-		console.log("listening on " + port + "...");
-	});
+    warmUpPostsCache(store).then(() => {
+        app.listen(port, (error) => {
+            console.log("listening on " + port + "...");
+        });
+    });
 });
 
-warmUpPostsCache(store);
+
