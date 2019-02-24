@@ -24,7 +24,7 @@ export default (state = defaultState, action) => {
 				data: {
 					...state.data,
 					[action.payload.type]: {
-						...[action.payload.type],
+						...state.data[action.payload.type],
 						...arrayToObject(action.payload.data, 'slug')
 					}
 				}
