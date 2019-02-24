@@ -23,7 +23,10 @@ export default (state = defaultState, action) => {
 				...state,
 				data: {
 					...state.data,
-					[action.payload.type]: arrayToObject(action.payload.data, 'slug')
+					[action.payload.type]: {
+						...[action.payload.type],
+						...arrayToObject(action.payload.data, 'slug')
+					}
 				}
 			};
 
