@@ -76,9 +76,6 @@ export default (store) => (req, res, next) => {
 	// point to HTML from CRA
 	const filePath = path.resolve(__dirname, '..', 'build', 'index.html');
 
-	const redux = store.getState();
-	console.log(Object.keys(redux.api.data.posts).length);
-
 	fs.readFile(filePath, 'utf8', (err, htmlData) => {
 		if (err) {
 			console.log('err', err);
