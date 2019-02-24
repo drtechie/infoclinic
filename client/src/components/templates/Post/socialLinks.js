@@ -43,7 +43,7 @@ export default class SocialLinks extends Component {
                 <a
                     aria-label="Share on WhatsApp"
                     className="wa"
-                    href={`${(this.isMobile() ? 'whatsapp://' : 'https://web.whatsapp.com/')}send?text=${data.title.rendered} ${encodeURI(baseURL)}` }
+                    href={`${(this.isMobile() ? 'https://api.whatsapp.com/' : 'https://web.whatsapp.com/')}send?text=${data.title.rendered} ${encodeURI(baseURL)}` }
                     target="_blank"
                     rel="noopener noreferrer"
                 >
