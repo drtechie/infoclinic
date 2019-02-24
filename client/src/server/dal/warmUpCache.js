@@ -7,17 +7,20 @@ export const warmUpPostsCache = async (store) => {
 };
 
 const getPostsPage = (page, store) => new Promise((resolve) => {
-    api.Content.postsByPage(page, true, 100)
-        .then((response) => {
-            console.log(`Caching posts page ${page}`);
-            store.dispatch({ type: 'LOAD_DATA', payload: { type: 'posts', data: response.body } });
-            if (page < parseInt(response.headers["x-wp-totalpages"], 10)) {
-                const newPage = page + 1;
-                getPostsPage(newPage, store);
-            } else {
-                resolve();
-            }
-        })
+    const fetchPage = (page, store) => {
+        api.Content.postsByPage(page, true, 100)
+            .then((response) => {
+                console.log(`Caching posts page ${page}`);
+                store.dispatch({ type: 'LOAD_DATA', payload: { type: 'posts', data: response.body } });
+                if (page < parseInt(response.headers["x-wp-totalpages"], 10)) {
+                    const newPage = page + 1;
+                    fetchPage(newPage, store);
+                } else {
+                    resolve();
+                }
+            })
+    };
+    fetchPage(page, store);
 });
 
 const getPageList = (store) => new Promise((resolve) => {
