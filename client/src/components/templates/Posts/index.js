@@ -33,6 +33,7 @@ class Posts extends Component {
         this.setState({currentPage: page});
         const coauthor = values.author;
         const categorySlug = values.category;
+        const searchQuery = values.search;
         let categoryID;
         let req;
         if (categorySlug && (!this.props.categoriesList || this.props.categoriesList.length === 0)) {
@@ -46,6 +47,9 @@ class Posts extends Component {
         } else if (coauthor) {
             req =  api.Content.postsByAuthor(coauthor, page, true);
             this.setState({heading: ''})
+        } else if (searchQuery) {
+            req =  api.Content.postsBySearchQuery(searchQuery, page, true);
+            this.setState({heading: `'${searchQuery}' തിരയൽ ഫലങ്ങൾ`})
         } else {
             req =  api.Content.postsByPage(page, true);
         }

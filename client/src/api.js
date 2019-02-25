@@ -53,6 +53,12 @@ const Content = {
         }
         return requests.get(`/wp-json/wp/v2/posts?coauthor=${coauthor}&per_page=${per_page}&page=${page}`)
     },
+    postsBySearchQuery: (query, page, withHeader, per_page = 10) => {
+        if (withHeader) {
+            return requests.getWithHeaders(`/wp-json/wp/v2/posts?search=${query}&per_page=${per_page}&page=${page}`)
+        }
+        return requests.get(`/wp-json/wp/v2/posts?search=${query}&per_page=${per_page}&page=${page}`)
+    },
     categoryList: () =>
         requests.get('/wp-json/wp/v2/categories?per_page=100'),
     randomPosts: () =>

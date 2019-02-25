@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 import api from '../../../api';
 import NavLinks from './navLinks';
 import './index.css';
+import Search from "./search";
 
 const mapStateToProps = (state) => ({
 	mainMenu: state.api.menus.main
@@ -78,6 +79,7 @@ class Header extends Component {
                         <path d="m14.762 98.402c1.094-1.176 2.898-1.201 4.029-0.058 5.451 5.516 10.853 3.872 18.471 0.743 2.71-1.114 5.268-2.163 7.715-2.456 6.708-0.81 11.664 1.064 14.521 2.658v6.968c-0.351-0.123-0.683-0.321-0.979-0.59-0.043-0.045-4.72-4.115-12.888-3.138-1.707 0.207-3.928 1.119-6.281 2.089-3.639 1.49-7.998 3.286-12.576 3.286-3.934 0-8.027-1.325-11.957-5.305-1.126-1.142-1.153-3.02-0.055-4.197z" fill="#103348"/>
                     </svg>
                 </Link>
+                <Search />
                 <NavLinks mainMenu={this.props.mainMenu} />
                 <div
                     id="burger-button"

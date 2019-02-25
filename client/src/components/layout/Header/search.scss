@@ -1,0 +1,134 @@
+@import "../../../scss/vars";
+
+.infoclinic-search {
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  margin-top: 48px;
+  width: 0;
+  min-width: 50px;
+  height: 50px;
+  float: right;
+  overflow: hidden;
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  transition: width 0.3s;
+  -webkit-backface-visibility: hidden;
+}
+
+.infoclinic-search-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid $darkgreycolor;
+  outline: none;
+  background: #fff;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  z-index: 10;
+  padding: 20px 40px 20px 20px;
+  font-family: inherit;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+input[type="search"].infoclinic-search-input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+.infoclinic-search-input {
+  &::-webkit-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &:-ms-input-placeholder {
+    color: #efb480;
+  }
+}
+
+.infoclinic-icon-search {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  background: $maincolor;
+  color: $whitecolor;
+}
+
+.infoclinic-search-submit {
+  width: 50px;
+  height: 50px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  border: none;
+  outline: none;
+  z-index: -1;
+  background: $maincolor;
+  color: $whitecolor;
+}
+
+.infoclinic-search.infoclinic-search-open {
+  width: calc(100% - 350px);
+  z-index: 90;
+  position: absolute;
+  right: 0;
+}
+
+.infoclinic-search.infoclinic-search-open {
+  .infoclinic-icon-search {
+    background: $maincolor;
+    color: $whitecolor;
+    z-index: 11;
+  }
+  .infoclinic-search-submit {
+    z-index: 90;
+  }
+}
+
+@media only screen and (max-width: 1366px) {
+  .infoclinic-search {
+    margin-top: 25px;
+    position: absolute;
+    right: 50px;
+    &.infoclinic-search-open {
+      right: 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .infoclinic-search {
+    margin-top: 25px;
+    position: absolute;
+    right: 100px;
+    &.infoclinic-search-open {
+      right: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .infoclinic-search {
+    margin-top: 20px;
+    position: absolute;
+    right: 60px;
+    &.infoclinic-search-open {
+      right: 60px;
+      width: calc(100% - 85px);
+    }
+  }
+}
