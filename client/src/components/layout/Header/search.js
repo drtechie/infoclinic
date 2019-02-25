@@ -34,6 +34,12 @@ class Search extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname !== prevProps.location.pathname || this.props.location.search !== prevProps.location.search) {
+            this.setState({searchOpen: false})
+        }
+    }
+
     render() {
         return (
             <div
