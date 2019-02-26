@@ -33,6 +33,7 @@
     "wpackagist-plugin/google-sitemap-generator": "^4.1",
     "wpackagist-plugin/redis-cache": "^1.4",
     "wpackagist-plugin/sparkpost": "^3.2",
+    "wpackagist-plugin/wordpress-2-step-verification": "^2.1",
     "wpackagist-plugin/wp-user-avatar": "^2.1"
   },
   "extra": {

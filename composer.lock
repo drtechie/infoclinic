@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "791af81971b05121a00a7f7d1aeb471c",
+    "content-hash": "c057a44eff48fa15b1cc22c3ee906b7b",
     "packages": [
         {
             "name": "composer/installers",
@@ -495,6 +495,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/sparkpost/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-2-step-verification",
+            "version": "2.1.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-2-step-verification/",
+                "reference": "tags/2.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-2-step-verification.2.1.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wordpress-2-step-verification/"
         },
         {
             "name": "wpackagist-plugin/wp-user-avatar",
