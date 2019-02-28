@@ -17,7 +17,7 @@ set('repository', 'https://github.com/drtechie/infoclinic');
 set('git_tty', true); 
 
 // Shared files/dirs between deploys 
-set('shared_files', ['.env', 'client/.env', 'client/build/robots.txt', 'client/build/infoclinic-logo.jpg']);
+set('shared_files', ['.env', 'client/.env']);
 set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress', 'uploads', 'logs']);
 
 // Writable dirs by web server 
