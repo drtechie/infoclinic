@@ -1,6 +1,5 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import infoclinicLogo from '../../../assets/infoclinic-logo.jpg';
 
 export default class InfoClinicHelmet extends React.Component {
     render() {
@@ -35,11 +34,6 @@ export default class InfoClinicHelmet extends React.Component {
                 .replace('[…]', '');
         };
 
-        let metaImageURL = infoclinicLogo;
-        if (imageURL) {
-            metaImageURL = imageURL;
-        }
-
         return (
             <Helmet>
                 <meta charSet='utf-8' />
@@ -51,7 +45,7 @@ export default class InfoClinicHelmet extends React.Component {
                 />
                 <meta itemProp='name' content={ infoClinicTitle } />
                 {
-                    <meta itemProp='image' content={ metaImageURL } />
+                    <meta itemProp='image' content={ imageURL ? imageURL : require(`../../../assets/infoclinic-logo.jpg`) } />
                 }
                 {
                     <meta name='twitter:card' content='summary_large_image' />
@@ -62,13 +56,13 @@ export default class InfoClinicHelmet extends React.Component {
                 }
                 <meta name='twitter:description' content={ escapedString(infoClinicDesc) } />
                 {
-                    <meta name='twitter:image:src' content={ metaImageURL } />
+                        <meta name='twitter:image:src' content={ imageURL ? imageURL : require(`../../../assets/infoclinic-logo.jpg`) } />
                 }
 
                 <meta property='og:title' content={ infoClinicTitle } />
                 <meta property='og:type' content={ type || 'website' } />
                 <meta property='og:relativeURL' content={ url } />
-                <meta property='og:image' content={ metaImageURL } />
+                <meta property='og:image' content={ imageURL ? imageURL : require(`../../../assets/infoclinic-logo.jpg`) } />
                 <meta property='og:description' content={ escapedString(infoClinicDesc) } />
                 <meta property='og:site_name' content={ infoClinicTitle } />
                 {
