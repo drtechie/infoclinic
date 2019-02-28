@@ -34,7 +34,10 @@ export default class InfoClinicHelmet extends React.Component {
                 .replace('[…]', '');
         };
 
-        const metaURL = `${require('../../../assets/infoclinic-logo.jpg')}`;
+        let metaURL = `${require('../../../assets/infoclinic-logo.jpg')}`;
+        if (imageURL) {
+            metaURL = imageURL;
+        }
 
         return (
             <Helmet>
@@ -46,25 +49,18 @@ export default class InfoClinicHelmet extends React.Component {
                     content={ escapedString(infoClinicDesc) }
                 />
                 <meta itemProp='name' content={ infoClinicTitle } />
-                {
-                    <meta itemProp='image' content={ imageURL ? imageURL : metaURL } />
-                }
-                {
-                    <meta name='twitter:card' content='summary_large_image' />
-                }
+                <meta itemProp='image' content={ metaURL } />
+                <meta name='twitter:card' content='summary_large_image' />
                 <meta name='twitter:site' content='@InfoClinicIndia' />
                 {
                     title && <meta name='twitter:title' content={ infoClinicTitle } />
                 }
                 <meta name='twitter:description' content={ escapedString(infoClinicDesc) } />
-                {
-                        <meta name='twitter:image:src' content={ imageURL ? imageURL : metaURL } />
-                }
-
+                <meta name='twitter:image:src' content={ metaURL } />
                 <meta property='og:title' content={ infoClinicTitle } />
                 <meta property='og:type' content={ type || 'website' } />
                 <meta property='og:relativeURL' content={ url } />
-                <meta property='og:image' content={ imageURL ? imageURL : metaURL } />
+                <meta property='og:image' content={ metaURL } />
                 <meta property='og:description' content={ escapedString(infoClinicDesc) } />
                 <meta property='og:site_name' content={ infoClinicTitle } />
                 {
