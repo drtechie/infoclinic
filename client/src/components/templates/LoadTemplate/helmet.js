@@ -40,8 +40,6 @@ export default class InfoClinicHelmet extends React.Component {
             metaURL = imageURL;
         }
 
-        console.log(metaURL);
-
         return (
             <Helmet>
                 <meta charSet='utf-8' />
