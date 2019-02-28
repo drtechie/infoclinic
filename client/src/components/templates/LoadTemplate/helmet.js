@@ -45,7 +45,7 @@ export default class InfoClinicHelmet extends React.Component {
                 />
                 <meta itemProp='name' content={ infoClinicTitle } />
                 {
-                    <meta itemProp='image' content={ imageURL ? imageURL : require(`../../../assets/infoclinic-logo.jpg`) } />
+                    <meta itemProp='image' content={ imageURL ? imageURL : `${require(`../../../assets/infoclinic-logo.jpg`)}` } />
                 }
                 {
                     <meta name='twitter:card' content='summary_large_image' />
@@ -56,13 +56,13 @@ export default class InfoClinicHelmet extends React.Component {
                 }
                 <meta name='twitter:description' content={ escapedString(infoClinicDesc) } />
                 {
-                        <meta name='twitter:image:src' content={ imageURL ? imageURL : require(`../../../assets/infoclinic-logo.jpg`) } />
+                        <meta name='twitter:image:src' content={ imageURL ? imageURL : `${require(`../../../assets/infoclinic-logo.jpg`)}` } />
                 }
 
                 <meta property='og:title' content={ infoClinicTitle } />
                 <meta property='og:type' content={ type || 'website' } />
                 <meta property='og:relativeURL' content={ url } />
-                <meta property='og:image' content={ imageURL ? imageURL : require(`../../../assets/infoclinic-logo.jpg`) } />
+                <meta property='og:image' content={ imageURL ? imageURL : `${require(`../../../assets/infoclinic-logo.jpg`)}` } />
                 <meta property='og:description' content={ escapedString(infoClinicDesc) } />
                 <meta property='og:site_name' content={ infoClinicTitle } />
                 {
