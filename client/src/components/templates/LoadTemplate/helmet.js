@@ -36,8 +36,6 @@ export default class InfoClinicHelmet extends React.Component {
 
         let metaURL = '/infoclinic-logo.jpg';
 
-        console.log(metaURL);
-
         if (imageURL) {
             metaURL = imageURL;
         }
