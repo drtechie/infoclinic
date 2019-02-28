@@ -34,7 +34,7 @@ export default class InfoClinicHelmet extends React.Component {
                 .replace('[…]', '');
         };
 
-        let metaURL = '/infoclinic-logo.jpg';
+        let metaURL = 'https://infoclinic.in/infoclinic-logo.jpg';
 
         if (imageURL) {
             metaURL = imageURL;
