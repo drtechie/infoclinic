@@ -6,6 +6,7 @@ import './index.css';
 
 export default class RelatedPosts extends Component {
     render() {
+        console.log(this.props.posts);
         if (this.props.posts) {
             return (
                 <div className="related-posts">

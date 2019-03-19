@@ -1,0 +1,49 @@
+@import "../../../scss/vars";
+
+#cover-image {
+  padding-left: 145px;
+  padding-right: 145px;
+  max-width: 1920px;
+  overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+#featured-posts {
+  max-width: calc(1920px - 290px);
+  width: calc(100% - 290px);
+  margin-bottom: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1366px) {
+
+  #cover-image {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  #featured-posts {
+    width: calc(100% - 100px);
+  }
+
+}
+@media only screen and (max-width: 1024px) {
+  #cover-image {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #cover-image {
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-bottom: 20px;
+  }
+  #featured-posts {
+    width: calc(100% - 50px);
+  }
+}

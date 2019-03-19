@@ -4,6 +4,9 @@ import MainSlider from "./mainSlider";
 import Posts from "../../layout/Posts";
 import api from "../../../api";
 import Categories from "../../layout/Categories";
+import infoclinicCover from "../../../assets/infoclnic-cover.jpg";
+import './index.css';
+import RelatedPosts from "../../layout/RelatedPosts";
 
 class Home extends Component {
     constructor(props){
@@ -29,11 +32,27 @@ class Home extends Component {
     }
 
 	render() {
+        const { stickies } = this.props.data;
         return [
-            <MainSlider
-                data={this.props.data}
-                key="main-slider"
-            />,
+            <div
+                id="cover-image"
+                key='cover'
+            >
+                <img
+                    className="img-responsive"
+                    src={infoclinicCover}
+                    alt="Infoclinic cover"
+                />
+            </div>,
+            <div
+                id="featured-posts"
+                key='featured-posts'
+            >
+                <RelatedPosts
+                    posts={stickies}
+                    heading='തിരഞ്ഞെടുത്ത ലേഖനങ്ങൾ'
+                />
+            </div>,
             <Posts
                 more={true}
                 moreLink="/posts?page=2"
