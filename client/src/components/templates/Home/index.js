@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import RandomCategory from "./randomCategory";
-import MainSlider from "./mainSlider";
 import Posts from "../../layout/Posts";
 import api from "../../../api";
 import Categories from "../../layout/Categories";
