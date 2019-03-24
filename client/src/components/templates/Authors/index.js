@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import api from "../../../api";
 import './index.css';
 import Loader from "../../layout/Loader";
+import ContentBlock from "../../utilities/ContentBlock";
 
 
 class Authors extends Component {
@@ -58,7 +59,9 @@ class Authors extends Component {
                                                     <h2 className="name">
                                                         <Link className='english' to={`/authors/${author.slug}`}>{author.name}</Link>
                                                     </h2>
-                                                    <div className='bio english'>{author.description}</div>
+                                                    <div className='bio english'>
+                                                        <ContentBlock content={author.description} />
+                                                    </div>
                                                 </div>
                                             </div>
                                         )
