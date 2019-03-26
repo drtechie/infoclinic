@@ -39,7 +39,7 @@ app.use('/site_map', proxy({
 
 app.use('^/$', serverRenderer(store));
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('*', serverRenderer(store));
 

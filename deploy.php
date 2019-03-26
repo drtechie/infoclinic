@@ -18,7 +18,7 @@ set('git_tty', true);
 
 // Shared files/dirs between deploys 
 set('shared_files', ['.env', 'client/.env']);
-set('shared_dirs', ['client/node_modules', 'vendor', 'wordpress', 'uploads', 'logs']);
+set('shared_dirs', ['client/node_modules', 'client/dist', 'vendor', 'wordpress', 'uploads', 'logs']);
 
 // Writable dirs by web server 
 set('writable_dirs', []);
