@@ -93,7 +93,7 @@ class Post extends Component {
                             </div>
                             {
                                 data.illustrator &&
-                                <div className="writer-social border-none">
+                                <div className="writer-social illustrator">
                                     <div className="title">ചിത്രകാരൻ</div>
                                     <ByAuthors coauthors={[data.illustrator]} bio={true}/>
                                 </div>
