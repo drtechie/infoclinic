@@ -46,6 +46,7 @@ task('deploy', [
     'theme:setup',
     'theme:upload',
     'yarn:build',
+    'move:build',
     'deploy:clear_paths',
     'deploy:symlink',
     'pm2:restart',
@@ -87,6 +88,11 @@ task('theme:upload', function () {
 desc('infoclinic install');
 task('infoclinic:install', function () {
     run('composer run-script infoclinic-install');
+});
+
+desc('move build');
+task('move:build', function () {
+    run('cp -R {{release_path}}/client/build/* {{release_path}}/client/dist/');
 });
 
 desc('pm2 restart');
