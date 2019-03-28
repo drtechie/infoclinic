@@ -54,7 +54,7 @@
     "build": "npm-run-all build-css build-js",
     "start-js": "PORT=3000 react-scripts start",
     "serve": "node ssr-init",
-    "build-js": "react-scripts build && cra-append-sw ./src/firebaseServiceWorker.js && node ./src/deleteSWLine.js && cp -R build dist",
+    "build-js": "react-scripts build && cra-append-sw ./src/firebaseServiceWorker.js && node ./src/deleteSWLine.js && cp -R build/ dist/",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
