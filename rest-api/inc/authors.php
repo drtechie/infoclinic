@@ -31,6 +31,34 @@ if ( function_exists('get_coauthors') ) {
 
         return $authors;
     }
+
+    add_action( 'rest_api_init', 'custom_register_illustrator' );
+    function custom_register_illustrator() {
+        register_rest_field( 'post',
+            'illustrator',
+            array(
+                'get_callback'    => 'custom_get_illustrator',
+                'update_callback' => null,
+                'schema'          => null,
+            )
+        );
+    }
+
+    function custom_get_illustrator( $object, $field_name, $request ) {
+        $illustrator_user_name = get_field( "illustrator", $object['id'] );
+        $illustrator = get_user_by( 'slug', $illustrator_user_name );
+        if ($illustrator) {
+            $illustrator_data = array(
+                'display_name' => $illustrator->data->display_name,
+                'user_nicename' => $illustrator->data->user_nicename,
+                'description' => get_user_meta($illustrator->ID, 'description', true),
+                'avatar_url' => scrapeImage(get_wp_user_avatar($illustrator->ID, "thumbnail")),
+            );
+
+            return $illustrator_data;
+        }
+        return null;
+    }
 }
 
 if ( function_exists('get_wp_user_avatar') ) {

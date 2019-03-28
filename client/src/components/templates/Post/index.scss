@@ -369,6 +369,17 @@
       padding-bottom: 61px;
       margin-top: 48px;
 
+      &.border-none {
+        border: none;
+      }
+
+      .title {
+        font-size: 24px;
+        color: #191919;
+        font-family: "Baloo Chettan", cursive;
+        padding-bottom: 16px;
+      }
+
       .by-writer {
         margin-top: 24px;
 
@@ -759,35 +770,40 @@
 
           }
         }
+      }
+      .writer-social {
 
-        .writer-social {
-          .soc-share {
-            overflow: hidden;
-            float: none;
-            display: table-footer-group;
+        .title {
+          font-size: 18px;
+          padding-bottom: 10px;
+        }
 
-            a {
-              margin-bottom: 24px;
-            }
+        .soc-share {
+          overflow: hidden;
+          float: none;
+          display: table-footer-group;
+
+          a {
+            margin-bottom: 24px;
           }
+        }
 
-          a, .img-writer {
-            width: 35px;
-            height: 35px;
-            margin-right: 11px;
-            font-size: 14px;
-            line-height: 37px;
-          }
+        a, .img-writer {
+          width: 35px;
+          height: 35px;
+          margin-right: 11px;
+          font-size: 14px;
+          line-height: 37px;
+        }
 
-          .ac-writer {
-            float: none;
-            overflow: hidden;
-            display: table-footer-group;
+        .ac-writer {
+          float: none;
+          overflow: hidden;
+          display: table-footer-group;
 
-            .wrap {
-              line-height: 20px;
-              padding-top: 0;
-            }
+          .wrap {
+            line-height: 20px;
+            padding-top: 0;
           }
         }
       }

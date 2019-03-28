@@ -88,8 +88,16 @@ class Post extends Component {
                                 <SocialLinks data={data} />
                             </div>
                             <div className="writer-social">
+                                <div className="title">ലേഖകർ</div>
                                 <ByAuthors coauthors={data.coauthors} bio={true}/>
                             </div>
+                            {
+                                data.illustrator &&
+                                <div className="writer-social border-none">
+                                    <div className="title">ചിത്രകാരൻ</div>
+                                    <ByAuthors coauthors={[data.illustrator]} bio={true}/>
+                                </div>
+                            }
                         </div>
                         <RelatedPosts posts={this.state.randomPosts} heading='കൂടുതൽ വായനയ്ക്ക്'/>
                     </div>
