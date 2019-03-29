@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { buildMenu } from "../../utilities/Common/buildMenu";
 
 export default class NavLinks extends Component {
@@ -30,6 +30,16 @@ export default class NavLinks extends Component {
                         rel="noopener noreferrer"
                     >
                         <FontAwesomeIcon icon={faTwitter} />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://www.youtube.com/channel/UCAyFZ413Wyyl2bsH6_ZHpTw"
+                        target="_blank"
+                        aria-label='YouTube'
+                        rel="noopener noreferrer"
+                    >
+                        <FontAwesomeIcon icon={faYoutube} />
                     </a>
                 </li>
             </ul>

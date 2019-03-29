@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-import {faFacebookF, faTwitter, faGithub} from "@fortawesome/free-brands-svg-icons";
+import {faFacebookF, faTwitter, faGithub, faYoutube} from "@fortawesome/free-brands-svg-icons";
 import './index.css';
 import api from "../../../api";
 import { buildMenu } from "../../utilities/Common/buildMenu";
@@ -47,6 +47,15 @@ class Footer extends Component {
                             <li>
                                 <a href="https://twitter.com/infoclinicindia" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faTwitter} />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.youtube.com/channel/UCAyFZ413Wyyl2bsH6_ZHpTw"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FontAwesomeIcon icon={faYoutube} />
                                 </a>
                             </li>
                         </ul>
