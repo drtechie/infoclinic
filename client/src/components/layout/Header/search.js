@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import enhanceWithClickOutside from 'react-click-outside';
 import './search.css';
 
 class Search extends Component {
@@ -14,10 +15,19 @@ class Search extends Component {
         this.toggleSearchBar = this.toggleSearchBar.bind(this);
         this.updateQuery = this.updateQuery.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.navigateToSearch = this.navigateToSearch.bind(this);
+    }
+
+    handleClickOutside() {
+        this.setState({searchOpen: false});
     }
 
     toggleSearchBar(){
-        this.setState({searchOpen: !this.state.searchOpen})
+        if (this.state.searchOpen && this.state.query.length > 0) {
+            this.navigateToSearch();
+        } else {
+            this.setState({searchOpen: !this.state.searchOpen})
+        }
     }
 
     updateQuery(event){
@@ -27,11 +37,15 @@ class Search extends Component {
     handleSearch(e){
         e.preventDefault();
         if (this.state.query.length > 0) {
-            this.props.history.push({
-                pathname: '/posts',
-                search: `?search=${this.state.query}`
-            })
+            this.navigateToSearch();
         }
+    }
+
+    navigateToSearch() {
+        this.props.history.push({
+            pathname: '/posts',
+            search: `?search=${this.state.query}`
+        })
     }
 
     componentDidUpdate(prevProps) {
@@ -71,4 +85,4 @@ class Search extends Component {
     }
 }
 
-export default withRouter(Search);
+export default withRouter(enhanceWithClickOutside(Search));
