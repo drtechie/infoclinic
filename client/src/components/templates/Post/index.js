@@ -66,7 +66,7 @@ class Post extends Component {
                                 <ImageLoader
                                     imgSmall={ data.featured_image_url_thumb }
                                     imgLarge={ data.featured_image_url }
-                                    paddingBottom='56.4%'
+                                    paddingBottom='51%'
                                     guid='featured-image'
                                     altText={ data.title.rendered }
                                 />

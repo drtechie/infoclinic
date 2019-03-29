@@ -4,8 +4,10 @@ import Posts from "../../layout/Posts";
 import api from "../../../api";
 import Categories from "../../layout/Categories";
 import infoclinicCover from "../../../assets/infoclnic-cover.jpg";
+import infoclinicCoverSmall from "../../../assets/infoclnic-cover-small.jpg";
 import './index.css';
 import RelatedPosts from "../../layout/RelatedPosts";
+import ImageLoader from "../../layout/ImageLoader";
 
 class Home extends Component {
     constructor(props){
@@ -37,10 +39,12 @@ class Home extends Component {
                 id="cover-image"
                 key='cover'
             >
-                <img
-                    className="img-responsive"
-                    src={infoclinicCover}
-                    alt="Infoclinic cover"
+                <ImageLoader
+                    imgSmall={ infoclinicCoverSmall }
+                    imgLarge={ infoclinicCover }
+                    paddingBottom='40%'
+                    guid='infoclinic-cover'
+                    altText='Infoclinic cover'
                 />
             </div>,
             <div
