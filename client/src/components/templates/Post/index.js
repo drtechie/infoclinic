@@ -13,6 +13,7 @@ import './index.css';
 import RelatedPosts from "../../layout/RelatedPosts";
 import Categories from "../../layout/Categories";
 import Loader from "../../layout/Loader";
+import ImageLoader from "../../layout/ImageLoader";
 moment.locale('ml');
 
 class Post extends Component {
@@ -59,9 +60,18 @@ class Post extends Component {
             return [
                 <article className={`single-post ${this.props.slug}`} key='single-post'>
                     <div className="container-post">
-                        <div className="post-image">
-                            <img className="img-responsive" src={data.featured_image_url} alt="" />
-                        </div>
+                        {
+                            data.featured_image_url &&
+                            <div className="post-image">
+                                <ImageLoader
+                                    imgSmall={ data.featured_image_url_thumb }
+                                    imgLarge={ data.featured_image_url }
+                                    paddingBottom='56.4%'
+                                    guid='featured-image'
+                                    altText={ data.title.rendered }
+                                />
+                            </div>
+                        }
                         <div className="post-content">
                             <div className="data-post row">
                                 <time className="data" dateTime={date.format('YYYY-MM-DD')}>
