@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ContentBlock from "../../utilities/ContentBlock";
 import ByAuthors from "../ByAuthors";
 import './index.css';
+import ImageLoader from "../ImageLoader";
 
 export default class RelatedPosts extends Component {
     render() {
@@ -17,8 +18,16 @@ export default class RelatedPosts extends Component {
                             this.props.posts.length > 0 && this.props.posts.map(post => {
                                 return (
                                     <div className="wrap-related" key={post.id}>
-                                        <img className="img-responsive"
-                                             src={post.featured_image_url_mini} alt=""/>
+                                        {
+                                            post.featured_image_url &&
+                                            <ImageLoader
+                                                imgSmall={ post.featured_image_url_thumb }
+                                                imgLarge={ post.featured_image_url }
+                                                paddingBottom='51%'
+                                                guid={ post.slug }
+                                                altText={ post.slug }
+                                            />
+                                        }
                                         <h2>
                                             <Link to={`/posts/${post.slug}`}>
                                                 <span dangerouslySetInnerHTML={{ __html: post.title.rendered }}/>

@@ -9,6 +9,7 @@ import "./index.css";
 import ByAuthors from "../ByAuthors";
 import ContentBlock from "../../utilities/ContentBlock";
 import Loader from "../Loader";
+import ImageLoader from "../ImageLoader";
 moment.locale('ml');
 
 export default class Posts extends Component {
@@ -37,11 +38,16 @@ export default class Posts extends Component {
                                         key={post.id}
                                     >
                                         <div className="wrap post-type-image post-image">
-                                            <img
-                                                className="img-responsive"
-                                                src={post.featured_image_url_mini}
-                                                alt={post.title.rendered}
-                                            />
+                                            {
+                                                post.featured_image_url &&
+                                                <ImageLoader
+                                                    imgSmall={ post.featured_image_url_thumb }
+                                                    imgLarge={ post.featured_image_url }
+                                                    paddingBottom='51%'
+                                                    guid={ post.slug }
+                                                    altText={ post.slug }
+                                                />
+                                            }
                                         </div>
                                         <div className="wrap post-type-text">
                                             <h2>
