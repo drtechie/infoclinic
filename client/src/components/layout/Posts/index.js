@@ -42,7 +42,7 @@ export default class Posts extends Component {
                                                 post.featured_image_url &&
                                                 <ImageLoader
                                                     imgSmall={ post.featured_image_url_thumb }
-                                                    imgLarge={ post.featured_image_url }
+                                                    imgLarge={ post.featured_image_url_mini }
                                                     paddingBottom='51%'
                                                     guid={ post.slug }
                                                     altText={ post.slug }
