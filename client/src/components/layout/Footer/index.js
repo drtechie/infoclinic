@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import {faFacebookF, faTwitter, faGithub, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import { faRss } from '@fortawesome/free-solid-svg-icons';
 import './index.css';
 import api from "../../../api";
 import { buildMenu } from "../../utilities/Common/buildMenu";
@@ -56,6 +57,15 @@ class Footer extends Component {
                                     rel="noopener noreferrer"
                                 >
                                     <FontAwesomeIcon icon={faYoutube} />
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/feed"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FontAwesomeIcon icon={faRss} />
                                 </a>
                             </li>
                         </ul>

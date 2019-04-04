@@ -36,4 +36,7 @@ require_once('inc/cache.php');
 // Firebase push notifications
 require_once('inc/fcm.php');
 
+// Co authors in RSS Feeds
+require_once('inc/feed.php');
+
 

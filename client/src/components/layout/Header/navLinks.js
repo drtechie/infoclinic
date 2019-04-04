@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faRss } from '@fortawesome/free-solid-svg-icons';
 import { buildMenu } from "../../utilities/Common/buildMenu";
 
 export default class NavLinks extends Component {
@@ -40,6 +41,16 @@ export default class NavLinks extends Component {
                         rel="noopener noreferrer"
                     >
                         <FontAwesomeIcon icon={faYoutube} />
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="/feed"
+                        target="_blank"
+                        aria-label='RSS Feed'
+                        rel="noopener noreferrer"
+                    >
+                        <FontAwesomeIcon icon={faRss} />
                     </a>
                 </li>
             </ul>
