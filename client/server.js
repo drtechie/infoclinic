@@ -37,11 +37,6 @@ app.use('/site_map', proxy({
     changeOrigin: true,
 }));
 
-app.use('/feed', proxy({
-    target: process.env.REACT_APP_API_URL,
-    changeOrigin: true,
-}));
-
 app.use('^/$', serverRenderer(store));
 
 app.use(express.static(path.join(__dirname, 'dist')));
