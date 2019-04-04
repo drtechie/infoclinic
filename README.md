@@ -23,6 +23,22 @@
  2. Find [Wordpress salts here](https://api.wordpress.org/secret-key/1.1/salt/)
  3. `cd client && cp .env.example .env` and edit it
  
+ #### env Explanation
+ 
+##### Root
+ 
+1. STAGE - development || production used for CORS setup
+2. DB_* - Wordpress DB settings
+3. Wordpress salt keys
+4. DEPLOY_* - setup for deployer
+5. FB_SERVER_KEY - Firebase key for Cloud messaging
+
+##### Client
+
+1. REACT_APP_API_URL - CMS URL to send API requests
+2. REACT_APP_FB_* - Firebase keys
+3. REACT_APP_GA - Google Analytics key
+ 
  ### Run server
  
 Start server with Node Foreman `nf start`
