@@ -70,7 +70,13 @@ class Home extends Component {
             <RandomCategory
                 key="random-category"
             />,
-            <Categories key='all-categories'/>
+            <Categories
+                key='all-categories'
+                heading="മികച്ച വർഗ്ഗങ്ങൾ"
+                more={true}
+                moreLink="/categories"
+                top={true}
+            />
         ];
 	};
 }

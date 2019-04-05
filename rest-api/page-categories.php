@@ -1,0 +1,5 @@
+<?
+/*
+	Template Name: Categories
+*/
+?>

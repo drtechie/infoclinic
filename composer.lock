@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c057a44eff48fa15b1cc22c3ee906b7b",
+    "content-hash": "8b5391dcab7556a8ca202cf4095a75fd",
     "packages": [
         {
             "name": "composer/installers",
@@ -475,6 +475,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/redis-cache/"
+        },
+        {
+            "name": "wpackagist-plugin/rss-feed-styles",
+            "version": "1.0.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/rss-feed-styles/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/rss-feed-styles.zip?timestamp=1553106036",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/rss-feed-styles/"
         },
         {
             "name": "wpackagist-plugin/sparkpost",

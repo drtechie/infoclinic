@@ -33,6 +33,9 @@ const AsyncAuthor = AsyncChunks.generateChunk(() =>
 const AsyncAuthors = AsyncChunks.generateChunk(() =>
     import( /* webpackChunkName: "Authors" */ '../Authors'));
 
+const AsyncCategories = AsyncChunks.generateChunk(() =>
+    import( /* webpackChunkName: "Categories" */ '../Categories'));
+
 const templates = {
 	home: AsyncHome,
 	default: AsyncDefault,
@@ -40,6 +43,7 @@ const templates = {
 	posts: AsyncPosts,
     author: AsyncAuthor,
 	members: AsyncAuthors,
+    categories: AsyncCategories,
 }
 
 const mapStateToProps = state => ({
