@@ -112,7 +112,13 @@ class Post extends Component {
                         <RelatedPosts posts={this.state.randomPosts} heading='കൂടുതൽ വായനയ്ക്ക്'/>
                     </div>
                 </article>,
-                <Categories key='all-categories'/>
+                <Categories
+                    key='all-categories'
+                    heading="മികച്ച വർഗ്ഗങ്ങൾ"
+                    more={true}
+                    moreLink="/categories"
+                    top={true}
+                />
             ];
         } else {
             return <Loader />
