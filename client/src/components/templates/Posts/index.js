@@ -49,7 +49,7 @@ class Posts extends Component {
             this.setState({heading: ''})
         } else if (searchQuery) {
             const escapedQuery = escape(searchQuery)
-            req =  api.Content.postsBySearchQuery(escapedQuery, page, true);
+            req =  api.Content.postsBySearchQuery(searchQuery, page, true);
             this.setState({heading: `'${escapedQuery}' തിരയൽ ഫലങ്ങൾ`})
         } else {
             req =  api.Content.postsByPage(page, true);
