@@ -2,3 +2,4 @@ User-agent: *
 
 Sitemap: https://infoclinic.in/site_map/sitemap.xml
 Disallow: */feed/*
+Disallow: */wp-json/*
