@@ -22,43 +22,41 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 	loadPages: (list) => dispatch({ type: 'LOAD_PAGES_LIST', payload: list }),
-    loadCategories: (list) => dispatch({ type: 'LOAD_CATEGORIES_LIST', payload: list })
+	loadCategories: (list) => dispatch({ type: 'LOAD_CATEGORIES_LIST', payload: list })
 });
 
 class App extends Component {
 	constructor(props) {
 		super(props);
-        ReactGA.initialize(process.env.REACT_APP_GA);
+		ReactGA.initialize(process.env.REACT_APP_GA);
 		this.buildRoutes = (pages) => {
 
 			if (this.props.pageList && this.props.pageList.length > 0) {
 				return [
 					<Route
 						key="posts"
-						render={(props)=> {
+						render={(props) => {
 							return <LoadTemplate
-                                {...props}
-                                template="post"
-                                type="posts" />
+								{...props}
+								template="post"
+								type="posts" />
+						}}
+						exact
+						path="/posts/:slug"
+					/>,
+					<Route
+						key="author"
+						render={(props) => {
+							return <LoadTemplate
+								{...props}
+								template="author"
+								type="authors" />
 						}
 
 						}
 						exact
-						path="/posts/:slug"
+						path="/authors/:slug"
 					/>,
-                    <Route
-                        key="author"
-                        render={(props)=> {
-                            return <LoadTemplate
-                                {...props}
-                                template="author"
-                                type="authors" />
-                        }
-
-                        }
-                        exact
-                        path="/authors/:slug"
-                    />,
 					pages.map((route, i) => {
 
 						// If home, set path to empty string, = '/'
@@ -76,25 +74,24 @@ class App extends Component {
 						route.type = route.type === 'page'
 							? 'pages'
 							: route.type === 'post'
-							? 'posts'
-							: route.type;
+								? 'posts'
+								: route.type;
 
 						return (
 							<Route
-								render={ (props)=>
+								render={(props) =>
 									<LoadTemplate
-									{...props}
-									template={route.template}
-									slug={route.slug}
-									type={route.type} />
+										{...props}
+										template={route.template}
+										slug={route.slug}
+										type={route.type} />
 								}
 								exact
 								key={i}
-								path={`/${decodeURIComponent(route.path)}`}/>
+								path={`/${decodeURIComponent(route.path)}`} />
 						)
 					}),
-
-                    <Route
+					<Route
 						exact
 						key="wp-draft"
 						path="post/wp-draft"
@@ -111,54 +108,54 @@ class App extends Component {
 			}
 		}
 		this.fetchAndLoadPages();
-        this.fetchAndLoadCategories();
+		this.fetchAndLoadCategories();
 	}
 
 	fetchAndLoadPages() {
-        if (this.props.pageList && this.props.pageList.length > 0) {
-            this.props.loadPages(this.props.pageList);
-        } else {
-            this.props.loadPages(api.Content.pageList());
-        }
+		if (this.props.pageList && this.props.pageList.length > 0) {
+			this.props.loadPages(this.props.pageList);
+		} else {
+			this.props.loadPages(api.Content.pageList());
+		}
 	}
 
-    fetchAndLoadCategories() {
-        if (this.props.categoriesList && this.props.categoriesList.length > 0) {
-            this.props.loadCategories(this.props.categoriesList);
-        } else {
-            this.props.loadCategories(api.Content.categoryList());
-        }
-    }
+	fetchAndLoadCategories() {
+		if (this.props.categoriesList && this.props.categoriesList.length > 0) {
+			this.props.loadCategories(this.props.categoriesList);
+		} else {
+			this.props.loadCategories(api.Content.categoryList());
+		}
+	}
 
 	componentDidMount() {
 		// Over-eager load code split chunks
 		// Two seconds after App mounts (wait for more important resources)
 		setTimeout(() => {
 			AsyncChunks.loadChunks();
-            const messaging = firebase.app().messaging();
+			const messaging = firebase.app().messaging();
 
-            messaging.onMessage(payload => {
-                console.log("Notification Received", payload);
-                this.props.toastManager.add(payload.notification.title, {
-                	appearance: 'success',
-                    autoDismiss: true,
-                });
-            });
+			messaging.onMessage(payload => {
+				console.log("Notification Received", payload);
+				this.props.toastManager.add(payload.notification.title, {
+					appearance: 'success',
+					autoDismiss: true,
+				});
+			});
 		}, 2 * 1000);
 	}
 
 	render() {
 		return [
-			<ScrollToTop key="scroll"/>,
-			<Header key="header"/>,
-            <main id="main" key="main">
+			<ScrollToTop key="scroll" />,
+			<Header key="header" />,
+			<main id="main" key="main">
 				<Switch>
-					{ this.buildRoutes(this.props.pageList) }
+					{this.buildRoutes(this.props.pageList)}
 				</Switch>
 			</main>,
 			<Footer key="footer" />,
-			<NotificationPopup key="notification-popup"/>,
-			<Analytics key='analytics'/>
+			<NotificationPopup key="notification-popup" />,
+			<Analytics key='analytics' />
 		];
 	}
 }

@@ -16,7 +16,6 @@ lines.splice(line[0].number - 1, 4);
 lines = lines.join('\n');
 
 fs.writeFile(SWFile, lines, (err) => {
-
     // In case of a error throw err.
     if (err) throw err;
 });

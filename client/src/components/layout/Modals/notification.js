@@ -53,36 +53,47 @@ class NotificationPopup extends Component {
         this.setState({modalIsOpen: false});
         try {
             const messaging = firebase.app().messaging();
-            await messaging.requestPermission();
-            const token = await messaging.getToken();
-            console.log('Got token', token);
-            this.sendToken(token, true);
-            ReactGA.event({
-                category: 'Engagement',
-                action: 'Notification Acceptance',
-                label: 'Signed up',
-                value: 1,
+            Notification.requestPermission().then(async (permission) => {
+                if (permission === "granted") {
+                    const token = await messaging.getToken();
+                    console.log('Got token', token);
+                    this.sendToken(token, true);
+                    ReactGA.event({
+                        category: 'Engagement',
+                        action: 'Notification Acceptance',
+                        label: 'Signed up',
+                        value: 1,
+                    });
+                }
             });
         } catch (error) {
             console.error(error);
         }
     }
 
+    updateFcmToken = () => {
+        const messaging = firebase.app().messaging();
+        messaging.getToken().then((currentToken) => {
+            if (currentToken) {
+                this.sendToken(currentToken, false);
+            }
+        }).catch(function (err) {
+            console.log('An error occurred while retrieving token. ', err);
+        });
+    }
+
     componentDidMount(){
         setTimeout(() => {
-            const messaging = firebase.app().messaging();
-            messaging.getToken().then((currentToken) => {
-                if (currentToken) {
-                    this.sendToken(currentToken, false);
-                } else {
+            if ("Notification" in window) {
+                if (Notification.permission === "granted") {
+                    this.updateFcmToken();
+                } else if (Notification.permission !== "denied") {
                     const { cookies } = this.props;
                     if (!cookies.get('updatesNotificationAsked')) {
-                        this.setState({modalIsOpen: true})
+                        this.setState({ modalIsOpen: true })
                     }
                 }
-            }).catch(function(err) {
-                console.log('An error occurred while retrieving token. ', err);
-            });
+            }
         }, 40000)
     }
 

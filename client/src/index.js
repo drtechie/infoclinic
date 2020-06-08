@@ -10,22 +10,22 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 if (process.env.NODE_ENV === 'production') {
-    const cookies = new Cookies();
-	const store = configureStore( window.PAGE_STATE || {} );
+	const cookies = new Cookies();
+	const store = configureStore(window.PAGE_STATE || {});
 
 	window.onload = () => {
 		Loadable.preloadReady().then(() => {
 			ReactDOM.hydrate(
 				<Provider store={store}>
-                    <CookiesProvider cookies={ cookies }>
-                        <ToastProvider placement='bottom-right'>
-                            <Router>
-                                <App />
-                            </Router>
-                        </ToastProvider>
+					<CookiesProvider cookies={cookies}>
+						<ToastProvider placement='bottom-right'>
+							<Router>
+								<App />
+							</Router>
+						</ToastProvider>
 					</CookiesProvider>
 				</Provider>
-			, document.getElementById('root'));
+				, document.getElementById('root'));
 		})
 	}
 } else {
@@ -34,13 +34,13 @@ if (process.env.NODE_ENV === 'production') {
 
 	ReactDOM.render(
 		<Provider store={store}>
-            <ToastProvider>
-                <Router>
-                    <App />
-                </Router>
-            </ToastProvider>
+			<ToastProvider>
+				<Router>
+					<App />
+				</Router>
+			</ToastProvider>
 		</Provider>
-	, document.getElementById('root'));
+		, document.getElementById('root'));
 }
 
 serviceWorker.register();
