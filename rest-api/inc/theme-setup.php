@@ -40,3 +40,8 @@ function custom_mime_types($mime_types){
 	return $mime_types;
 }
 add_filter('upload_mimes', 'custom_mime_types', 1, 1);
+
+function themename_post_formats_setup() {
+    add_theme_support( 'post-formats', array( 'video', 'gallery', 'image' ) );
+}
+add_action( 'after_setup_theme', 'themename_post_formats_setup' );

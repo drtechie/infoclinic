@@ -11,11 +11,11 @@ class Default extends Component {
 		if (this.props.data) {
 
 			let data = this.props.data;
-
+			const isVideo = data.format === 'video';
 			return (
 				<section className={`${this.props.slug} default-page`}>
 					<h1 dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
-					<ContentBlock content={data.content.rendered} />
+					<ContentBlock content={data.content.rendered} isVideo={isVideo}/>
 				</section>
 			);
 		}

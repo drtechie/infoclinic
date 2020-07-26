@@ -32,9 +32,12 @@ export default class Posts extends Component {
                             :
                             this.props.posts.map(post => {
                                 const date = moment(post.date, utcFormat);
+                                const hasImage = !!post.featured_image_url_mini;
+                                const isVideo = post.format === 'video';
+                                const isStandard = post.format === 'standard'
                                 return (
                                     <article
-                                        className={`wrapper-post ${post.featured_image_url_mini ? '' : 'no-image' }` }
+                                        className={`wrapper-post ${hasImage ? '' : 'no-image' }` }
                                         key={post.id}
                                     >
                                         <div className="wrap post-type-image post-image">
@@ -59,13 +62,24 @@ export default class Posts extends Component {
                                                 <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                                     { date.format('MMM DD, YYYY') }
                                                 </time>
-                                                <span className="timetoread"> · {post.reading_time} മിനിറ്റ് വായന</span>
+                                                {
+                                                    isStandard &&
+                                                    <span className="timetoread"> · {post.reading_time} മിനിറ്റ് വായന</span>
+                                                }
                                             </div>
-                                            <ContentBlock content={post.excerpt.rendered}/>
+                                            {
+                                                isVideo ?
+                                                    <ContentBlock content={post.content.rendered} isVideo={true}/>
+                                                    : <ContentBlock content={post.excerpt.rendered}/>
+
+                                            }
                                             <ByAuthors coauthors={post.coauthors}/>
-                                            <div className="for-mob-views">
-                                                <Link className="btn hidden" to={`/posts/${post.slug}`}>വായിക്കുക</Link>
-                                            </div>
+                                            {
+                                                isStandard &&
+                                                <div className="for-mob-views">
+                                                    <Link className="btn hidden" to={`/posts/${post.slug}`}>വായിക്കുക</Link>
+                                                </div>
+                                            }
                                         </div>
                                     </article>
                                 )

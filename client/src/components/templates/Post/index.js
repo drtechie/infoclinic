@@ -57,6 +57,8 @@ class Post extends Component {
         if (this.props.data) {
             let data = this.props.data;
             const date = moment(data.date, utcFormat);
+            const isVideo = data.format === 'video';
+            const isStandard = data.format === 'standard'
             return [
                 <article className={`single-post ${this.props.slug}`} key='single-post'>
                     <div className="container-post">
@@ -77,7 +79,10 @@ class Post extends Component {
                                 <time className="data" dateTime={date.format('YYYY-MM-DD')}>
                                     { date.format('MMM DD, YYYY') }
                                 </time>
-                                <span className="timetoread"> · {data.reading_time} മിനിറ്റ് വായന</span>
+                                {
+                                    isStandard &&
+                                    <span className="timetoread"> · {data.reading_time} മിനിറ്റ് വായന</span>
+                                }
                             </div>
                             <h1 className="row" dangerouslySetInnerHTML={{ __html: data.title.rendered }} />
                             <div className="info-post row">
@@ -93,7 +98,7 @@ class Post extends Component {
                                 }
                                 <SocialLinks data={data} />
                             </div>
-                            <ContentBlock row={true} content={data.content.rendered} />
+                            <ContentBlock row={true} content={data.content.rendered} isVideo={isVideo}/>
                             <div className="sub-share">
                                 <SocialLinks data={data} />
                             </div>

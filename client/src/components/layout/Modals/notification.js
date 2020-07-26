@@ -21,7 +21,7 @@ class NotificationPopup extends Component {
     }
 
     closeModal() {
-        this.setState({modalIsOpen: false});
+        this.setState({ modalIsOpen: false });
         const { cookies } = this.props;
         cookies.set('updatesNotificationAsked', true, { path: '/', expires: moment().add(30, 'days').toDate() });
         ReactGA.event({
@@ -50,7 +50,7 @@ class NotificationPopup extends Component {
     }
 
     async signUpForPushNotifications() {
-        this.setState({modalIsOpen: false});
+        this.setState({ modalIsOpen: false });
         try {
             const messaging = firebase.app().messaging();
             Notification.requestPermission().then(async (permission) => {
@@ -82,7 +82,7 @@ class NotificationPopup extends Component {
         });
     }
 
-    componentDidMount(){
+    componentDidMount() {
         setTimeout(() => {
             if ("Notification" in window) {
                 if (Notification.permission === "granted") {
@@ -100,14 +100,14 @@ class NotificationPopup extends Component {
 
     render() {
         const customStyles = {
-            content : {
-                top                   : '50%',
-                left                  : '50%',
-                right                 : 'auto',
-                bottom                : 'auto',
-                marginRight           : 'calc( -50% + 30px)',
-                marginLeft            : '0px',
-                transform             : 'translate(-50%, -50%)'
+            content: {
+                top: '50%',
+                left: '50%',
+                right: 'auto',
+                bottom: 'auto',
+                marginRight: 'calc( -50% + 30px)',
+                marginLeft: '0px',
+                transform: 'translate(-50%, -50%)'
             }
         };
 
