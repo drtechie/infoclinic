@@ -18,13 +18,17 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true
+    }
   },
   "require": {
     "composer/installers": "^1.2",
     "deployer/dist": "^6.3",
-    "johnpbloch/wordpress-core": "~5.0",
-    "johnpbloch/wordpress-core-installer": "^1.0",
+    "johnpbloch/wordpress-core": "^6.1",
+    "johnpbloch/wordpress-core-installer": "^2.0",
     "vlucas/phpdotenv": "^2.5",
     "wpackagist-plugin/acf-to-rest-api": "^3.3",
     "wpackagist-plugin/advanced-custom-fields": "^5.9",
